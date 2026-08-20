@@ -1,0 +1,158 @@
+<!doctype html>
+<!-- saved from url=(0046)https://www.w3schools.com/css/demo_default.htm -->
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="demo-1.css" />
+    <link rel="stylesheet" href="demo-2.css" disabled />
+    <link rel="stylesheet" href="demo-3.css" disabled />
+    <link rel="stylesheet" href="demo-4.css" disabled />
+  </head>
+  <body>
+    <div class="container wrapper">
+      <div id="top">
+        <h1>Bem-vindo à Minha Página</h1>
+        <p>Use o menu para selecionar diferentes Folhas de Estilo</p>
+      </div>
+      <div class="wrapper">
+        <div id="menubar">
+          <ul id="menulist">
+            <li class="menuitem" onclick="reStyle(0)">Folha de Estilo 1</li>
+            <li class="menuitem" onclick="reStyle(1)">Folha de Estilo 2</li>
+            <li class="menuitem" onclick="reStyle(2)">Folha de Estilo 3</li>
+            <li class="menuitem" onclick="reStyle(3)">Folha de Estilo 4</li>
+            <li class="menuitem" onclick="noStyles()">Sem Folha de Estilo</li>
+          </ul>
+        </div>
+        <div id="main">
+          <h1>Mesma Página, Diferentes Folhas de Estilo</h1>
+          <p>
+            Esta é uma demonstração de como diferentes folhas de estilo podem
+            alterar o layout da sua página HTML. Você pode mudar o layout desta
+            página selecionando diferentes folhas de estilo no menu, ou
+            selecionando um dos seguintes links:<br />
+            <a
+              href="https://www.w3schools.com/css/demo_default.htm#"
+              onclick="
+                noStyles();
+                return false;
+              "
+              >Sem estilos</a
+            >,
+            <a
+              href="https://www.w3schools.com/css/demo_default.htm#"
+              onclick="
+                reStyle(0);
+                return false;
+              "
+              >Folha de Estilo1</a
+            >,
+            <a
+              href="https://www.w3schools.com/css/demo_default.htm#"
+              onclick="
+                reStyle(1);
+                return false;
+              "
+              >Folha de Estilo2</a
+            >,
+            <a
+              href="https://www.w3schools.com/css/demo_default.htm#"
+              onclick="
+                reStyle(2);
+                return false;
+              "
+              >Folha de Estilo3</a
+            >,
+            <a
+              href="https://www.w3schools.com/css/demo_default.htm#"
+              onclick="
+                reStyle(3);
+                return false;
+              "
+              >Folha de Estilo4</a
+            >.
+          </p>
+          <h2>Sem Estilos</h2>
+          <p>
+            Esta página usa elementos DIV para agrupar diferentes seções da
+            página HTML. Clique aqui para ver como a página fica sem nenhuma
+            folha de estilo:<br /><a
+              href="https://www.w3schools.com/css/demo_default.htm#"
+              onclick="
+                noStyles();
+                return false;
+              "
+              >Sem Folha de Estilo</a
+            >.
+          </p>
+        </div>
+        <div id="sidebar">
+          <h3>Barra Lateral</h3>
+          <p>
+            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+            nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+            volutpat.
+          </p>
+        </div>
+      </div>
+
+      <div id="bottom">
+        Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
+        nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+        volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
+        ullamcorper suscipit lobortis nisl ut aliquip ex ea commodo consequat.
+        Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse
+        molestie consequat, vel illum dolore eu feugiat nulla facilisis at vero
+        eros et accumsan et iusto odio dignissim qui blandit praesent luptatum
+        zzril delenit augue duis dolore te feugait nulla facilisi.
+      </div>
+    </div>
+
+    <script>
+      function noStyles() {
+        document.styleSheets[0].disabled = true;
+        document.styleSheets[1].disabled = true;
+        document.styleSheets[2].disabled = true;
+        document.styleSheets[3].disabled = true;
+      }
+
+      function reStyle(n) {
+        noStyles();
+        document.styleSheets[n].disabled = false;
+      }
+
+      function closeBlackdiv() {
+        var blackdiv, stylediv;
+        blackdiv = document.getElementById("blackdiv");
+        blackdiv.parentNode.removeChild(blackdiv);
+        stylediv = document.getElementById("stylediv");
+        stylediv.parentNode.removeChild(stylediv);
+      }
+
+      function showStyle(n) {
+        var div, text, blackdiv;
+        blackdiv = document.createElement("DIV");
+        blackdiv.setAttribute(
+          "style",
+          "background-color:#000000;position:absolute;width:100%;height:100%;top:0;opacity:0.5;margin-left:-20px;",
+        );
+        blackdiv.setAttribute("id", "blackdiv");
+        blackdiv.setAttribute("onclick", "closeBlackdiv()");
+        document.body.appendChild(blackdiv);
+        div = document.createElement("DIV");
+        div.setAttribute("id", "stylediv");
+        div.setAttribute(
+          "style",
+          "background-color:#ffffff;padding-left:5px;position:absolute;width:auto;height:auto;top:100px;bottom:50px;left:200px;right:200px;overflow:auto;font-family: monospace; white-space: pre;line-height:16px;",
+        );
+        text = document.createTextNode(
+          document.getElementsByTagName("STYLE")[n].innerHTML,
+        );
+        div.appendChild(text);
+        document.body.appendChild(div);
+        //alert(document.getElementsByTagName("STYLE")[n].innerHTML);
+      }
+      reStyle(0);
+    </script>
+  </body>
+</html>
