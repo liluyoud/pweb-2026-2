@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Pro | Student & Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- <link rel="stylesheet" href="site.css"> -->
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#hero" class="logo">Portfolio<span>Pro</span>.</a>
+            
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            
+            <label for="nav-toggle" class="nav-toggle-label">
+                <span></span>
+            </label>
+
+            <ul class="nav-links">
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#portfolio">Work</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero">
+            <div class="container">
+                <div class="hero-content">
+                    <p class="hero-greeting">Hello, I am</p>
+                    <h1 class="hero-title">Alex Carter, a <span class="highlight">Computer Science Student</span> & Developer.</h1>
+                    <p class="hero-description">
+                        I build modern web experiences and love solving complex problems with code. Currently focusing on front-end technologies and UI design.
+                    </p>
+                    <a href="#portfolio" class="btn">View My Work</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <h2 class="section-title">About & Education</h2>
+                <div class="about-grid">
+                    <div class="about-bio">
+                        <h3>A dedicated learner.</h3>
+                        <p style="color: var(--text-muted); margin-top: 1rem;">
+                            I am currently a final year student passionate about translating designs into functional code. My academic journey has provided me with a strong foundation in algorithms and software engineering.
+                        </p>
+                        <div style="margin-top: 2rem;">
+                            <a href="#contact" class="btn">Get In Touch</a>
+                        </div>
+                    </div>
+                    
+                    <div class="education-timeline">
+                        <div class="education-card">
+                            <span class="edu-year">2021 - Present</span>
+                            <h4 class="edu-degree">B.Sc. in Computer Science</h4>
+                            <p class="edu-school">State University of Technology</p>
+                        </div>
+                        <div class="education-card">
+                            <span class="edu-year">2019 - 2021</span>
+                            <h4 class="edu-degree">Higher Secondary Certificate</h4>
+                            <p class="edu-school">City College</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills">
+            <div class="container">
+                <h2 class="section-title">My Skills</h2>
+                <div class="skills-grid">
+                    <div>
+                        <div class="skill-item">
+                            <div class="skill-info"><span>HTML5 & CSS3</span><span>95%</span></div>
+                            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 95%;"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info"><span>JavaScript</span><span>80%</span></div>
+                            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 80%;"></div></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="skill-item">
+                            <div class="skill-info"><span>Python / Java</span><span>85%</span></div>
+                            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 85%;"></div></div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info"><span>SQL & DB</span><span>75%</span></div>
+                            <div class="progress-bar-bg"><div class="progress-bar-fill" style="width: 75%;"></div></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="portfolio">
+            <div class="container">
+                <h2 class="section-title">Latest Work</h2>
+                <div class="portfolio-grid">
+                    <div class="project-card">
+                        <div class="project-img"><img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Work"></div>
+                        <div class="project-content">
+                            <div class="project-tags"><span class="tag">React</span></div>
+                            <h3 class="project-title">E-Commerce Dashboard</h3>
+                            <a href="#" class="project-link">View Project <i class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-img"><img src="https://images.unsplash.com/photo-1618761714954-0b8cd0026356?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Work"></div>
+                        <div class="project-content">
+                            <div class="project-tags"><span class="tag">API</span></div>
+                            <h3 class="project-title">Weather App</h3>
+                            <a href="#" class="project-link">View Project <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <div class="project-img"><img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Work"></div>
+                        <div class="project-content">
+                            <div class="project-tags"><span class="tag">Python</span></div>
+                            <h3 class="project-title">Library System</h3>
+                            <a href="#" class="project-link">View Project <i class="fa-solid fa-code"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact">
+            <div class="container">
+                <h2 class="section-title">Contact Me</h2>
+                <div class="contact-container">
+                    <div>
+                        <h3>Get in touch</h3>
+                        <p style="color: var(--text-muted); margin-bottom: 2rem;">Available for freelance and internships.</p>
+                        <div class="contact-info-item">
+                            <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+                            <div><span class="contact-label">Email</span><span class="contact-value">hello@portfolio.com</span></div>
+                        </div>
+                        <div class="social-links">
+                            <a href="#" class="social-btn"><i class="fa-brands fa-linkedin-in"></i></a>
+                            <a href="#" class="social-btn"><i class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div>
+                        <form onsubmit="event.preventDefault()">
+                            <input type="text" class="form-input" placeholder="Name">
+                            <input type="email" class="form-input" placeholder="Email">
+                            <textarea class="form-input" placeholder="Message"></textarea>
+                            <button class="btn">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Portfolio Pro. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
