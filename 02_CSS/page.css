@@ -1,0 +1,27 @@
+p {
+    border-style: dashed;
+    border-width: 5px;
+    border-color: blue;
+    border-left: 10px solid #ce0058;
+    border-radius: 16px;
+    margin: 20px;
+    padding: 20px;
+    outline-style: dotted;
+}
+
+p[newcolor] {
+    color: green;
+}
+
+a:link {
+    color: #ce0058;
+    border: 2px solid #ce0058;
+    margin: 5px;
+    padding: 5px;
+}
+
+a:hover {
+    background-color: #ce0058;
+    color: yellow;
+    opacity: 0.9;
+}
