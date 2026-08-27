@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Bootstrap 5 Popover Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container-fluid p-5 bg-primary text-white text-center">
+        <h1>Popovers do Bootstrap 5</h1>
+        <p>Exemplos de janelas de conteúdo contextuais ao clicar</p>
+    </div>
+
+    <div class="container mt-5 pb-5">
+
+        <h2>1. Popover básico</h2>
+        <p>
+            Diferente do tooltip, o popover pode ter um título (<code>title</code>) e um corpo de texto
+            maior (<code>data-bs-content</code>), e por padrão é acionado por clique em vez de hover.
+            Também precisa ser ativado via JavaScript (veja o script no final da página).
+        </p>
+        <button type="button" class="btn btn-primary" data-bs-toggle="popover" title="Título do popover"
+            data-bs-content="Este é o conteúdo do popover, exibido ao clicar no botão.">
+            Clique aqui
+        </button>
+
+        <h2 class="mt-5">2. Direções (.data-bs-placement)</h2>
+        <p>Assim como o tooltip, o atributo <code>data-bs-placement</code> controla onde o popover aparece:
+            <code>top</code>, <code>right</code>, <code>bottom</code> ou <code>left</code>.</p>
+        <div class="d-flex gap-2 flex-wrap">
+            <button type="button" class="btn btn-secondary" data-bs-toggle="popover" data-bs-placement="top"
+                title="Popover em cima" data-bs-content="Conteúdo posicionado acima do botão.">Top</button>
+            <button type="button" class="btn btn-secondary" data-bs-toggle="popover" data-bs-placement="right"
+                title="Popover à direita" data-bs-content="Conteúdo posicionado à direita.">Right</button>
+            <button type="button" class="btn btn-secondary" data-bs-toggle="popover" data-bs-placement="bottom"
+                title="Popover embaixo" data-bs-content="Conteúdo posicionado abaixo do botão.">Bottom</button>
+            <button type="button" class="btn btn-secondary" data-bs-toggle="popover" data-bs-placement="left"
+                title="Popover à esquerda" data-bs-content="Conteúdo posicionado à esquerda.">Left</button>
+        </div>
+
+        <h2 class="mt-5">3. Fechar ao clicar fora (dismiss on next click)</h2>
+        <p>
+            Adicionando <code>data-bs-trigger="focus"</code> a um <code>&lt;a&gt;</code> ou
+            <code>&lt;button&gt;</code>, o popover fecha automaticamente ao clicar em qualquer outro lugar
+            da página, sem precisar clicar de novo no gatilho.
+        </p>
+        <button type="button" class="btn btn-outline-dark" tabindex="0" data-bs-toggle="popover"
+            data-bs-trigger="focus" title="Dispensável" data-bs-content="Clique fora deste popover para
+            fechá-lo automaticamente.">
+            Clique e depois clique fora
+        </button>
+
+        <h2 class="mt-5">4. Popover ao passar o mouse (hover)</h2>
+        <p>Use <code>data-bs-trigger="hover"</code> para que o popover apareça ao passar o mouse, como um
+            tooltip mais detalhado.</p>
+        <button type="button" class="btn btn-outline-primary" data-bs-toggle="popover" data-bs-trigger="hover"
+            title="Dica rápida" data-bs-content="Este popover aparece ao passar o mouse e some quando você
+            tira o cursor de cima.">
+            Passe o mouse aqui
+        </button>
+
+        <h2 class="mt-5">5. Popover com HTML</h2>
+        <p>Com <code>data-bs-html="true"</code> é possível formatar o conteúdo do popover com HTML, como
+            listas ou texto em negrito.</p>
+        <button type="button" class="btn btn-outline-dark" data-bs-toggle="popover" data-bs-html="true"
+            title="Recursos inclusos"
+            data-bs-content="<ul class='mb-0 ps-3'><li>10 usuários</li><li>50 GB de armazenamento</li><li><strong>Suporte</strong> prioritário</li></ul>">
+            Ver recursos do plano
+        </button>
+
+        <h2 class="mt-5">6. Popovers em ícones</h2>
+        <p>Ícones de ajuda com popover são úteis quando a explicação é longa demais para caber em um
+            tooltip simples.</p>
+        <div class="d-flex gap-3">
+            <i class="bi bi-info-circle fs-4 text-primary" role="button" tabindex="0" data-bs-toggle="popover"
+                data-bs-trigger="focus" title="Sobre o plano"
+                data-bs-content="Este plano é cobrado mensalmente e pode ser cancelado a qualquer momento."></i>
+            <i class="bi bi-question-circle fs-4 text-secondary" role="button" tabindex="0"
+                data-bs-toggle="popover" data-bs-trigger="focus" title="Precisa de ajuda?"
+                data-bs-content="Entre em contato pelo chat no canto inferior direito da tela."></i>
+        </div>
+
+        <h2 class="mt-5">7. Exemplo prático: cartão de perfil rápido</h2>
+        <p>
+            Combinando <code>data-bs-html="true"</code> com <code>data-bs-trigger="focus"</code>, um
+            popover pode exibir um mini cartão de perfil ao clicar em um avatar, um padrão comum em redes
+            sociais.
+        </p>
+        <button type="button" class="btn btn-light border rounded-circle p-0" style="width: 48px; height: 48px"
+            tabindex="0" data-bs-toggle="popover" data-bs-trigger="focus" data-bs-html="true"
+            data-bs-placement="right" data-bs-content="
+                <div class='d-flex align-items-center gap-2 mb-2'>
+                    <img src='https://picsum.photos/id/1027/40/40' class='rounded-circle' alt='Avatar'>
+                    <div><strong>Ana Oliveira</strong><br><small class='text-muted'>Desenvolvedora Front-end</small></div>
+                </div>
+                <p class='mb-2 small'>Apaixonada por interfaces acessíveis e café.</p>
+                <button type='button' class='btn btn-sm btn-primary w-100'>Seguir</button>
+            ">
+            <img src="https://picsum.photos/id/1027/48/48" class="rounded-circle" alt="Avatar de Ana Oliveira">
+        </button>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]');
+        popoverTriggerList.forEach(function (popoverTriggerEl) {
+            new bootstrap.Popover(popoverTriggerEl);
+        });
+    </script>
+</body>
+
+</html>

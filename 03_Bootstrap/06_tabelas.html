@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Bootstrap 5 Tabelas Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container-fluid p-5 bg-primary text-white text-center">
+        <h1>Tabelas do Bootstrap 5</h1>
+        <p>Exemplos de estilos e classes utilitárias para tabelas</p>
+    </div>
+
+    <div class="container mt-5">
+
+        <h2>1. Tabela básica (.table)</h2>
+        <p>Uma tabela básica do Bootstrap 5 tem um espaçamento leve e divisores horizontais. A classe
+            <code>.table</code> adiciona um estilo básico à tabela.</p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nome</th>
+                    <th>Sobrenome</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>João</td>
+                    <td>Silva</td>
+                    <td>joao@example.com</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Maria</td>
+                    <td>Souza</td>
+                    <td>maria@example.com</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Pedro</td>
+                    <td>Costa</td>
+                    <td>pedro@example.com</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 class="mt-5">2. Linhas listradas (.table-striped)</h2>
+        <p>A classe <code>.table-striped</code> adiciona listras zebradas à tabela.</p>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nome</th>
+                    <th>Sobrenome</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>João</td>
+                    <td>Silva</td>
+                    <td>joao@example.com</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Maria</td>
+                    <td>Souza</td>
+                    <td>maria@example.com</td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Pedro</td>
+                    <td>Costa</td>
+                    <td>pedro@example.com</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 class="mt-5">3. Tabela com bordas (.table-bordered)</h2>
+        <p>A classe <code>.table-bordered</code> adiciona bordas em todos os lados da tabela e das células.</p>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nome</th>
+                    <th>Sobrenome</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>João</td>
+                    <td>Silva</td>
+                    <td>joao@example.com</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Maria</td>
+                    <td>Souza</td>
+                    <td>maria@example.com</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 class="mt-5">4. Linhas com hover (.table-hover)</h2>
+        <p>A classe <code>.table-hover</code> adiciona um efeito de hover (cor de fundo cinza) nas linhas da
+            tabela ao passar o mouse.</p>
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nome</th>
+                    <th>Sobrenome</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>João</td>
+                    <td>Silva</td>
+                    <td>joao@example.com</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Maria</td>
+                    <td>Souza</td>
+                    <td>maria@example.com</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 class="mt-5">5. Tabela escura (.table-dark)</h2>
+        <p>A classe <code>.table-dark</code> adiciona um fundo preto à tabela.</p>
+        <table class="table table-dark">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nome</th>
+                    <th>Sobrenome</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>João</td>
+                    <td>Silva</td>
+                    <td>joao@example.com</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Maria</td>
+                    <td>Souza</td>
+                    <td>maria@example.com</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 class="mt-5">6. Tabela escura e listrada</h2>
+        <p>Combine <code>.table-dark</code> e <code>.table-striped</code> para criar uma tabela escura e
+            listrada.</p>
+        <table class="table table-dark table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nome</th>
+                    <th>Sobrenome</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>João</td>
+                    <td>Silva</td>
+                    <td>joao@example.com</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Maria</td>
+                    <td>Souza</td>
+                    <td>maria@example.com</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 class="mt-5">7. Tabela escura com hover</h2>
+        <p>A classe <code>.table-hover</code> também pode ser combinada com <code>.table-dark</code> para
+            adicionar o efeito de hover em uma tabela escura.</p>
+        <table class="table table-dark table-hover">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nome</th>
+                    <th>Sobrenome</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>João</td>
+                    <td>Silva</td>
+                    <td>joao@example.com</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Maria</td>
+                    <td>Souza</td>
+                    <td>maria@example.com</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 class="mt-5">8. Tabela sem bordas (.table-borderless)</h2>
+        <p>A classe <code>.table-borderless</code> remove as bordas da tabela.</p>
+        <table class="table table-borderless">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nome</th>
+                    <th>Sobrenome</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>João</td>
+                    <td>Silva</td>
+                    <td>joao@example.com</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Maria</td>
+                    <td>Souza</td>
+                    <td>maria@example.com</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 class="mt-5">9. Classes contextuais</h2>
+        <p>
+            Classes contextuais podem ser usadas para colorir a tabela inteira (<code>&lt;table&gt;</code>),
+            as linhas (<code>&lt;tr&gt;</code>) ou as células (<code>&lt;td&gt;</code>) da tabela.
+        </p>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Classe</th>
+                    <th>Descrição</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr class="table-primary">
+                    <td>.table-primary</td>
+                    <td>Azul: indica uma ação importante</td>
+                </tr>
+                <tr class="table-success">
+                    <td>.table-success</td>
+                    <td>Verde: indica uma ação bem-sucedida ou positiva</td>
+                </tr>
+                <tr class="table-danger">
+                    <td>.table-danger</td>
+                    <td>Vermelho: indica uma ação perigosa ou potencialmente negativa</td>
+                </tr>
+                <tr class="table-info">
+                    <td>.table-info</td>
+                    <td>Azul claro: indica uma mudança ou ação neutra e informativa</td>
+                </tr>
+                <tr class="table-warning">
+                    <td>.table-warning</td>
+                    <td>Laranja: indica um aviso que pode precisar de atenção</td>
+                </tr>
+                <tr class="table-active">
+                    <td>.table-active</td>
+                    <td>Cinza: aplica a cor de hover na linha ou célula da tabela</td>
+                </tr>
+                <tr class="table-secondary">
+                    <td>.table-secondary</td>
+                    <td>Cinza: indica uma ação um pouco menos importante</td>
+                </tr>
+                <tr class="table-light">
+                    <td>.table-light</td>
+                    <td>Fundo cinza claro na tabela ou linha</td>
+                </tr>
+                <tr class="table-dark">
+                    <td>.table-dark</td>
+                    <td>Fundo cinza escuro na tabela ou linha</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 class="mt-5">10. Cores no cabeçalho da tabela</h2>
+        <p>Também é possível usar qualquer uma das classes contextuais apenas no cabeçalho da tabela, para
+            adicionar uma cor de fundo só nele.</p>
+        <table class="table">
+            <thead class="table-dark">
+                <tr>
+                    <th>#</th>
+                    <th>Nome</th>
+                    <th>Sobrenome</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>João</td>
+                    <td>Silva</td>
+                    <td>joao@example.com</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Maria</td>
+                    <td>Souza</td>
+                    <td>maria@example.com</td>
+                </tr>
+            </tbody>
+        </table>
+        <table class="table">
+            <thead class="table-primary">
+                <tr>
+                    <th>#</th>
+                    <th>Nome</th>
+                    <th>Sobrenome</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>João</td>
+                    <td>Silva</td>
+                    <td>joao@example.com</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Maria</td>
+                    <td>Souza</td>
+                    <td>maria@example.com</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 class="mt-5">11. Tabela pequena (.table-sm)</h2>
+        <p>A classe <code>.table-sm</code> deixa a tabela menor, cortando o espaçamento das células pela
+            metade.</p>
+        <table class="table table-sm table-bordered">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nome</th>
+                    <th>Sobrenome</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>João</td>
+                    <td>Silva</td>
+                    <td>joao@example.com</td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Maria</td>
+                    <td>Souza</td>
+                    <td>maria@example.com</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2 class="mt-5">12. Tabelas responsivas (.table-responsive)</h2>
+        <p>A classe <code>.table-responsive</code> adiciona uma barra de rolagem à tabela quando necessário
+            (quando ela é muito grande horizontalmente).</p>
+        <div class="table-responsive">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Coluna 1</th>
+                        <th>Coluna 2</th>
+                        <th>Coluna 3</th>
+                        <th>Coluna 4</th>
+                        <th>Coluna 5</th>
+                        <th>Coluna 6</th>
+                        <th>Coluna 7</th>
+                        <th>Coluna 8</th>
+                        <th>Coluna 9</th>
+                        <th>Coluna 10</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Dado</td>
+                        <td>Dado</td>
+                        <td>Dado</td>
+                        <td>Dado</td>
+                        <td>Dado</td>
+                        <td>Dado</td>
+                        <td>Dado</td>
+                        <td>Dado</td>
+                        <td>Dado</td>
+                        <td>Dado</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

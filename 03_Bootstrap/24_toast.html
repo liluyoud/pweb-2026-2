@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Bootstrap 5 Toast Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container-fluid p-5 bg-primary text-white text-center">
+        <h1>Toasts do Bootstrap 5</h1>
+        <p>Exemplos de notificações rápidas e discretas</p>
+    </div>
+
+    <div class="container mt-5 pb-5">
+
+        <h2>1. Anatomia de um toast</h2>
+        <p>
+            Um <code>.toast</code> é composto por <code>.toast-header</code> (ícone, título, horário e botão
+            de fechar) e <code>.toast-body</code>. Aqui ele está fixado visível com <code>.show</code>
+            apenas para fins de estudo — normalmente começa oculto e é exibido via JavaScript.
+        </p>
+        <div class="toast show" role="alert" style="max-width: 350px">
+            <div class="toast-header">
+                <span class="bg-primary rounded me-2" style="width: 20px; height: 20px"></span>
+                <strong class="me-auto">Bootstrap</strong>
+                <small class="text-muted">agora</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Fechar"></button>
+            </div>
+            <div class="toast-body">
+                Esta é a estrutura básica de um toast.
+            </div>
+        </div>
+
+        <h2 class="mt-5">2. Toast funcional</h2>
+        <p>
+            Toasts precisam ser ativados via JavaScript com <code>new bootstrap.Toast(elemento)</code> e
+            exibidos com <code>.show()</code>. Clique no botão abaixo para ver um toast real aparecer no
+            canto superior direito da tela.
+        </p>
+        <button type="button" class="btn btn-primary" data-toast-target="toastBasico">
+            Exibir toast
+        </button>
+
+        <h2 class="mt-5">3. Cores contextuais</h2>
+        <p>Combine <code>.text-bg-*</code> com <code>.toast</code> para dar significado à notificação:
+            sucesso, erro, alerta ou informação.</p>
+        <div class="d-flex gap-2 flex-wrap">
+            <button type="button" class="btn btn-success" data-toast-target="toastSucesso">
+                <i class="bi bi-check-circle me-1"></i>Sucesso
+            </button>
+            <button type="button" class="btn btn-danger" data-toast-target="toastErro">
+                <i class="bi bi-x-circle me-1"></i>Erro
+            </button>
+            <button type="button" class="btn btn-warning" data-toast-target="toastAviso">
+                <i class="bi bi-exclamation-triangle me-1"></i>Aviso
+            </button>
+            <button type="button" class="btn btn-info" data-toast-target="toastInfo">
+                <i class="bi bi-info-circle me-1"></i>Info
+            </button>
+        </div>
+
+        <h2 class="mt-5">4. Sem fechamento automático</h2>
+        <p>
+            Por padrão o toast some sozinho após alguns segundos (<code>data-bs-autohide="true"</code>).
+            Definindo <code>data-bs-autohide="false"</code>, ele permanece na tela até ser fechado
+            manualmente pelo usuário.
+        </p>
+        <button type="button" class="btn btn-outline-dark" data-toast-target="toastPersistente">
+            Exibir toast persistente
+        </button>
+
+        <h2 class="mt-5">5. Tempo de exibição personalizado</h2>
+        <p>O atributo <code>data-bs-delay</code> (em milissegundos) controla quanto tempo o toast fica
+            visível antes de fechar sozinho.</p>
+        <button type="button" class="btn btn-outline-primary" data-toast-target="toastRapido">
+            Exibir toast rápido (1,5s)
+        </button>
+
+        <h2 class="mt-5">6. Múltiplos toasts empilhados</h2>
+        <p>Vários toasts podem ser exibidos ao mesmo tempo — o Bootstrap os empilha automaticamente dentro
+            do mesmo container.</p>
+        <button type="button" class="btn btn-secondary" id="btnEmpilhados">
+            Exibir 3 toasts em sequência
+        </button>
+
+        <h2 class="mt-5">7. Exemplo prático: sistema de notificações</h2>
+        <p>Um caso de uso comum: cada ação do usuário (salvar, curtir, erro de conexão) dispara um toast
+            correspondente, dando feedback imediato sem interromper o fluxo da página.</p>
+        <div class="d-flex gap-2 flex-wrap">
+            <button type="button" class="btn btn-primary" data-toast-target="toastSalvo">
+                <i class="bi bi-save me-1"></i>Salvar documento
+            </button>
+            <button type="button" class="btn btn-outline-danger" data-toast-target="toastCurtida">
+                <i class="bi bi-heart me-1"></i>Curtir publicação
+            </button>
+            <button type="button" class="btn btn-outline-secondary" data-toast-target="toastConexao">
+                <i class="bi bi-wifi-off me-1"></i>Simular erro de conexão
+            </button>
+        </div>
+
+    </div>
+
+    <!-- Container fixo para todos os toasts acionados via JavaScript -->
+    <div class="toast-container position-fixed top-0 end-0 p-3">
+
+        <div class="toast" id="toastBasico" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto">Notificação</strong>
+                <small class="text-muted">agora</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Fechar"></button>
+            </div>
+            <div class="toast-body">Este é um toast funcional, exibido via JavaScript.</div>
+        </div>
+
+        <div class="toast text-bg-success" id="toastSucesso" role="alert" aria-live="assertive"
+            aria-atomic="true">
+            <div class="toast-header">
+                <i class="bi bi-check-circle-fill text-success me-2"></i>
+                <strong class="me-auto">Sucesso</strong>
+                <small>agora</small>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"
+                    aria-label="Fechar"></button>
+            </div>
+            <div class="toast-body">Operação concluída com sucesso!</div>
+        </div>
+
+        <div class="toast text-bg-danger" id="toastErro" role="alert" aria-live="assertive"
+            aria-atomic="true">
+            <div class="toast-header">
+                <i class="bi bi-x-circle-fill text-danger me-2"></i>
+                <strong class="me-auto">Erro</strong>
+                <small>agora</small>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"
+                    aria-label="Fechar"></button>
+            </div>
+            <div class="toast-body">Não foi possível concluir a operação.</div>
+        </div>
+
+        <div class="toast text-bg-warning" id="toastAviso" role="alert" aria-live="assertive"
+            aria-atomic="true">
+            <div class="toast-header">
+                <i class="bi bi-exclamation-triangle-fill text-warning me-2"></i>
+                <strong class="me-auto">Aviso</strong>
+                <small>agora</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Fechar"></button>
+            </div>
+            <div class="toast-body">Verifique os dados antes de continuar.</div>
+        </div>
+
+        <div class="toast text-bg-info" id="toastInfo" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <i class="bi bi-info-circle-fill text-info me-2"></i>
+                <strong class="me-auto">Informação</strong>
+                <small>agora</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Fechar"></button>
+            </div>
+            <div class="toast-body">Uma nova atualização está disponível.</div>
+        </div>
+
+        <div class="toast" id="toastPersistente" role="alert" aria-live="assertive" aria-atomic="true"
+            data-bs-autohide="false">
+            <div class="toast-header">
+                <strong class="me-auto">Toast persistente</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Fechar"></button>
+            </div>
+            <div class="toast-body">Eu não fecho sozinho — clique no "X" para me fechar.</div>
+        </div>
+
+        <div class="toast" id="toastRapido" role="alert" aria-live="assertive" aria-atomic="true"
+            data-bs-delay="1500">
+            <div class="toast-header">
+                <strong class="me-auto">Toast rápido</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Fechar"></button>
+            </div>
+            <div class="toast-body">Eu desapareço em 1,5 segundo.</div>
+        </div>
+
+        <div class="toast" id="toastEmpilhado1" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto">Mensagem 1</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Fechar"></button>
+            </div>
+            <div class="toast-body">Primeira notificação da sequência.</div>
+        </div>
+        <div class="toast" id="toastEmpilhado2" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto">Mensagem 2</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Fechar"></button>
+            </div>
+            <div class="toast-body">Segunda notificação da sequência.</div>
+        </div>
+        <div class="toast" id="toastEmpilhado3" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <strong class="me-auto">Mensagem 3</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Fechar"></button>
+            </div>
+            <div class="toast-body">Terceira notificação da sequência.</div>
+        </div>
+
+        <div class="toast text-bg-primary" id="toastSalvo" role="alert" aria-live="assertive"
+            aria-atomic="true">
+            <div class="toast-header">
+                <i class="bi bi-save2-fill text-primary me-2"></i>
+                <strong class="me-auto">Documento</strong>
+                <small>agora</small>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"
+                    aria-label="Fechar"></button>
+            </div>
+            <div class="toast-body">Seu documento foi salvo automaticamente.</div>
+        </div>
+
+        <div class="toast" id="toastCurtida" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <i class="bi bi-heart-fill text-danger me-2"></i>
+                <strong class="me-auto">Publicação</strong>
+                <small>agora</small>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Fechar"></button>
+            </div>
+            <div class="toast-body">Você curtiu esta publicação.</div>
+        </div>
+
+        <div class="toast text-bg-secondary" id="toastConexao" role="alert" aria-live="assertive"
+            aria-atomic="true" data-bs-autohide="false">
+            <div class="toast-header">
+                <i class="bi bi-wifi-off text-secondary me-2"></i>
+                <strong class="me-auto">Conexão</strong>
+                <small>agora</small>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast"
+                    aria-label="Fechar"></button>
+            </div>
+            <div class="toast-body">Sem conexão com a internet. Tentando reconectar...</div>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.querySelectorAll('[data-toast-target]').forEach(function (btn) {
+            btn.addEventListener('click', function () {
+                const toastEl = document.getElementById(btn.dataset.toastTarget);
+                bootstrap.Toast.getOrCreateInstance(toastEl).show();
+            });
+        });
+
+        document.getElementById('btnEmpilhados').addEventListener('click', function () {
+            ['toastEmpilhado1', 'toastEmpilhado2', 'toastEmpilhado3'].forEach(function (id) {
+                bootstrap.Toast.getOrCreateInstance(document.getElementById(id)).show();
+            });
+        });
+    </script>
+</body>
+
+</html>

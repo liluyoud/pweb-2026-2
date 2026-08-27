@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Bootstrap 5 Carousel Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container-fluid p-5 bg-primary text-white text-center">
+        <h1>Carousel do Bootstrap 5</h1>
+        <p>Exemplos de slides rotativos de imagens e conteúdo</p>
+    </div>
+
+    <div class="container mt-5 pb-5">
+
+        <h2>1. Carousel básico</h2>
+        <p>
+            Um <code>.carousel</code> com <code>.carousel-inner</code> e itens <code>.carousel-item</code>
+            (o primeiro precisa da classe <code>.active</code>) já funciona, alternando os slides
+            automaticamente a cada intervalo.
+        </p>
+        <div id="carouselBasico" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner rounded">
+                <div class="carousel-item active">
+                    <img src="https://picsum.photos/id/1015/900/400" class="d-block w-100"
+                        alt="Paisagem de montanha">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://picsum.photos/id/1043/900/400" class="d-block w-100"
+                        alt="Deserto ao pôr do sol">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://picsum.photos/id/1074/900/400" class="d-block w-100"
+                        alt="Cachorro na grama">
+                </div>
+            </div>
+        </div>
+
+        <h2 class="mt-5">2. Carousel com controles</h2>
+        <p>Adicione os botões <code>.carousel-control-prev</code> e <code>.carousel-control-next</code> para
+            permitir a navegação manual entre os slides.</p>
+        <div id="carouselControles" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner rounded">
+                <div class="carousel-item active">
+                    <img src="https://picsum.photos/id/1015/900/400" class="d-block w-100"
+                        alt="Paisagem de montanha">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://picsum.photos/id/1043/900/400" class="d-block w-100"
+                        alt="Deserto ao pôr do sol">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://picsum.photos/id/1074/900/400" class="d-block w-100"
+                        alt="Cachorro na grama">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselControles"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselControles"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Próximo</span>
+            </button>
+        </div>
+
+        <h2 class="mt-5">3. Carousel com indicadores</h2>
+        <p>Os <code>.carousel-indicators</code> são as pequenas barras na parte inferior que mostram quantos
+            slides existem e permitem pular diretamente para um deles.</p>
+        <div id="carouselIndicadores" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselIndicadores" data-bs-slide-to="0"
+                    class="active" aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselIndicadores" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselIndicadores" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner rounded">
+                <div class="carousel-item active">
+                    <img src="https://picsum.photos/id/1015/900/400" class="d-block w-100"
+                        alt="Paisagem de montanha">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://picsum.photos/id/1043/900/400" class="d-block w-100"
+                        alt="Deserto ao pôr do sol">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://picsum.photos/id/1074/900/400" class="d-block w-100"
+                        alt="Cachorro na grama">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselIndicadores"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselIndicadores"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Próximo</span>
+            </button>
+        </div>
+
+        <h2 class="mt-5">4. Carousel com legendas (captions)</h2>
+        <p>Use <code>.carousel-caption</code> dentro de cada item para exibir um título e uma descrição
+            sobrepostos à imagem.</p>
+        <div id="carouselLegendas" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselLegendas" data-bs-slide-to="0" class="active"
+                    aria-current="true" aria-label="Slide 1"></button>
+                <button type="button" data-bs-target="#carouselLegendas" data-bs-slide-to="1"
+                    aria-label="Slide 2"></button>
+                <button type="button" data-bs-target="#carouselLegendas" data-bs-slide-to="2"
+                    aria-label="Slide 3"></button>
+            </div>
+            <div class="carousel-inner rounded">
+                <div class="carousel-item active">
+                    <img src="https://picsum.photos/id/1018/900/400" class="d-block w-100" alt="Vale verde">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Vale verde</h5>
+                        <p>Uma paisagem tranquila para relaxar.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://picsum.photos/id/1039/900/400" class="d-block w-100" alt="Lago gelado">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Lago gelado</h5>
+                        <p>Águas serenas refletindo o céu de inverno.</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://picsum.photos/id/1054/900/400" class="d-block w-100" alt="Trilha na floresta">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Trilha na floresta</h5>
+                        <p>Ideal para uma caminhada revigorante.</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselLegendas"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselLegendas"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Próximo</span>
+            </button>
+        </div>
+
+        <h2 class="mt-5">5. Transição com fade (.carousel-fade)</h2>
+        <p>Adicione a classe <code>.carousel-fade</code> ao container para que os slides se dissolvam um no
+            outro em vez de deslizar lateralmente.</p>
+        <div id="carouselFade" class="carousel slide carousel-fade" data-bs-ride="carousel">
+            <div class="carousel-inner rounded">
+                <div class="carousel-item active">
+                    <img src="https://picsum.photos/id/1015/900/400" class="d-block w-100"
+                        alt="Paisagem de montanha">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://picsum.photos/id/1043/900/400" class="d-block w-100"
+                        alt="Deserto ao pôr do sol">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://picsum.photos/id/1074/900/400" class="d-block w-100"
+                        alt="Cachorro na grama">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselFade"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselFade"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Próximo</span>
+            </button>
+        </div>
+
+        <h2 class="mt-5">6. Controle de intervalo por slide</h2>
+        <p>O atributo <code>data-bs-interval</code> (em milissegundos) pode ser definido individualmente em
+            cada <code>.carousel-item</code>, controlando quanto tempo cada slide fica visível.</p>
+        <div id="carouselIntervalo" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner rounded">
+                <div class="carousel-item active" data-bs-interval="1500">
+                    <img src="https://picsum.photos/id/1018/900/400" class="d-block w-100" alt="Vale verde">
+                    <div class="carousel-caption d-none d-md-block">
+                        <p class="bg-dark bg-opacity-75 rounded p-1 d-inline-block">1,5 segundo neste slide</p>
+                    </div>
+                </div>
+                <div class="carousel-item" data-bs-interval="4000">
+                    <img src="https://picsum.photos/id/1039/900/400" class="d-block w-100" alt="Lago gelado">
+                    <div class="carousel-caption d-none d-md-block">
+                        <p class="bg-dark bg-opacity-75 rounded p-1 d-inline-block">4 segundos neste slide</p>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselIntervalo"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselIntervalo"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Próximo</span>
+            </button>
+        </div>
+
+        <h2 class="mt-5">7. Exemplo prático: carrossel de depoimentos</h2>
+        <p>O carousel não precisa conter apenas imagens: qualquer conteúdo HTML pode ser colocado dentro de
+            um <code>.carousel-item</code>, como este carrossel de depoimentos de clientes.</p>
+        <div id="carouselDepoimentos" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#carouselDepoimentos" data-bs-slide-to="0"
+                    class="active" aria-label="Depoimento 1"></button>
+                <button type="button" data-bs-target="#carouselDepoimentos" data-bs-slide-to="1"
+                    aria-label="Depoimento 2"></button>
+                <button type="button" data-bs-target="#carouselDepoimentos" data-bs-slide-to="2"
+                    aria-label="Depoimento 3"></button>
+            </div>
+            <div class="carousel-inner rounded border bg-light" style="min-height: 240px">
+                <div class="carousel-item active">
+                    <div class="d-flex flex-column align-items-center text-center py-5 px-4">
+                        <img src="https://picsum.photos/id/1027/80/80" class="rounded-circle mb-3"
+                            alt="Foto de Ana">
+                        <p class="fs-5 fst-italic">"A plataforma simplificou completamente nosso fluxo de
+                            trabalho. Recomendo muito!"</p>
+                        <div class="text-warning mb-1">★★★★★</div>
+                        <strong>Ana Oliveira</strong>
+                        <small class="text-muted">Gerente de Produto</small>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="d-flex flex-column align-items-center text-center py-5 px-4">
+                        <img src="https://picsum.photos/id/1005/80/80" class="rounded-circle mb-3"
+                            alt="Foto de Carlos">
+                        <p class="fs-5 fst-italic">"Suporte rápido e atencioso, resolveram meu problema em
+                            minutos."</p>
+                        <div class="text-warning mb-1">★★★★★</div>
+                        <strong>Carlos Mendes</strong>
+                        <small class="text-muted">Desenvolvedor</small>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <div class="d-flex flex-column align-items-center text-center py-5 px-4">
+                        <img src="https://picsum.photos/id/1011/80/80" class="rounded-circle mb-3"
+                            alt="Foto de Beatriz">
+                        <p class="fs-5 fst-italic">"Fácil de usar e com um ótimo custo-benefício para nossa
+                            equipe."</p>
+                        <div class="text-warning mb-1">★★★★☆</div>
+                        <strong>Beatriz Santos</strong>
+                        <small class="text-muted">Designer</small>
+                    </div>
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselDepoimentos"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon bg-dark rounded-circle" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselDepoimentos"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon bg-dark rounded-circle" aria-hidden="true"></span>
+                <span class="visually-hidden">Próximo</span>
+            </button>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

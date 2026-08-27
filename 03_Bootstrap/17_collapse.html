@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Bootstrap 5 Collapse Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <style>
+        .faq-toggle .bi-chevron-down {
+            transition: transform 0.2s ease;
+        }
+
+        .faq-toggle[aria-expanded="true"] .bi-chevron-down {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container-fluid p-5 bg-primary text-white text-center">
+        <h1>Collapse do Bootstrap 5</h1>
+        <p>Exemplos de conteúdo expansível e recolhível</p>
+    </div>
+
+    <div class="container mt-5 pb-5">
+
+        <h2>1. Collapse básico</h2>
+        <p>
+            Um botão ou link com <code>data-bs-toggle="collapse"</code> apontando via <code>href</code> ou
+            <code>data-bs-target</code> para o <code>id</code> do elemento com a classe <code>.collapse</code>
+            controla sua exibição.
+        </p>
+        <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#collapseBasico"
+            aria-expanded="false" aria-controls="collapseBasico">
+            Mostrar/ocultar conteúdo
+        </button>
+        <div class="collapse mt-3" id="collapseBasico">
+            <div class="card card-body">
+                Este é um conteúdo que pode ser recolhido ou exibido com uma animação suave, sem sair da
+                página.
+            </div>
+        </div>
+
+        <h2 class="mt-5">2. Múltiplos alvos</h2>
+        <p>Um mesmo controle pode abrir/fechar mais de um elemento ao mesmo tempo, informando vários
+            seletores separados por vírgula em <code>data-bs-target</code>.</p>
+        <button class="btn btn-secondary" type="button" data-bs-toggle="collapse"
+            data-bs-target=".collapse-multiplo" aria-expanded="false">
+            Alternar os dois cards
+        </button>
+        <div class="row mt-3">
+            <div class="col-md-6">
+                <div class="collapse show collapse-multiplo" id="collapseA">
+                    <div class="card card-body">Card A</div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="collapse show collapse-multiplo" id="collapseB">
+                    <div class="card card-body">Card B</div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="mt-5">3. Collapse horizontal</h2>
+        <p>Adicione a classe <code>.collapse-horizontal</code> para que o conteúdo se expanda na largura em
+            vez da altura.</p>
+        <button class="btn btn-primary mb-2" type="button" data-bs-toggle="collapse"
+            data-bs-target="#collapseHorizontal" aria-expanded="false" aria-controls="collapseHorizontal">
+            Expandir na horizontal
+        </button>
+        <div style="min-height: 120px">
+            <div class="collapse collapse-horizontal" id="collapseHorizontal">
+                <div class="card card-body" style="width: 300px">
+                    Conteúdo que se expande da esquerda para a direita, útil para painéis laterais.
+                </div>
+            </div>
+        </div>
+
+        <h2 class="mt-5">4. Accordion</h2>
+        <p>
+            O componente <code>.accordion</code> agrupa vários itens de collapse, garantindo que apenas um
+            fique aberto por vez (a menos que <code>data-bs-parent</code> seja removido).
+        </p>
+        <div class="accordion" id="accordionExemplo">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#accordionItem1" aria-expanded="true" aria-controls="accordionItem1">
+                        O que é o Bootstrap?
+                    </button>
+                </h2>
+                <div id="accordionItem1" class="accordion-collapse collapse show"
+                    data-bs-parent="#accordionExemplo">
+                    <div class="accordion-body">
+                        É um framework CSS e JavaScript de código aberto para desenvolver sites e aplicações
+                        responsivas mais rapidamente.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#accordionItem2" aria-expanded="false" aria-controls="accordionItem2">
+                        Preciso saber JavaScript para usar?
+                    </button>
+                </h2>
+                <div id="accordionItem2" class="accordion-collapse collapse" data-bs-parent="#accordionExemplo">
+                    <div class="accordion-body">
+                        Não é obrigatório: a maior parte dos componentes visuais funciona só com HTML e CSS.
+                        O JavaScript do Bootstrap é usado para comportamentos como este próprio accordion.
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#accordionItem3" aria-expanded="false" aria-controls="accordionItem3">
+                        O Bootstrap é gratuito?
+                    </button>
+                </h2>
+                <div id="accordionItem3" class="accordion-collapse collapse" data-bs-parent="#accordionExemplo">
+                    <div class="accordion-body">
+                        Sim, é totalmente gratuito e de código aberto, distribuído sob a licença MIT.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="mt-5">5. Accordion sem bordas (.accordion-flush)</h2>
+        <p>A classe <code>.accordion-flush</code> remove bordas e cantos arredondados, deixando o accordion
+            mais discreto, ideal para dentro de outros componentes.</p>
+        <div class="accordion accordion-flush" id="accordionFlush">
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flushItem1" aria-expanded="false" aria-controls="flushItem1">
+                        Item flush 1
+                    </button>
+                </h2>
+                <div id="flushItem1" class="accordion-collapse collapse" data-bs-parent="#accordionFlush">
+                    <div class="accordion-body">Conteúdo do primeiro item, sem bordas externas.</div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#flushItem2" aria-expanded="false" aria-controls="flushItem2">
+                        Item flush 2
+                    </button>
+                </h2>
+                <div id="flushItem2" class="accordion-collapse collapse" data-bs-parent="#accordionFlush">
+                    <div class="accordion-body">Conteúdo do segundo item.</div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="mt-5">6. Exemplo prático: FAQ com ícone animado</h2>
+        <p>Combinando <code>.collapse</code>, um card e um ícone que gira ao expandir (via CSS, observando
+            o atributo <code>aria-expanded</code>), é possível criar uma seção de perguntas frequentes bem
+            polida.</p>
+        <div class="card shadow-sm">
+            <div class="card-body p-0">
+                <button
+                    class="faq-toggle btn btn-link w-100 text-start text-decoration-none d-flex justify-content-between align-items-center p-3"
+                    type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="false"
+                    aria-controls="faq1">
+                    <span class="fw-semibold text-dark">Como faço para cancelar minha assinatura?</span>
+                    <i class="bi bi-chevron-down text-muted"></i>
+                </button>
+                <div class="collapse" id="faq1">
+                    <div class="px-3 pb-3 text-muted">
+                        Acesse "Configurações da conta" &gt; "Assinatura" e clique em "Cancelar assinatura".
+                        O acesso permanece ativo até o fim do período já pago.
+                    </div>
+                </div>
+                <hr class="m-0">
+                <button
+                    class="faq-toggle btn btn-link w-100 text-start text-decoration-none d-flex justify-content-between align-items-center p-3"
+                    type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false"
+                    aria-controls="faq2">
+                    <span class="fw-semibold text-dark">Posso mudar de plano depois?</span>
+                    <i class="bi bi-chevron-down text-muted"></i>
+                </button>
+                <div class="collapse" id="faq2">
+                    <div class="px-3 pb-3 text-muted">
+                        Sim, você pode fazer upgrade ou downgrade do plano a qualquer momento diretamente no
+                        painel de configurações.
+                    </div>
+                </div>
+                <hr class="m-0">
+                <button
+                    class="faq-toggle btn btn-link w-100 text-start text-decoration-none d-flex justify-content-between align-items-center p-3"
+                    type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false"
+                    aria-controls="faq3">
+                    <span class="fw-semibold text-dark">Vocês oferecem suporte em português?</span>
+                    <i class="bi bi-chevron-down text-muted"></i>
+                </button>
+                <div class="collapse" id="faq3">
+                    <div class="px-3 pb-3 text-muted">
+                        Sim! Nosso time de suporte atende em português por chat e e-mail, todos os dias
+                        úteis.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

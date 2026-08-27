@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Bootstrap 5 Buttons Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container-fluid p-5 bg-primary text-white text-center">
+        <h1>Botões do Bootstrap 5</h1>
+        <p>Exemplos de estilos e classes utilitárias para botões</p>
+    </div>
+
+    <div class="container mt-5">
+
+        <h2>1. Cores de botões (.btn)</h2>
+        <p>
+            A classe <code>.btn</code>, combinada com uma classe contextual (<code>.btn-primary</code>,
+            <code>.btn-secondary</code>, <code>.btn-success</code>, <code>.btn-danger</code>,
+            <code>.btn-warning</code>, <code>.btn-info</code>, <code>.btn-light</code> e <code>.btn-dark</code>),
+            estiliza o botão de acordo com o contexto.
+        </p>
+        <button type="button" class="btn btn-primary">Primary</button>
+        <button type="button" class="btn btn-secondary">Secondary</button>
+        <button type="button" class="btn btn-success">Success</button>
+        <button type="button" class="btn btn-danger">Danger</button>
+        <button type="button" class="btn btn-warning">Warning</button>
+        <button type="button" class="btn btn-info">Info</button>
+        <button type="button" class="btn btn-light">Light</button>
+        <button type="button" class="btn btn-dark">Dark</button>
+        <button type="button" class="btn btn-link">Link</button>
+
+        <h2 class="mt-5">2. Elementos que podem virar botões</h2>
+        <p>A classe <code>.btn</code> pode ser aplicada a diferentes elementos HTML, e todos terão a mesma
+            aparência de botão.</p>
+        <a href="#" class="btn btn-success">Link Button</a>
+        <button type="button" class="btn btn-success">Button</button>
+        <input type="button" class="btn btn-success" value="Input Button">
+        <input type="submit" class="btn btn-success" value="Submit Button">
+        <input type="reset" class="btn btn-success" value="Reset Button">
+
+        <h2 class="mt-5">3. Botões com borda (Outline)</h2>
+        <p>O Bootstrap 5 também disponibiliza oito botões com apenas a borda colorida
+            (<code>.btn-outline-*</code>), sem preenchimento de fundo.</p>
+        <button type="button" class="btn btn-outline-primary">Primary</button>
+        <button type="button" class="btn btn-outline-secondary">Secondary</button>
+        <button type="button" class="btn btn-outline-success">Success</button>
+        <button type="button" class="btn btn-outline-danger">Danger</button>
+        <button type="button" class="btn btn-outline-warning">Warning</button>
+        <button type="button" class="btn btn-outline-info">Info</button>
+        <button type="button" class="btn btn-outline-light">Light</button>
+        <button type="button" class="btn btn-outline-dark">Dark</button>
+
+        <h2 class="mt-5">4. Tamanhos de botões</h2>
+        <p>Use a classe <code>.btn-lg</code> para botões grandes ou <code>.btn-sm</code> para botões
+            pequenos.</p>
+        <button type="button" class="btn btn-primary btn-lg">Botão grande</button>
+        <button type="button" class="btn btn-primary">Botão normal</button>
+        <button type="button" class="btn btn-primary btn-sm">Botão pequeno</button>
+
+        <h2 class="mt-5">5. Botões de largura total (Block Level)</h2>
+        <p>
+            Um botão de nível de bloco ocupa toda a largura do elemento pai. No Bootstrap 5, isso é feito
+            colocando o botão dentro de um container com a classe <code>.d-grid</code>. A classe
+            <code>.d-grid</code> cria um container em grid que faz o botão esticar por toda a largura
+            disponível.
+        </p>
+        <div class="d-grid gap-2">
+            <button type="button" class="btn btn-primary">Botão de largura total</button>
+            <button type="button" class="btn btn-secondary">Outro botão de largura total</button>
+        </div>
+
+        <h2 class="mt-5">6. Botões ativos/desabilitados</h2>
+        <p>
+            Um botão pode ser definido como ativo (aparência pressionada) ou desabilitado (não clicável). A
+            classe <code>.active</code> faz o botão parecer pressionado, e o atributo <code>disabled</code>
+            torna o botão não clicável. Note que elementos <code>&lt;a&gt;</code> não suportam o atributo
+            <code>disabled</code> e por isso devem usar a classe <code>.disabled</code> para parecerem
+            desabilitados visualmente.
+        </p>
+        <button type="button" class="btn btn-primary active">Botão ativo</button>
+        <button type="button" class="btn btn-primary" disabled>Botão desabilitado</button>
+        <a href="#" class="btn btn-primary disabled">Link desabilitado</a>
+
+        <h2 class="mt-5">7. Botões com spinner</h2>
+        <p>Também é possível adicionar "spinners" (indicadores de carregamento) a um botão, útil para
+            mostrar que uma ação está em andamento.</p>
+        <button class="btn btn-primary" type="button" disabled>
+            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+            Carregando...
+        </button>
+        <button class="btn btn-primary" type="button" disabled>
+            <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
+            Carregando...
+        </button>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

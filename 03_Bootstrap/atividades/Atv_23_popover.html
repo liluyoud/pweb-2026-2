@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Atividade 23 - Popover</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container-fluid p-5 bg-dark text-white text-center">
+        <span class="badge bg-light text-dark mb-2">Atividade 23</span>
+        <h1>Popover</h1>
+    </div>
+
+    <div class="container mt-5">
+
+        <h2>Enunciado</h2>
+        <p>
+            Com base no exemplo <code>23_popover.html</code>, crie um botão de ajuda para um campo de
+            formulário.
+        </p>
+        <ol>
+            <li>Crie um campo de formulário para "Senha", com um ícone de ajuda
+                (<code>bi-info-circle</code>) ao lado do rótulo.</li>
+            <li>Configure um popover no ícone com título "Requisitos de senha" e um conteúdo explicando as
+                regras (ex: mínimo de 8 caracteres, uma letra maiúscula e um número).</li>
+            <li>Use <code>data-bs-trigger="focus"</code> para que o popover feche automaticamente ao clicar
+                fora dele.</li>
+            <li>No final da página, escreva o código JavaScript necessário para ativar o popover.</li>
+            <li><strong>Desafio extra:</strong> crie um segundo botão que mostra, em um popover com
+                <code>data-bs-html="true"</code>, uma pequena lista (<code>&lt;ul&gt;</code>) de recursos de
+                um plano.</li>
+        </ol>
+        <div class="alert alert-info">
+            <strong>Dica:</strong> reveja o script no final do exemplo <code>23_popover.html</code> —
+            ele usa <code>document.querySelectorAll('[data-bs-toggle="popover"]')</code> e
+            <code>new bootstrap.Popover(...)</code> para cada elemento encontrado.
+        </div>
+
+        <hr>
+
+        <h2>Área de solução</h2>
+        <p class="text-muted">Escreva seu código HTML/Bootstrap abaixo desta linha.</p>
+
+        <!-- Escreva sua solução aqui -->
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Escreva aqui o código para inicializar os popovers da página
+    </script>
+</body>
+
+</html>

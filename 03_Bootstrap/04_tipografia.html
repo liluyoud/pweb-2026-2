@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Bootstrap 5 Tipografia Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container-fluid p-5 bg-primary text-white text-center">
+        <h1>Tipografia do Bootstrap 5</h1>
+        <p>Exemplos de títulos, textos de destaque e utilitários de texto</p>
+    </div>
+
+    <div class="container mt-5">
+
+        <h2>1. Font-size e line-height padrão</h2>
+        <p>
+            O Bootstrap 5 usa por padrão <code>font-size: 1rem</code> (16px) e <code>line-height: 1.5</code>.
+            Além disso, todo elemento <code>&lt;p&gt;</code> já vem com <code>margin-top: 0</code> e
+            <code>margin-bottom: 1rem</code> (16px), sem precisar de classes extras.
+        </p>
+        <p>Este é outro parágrafo logo abaixo, mostrando o espaçamento de 1rem entre eles.</p>
+
+        <h2 class="mt-5">2. Títulos (h1 a h6) e classes .h1 a .h6</h2>
+        <p>Os elementos <code>&lt;h1&gt;</code> a <code>&lt;h6&gt;</code> já vêm estilizados pelo Bootstrap. As
+            classes <code>.h1</code> a <code>.h6</code> aplicam o mesmo estilo em qualquer outra tag.</p>
+        <h1>h1. Título principal</h1>
+        <h2>h2. Título secundário</h2>
+        <h3>h3. Título terciário</h3>
+        <h4>h4. Título de quarto nível</h4>
+        <h5>h5. Título de quinto nível</h5>
+        <h6>h6. Título de sexto nível</h6>
+        <p class="h3">Parágrafo com a classe .h3</p>
+
+        <h2 class="mt-5">3. Display headings (.display-1 até .display-6)</h2>
+        <p>As classes <code>.display-1</code> a <code>.display-6</code> criam títulos maiores e mais chamativos que
+            os títulos padrão, ideais para destaques.</p>
+        <h1 class="display-1">Display 1</h1>
+        <h1 class="display-2">Display 2</h1>
+        <h1 class="display-3">Display 3</h1>
+        <h1 class="display-4">Display 4</h1>
+        <h1 class="display-5">Display 5</h1>
+        <h1 class="display-6">Display 6</h1>
+
+        <h2 class="mt-5">4. &lt;small&gt; ou .small</h2>
+        <p>A tag <code>&lt;small&gt;</code> (ou a classe <code>.small</code>) deixa o texto menor e com cor mais
+            suave, útil para textos secundários.</p>
+        <p>Este é um texto normal <small>e este é um texto secundário com &lt;small&gt;</small>.</p>
+        <h3>Título com texto secundário <small class="text-muted">usando .small</small></h3>
+
+        <h2 class="mt-5">5. &lt;mark&gt; ou .mark</h2>
+        <p>A tag <code>&lt;mark&gt;</code> (ou a classe <code>.mark</code>) destaca um trecho de texto com fundo
+            amarelo.</p>
+        <p>Use a tag <mark>mark</mark> para destacar um texto importante dentro do parágrafo.</p>
+        <p>É possível aplicar o mesmo efeito a outras tags usando a classe <span class="mark">.mark</span>.</p>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Atividade 24 - Toast</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container-fluid p-5 bg-dark text-white text-center">
+        <span class="badge bg-light text-dark mb-2">Atividade 24</span>
+        <h1>Toast</h1>
+    </div>
+
+    <div class="container mt-5">
+
+        <h2>Enunciado</h2>
+        <p>
+            Com base no exemplo <code>24_toast.html</code>, crie a notificação de "adicionar ao carrinho"
+            de uma loja online.
+        </p>
+        <ol>
+            <li>Crie um botão <strong>"Adicionar ao carrinho"</strong>.</li>
+            <li>Crie um <code>.toast</code> (inicialmente oculto) dentro de um
+                <code>.toast-container.position-fixed</code> no canto superior direito da tela, com a
+                mensagem "Produto adicionado ao carrinho com sucesso!".</li>
+            <li>Use a cor <code>.text-bg-success</code> no toast para reforçar que é uma mensagem positiva.</li>
+            <li>Ao clicar no botão, o toast deve aparecer na tela (via JavaScript, como no exemplo).</li>
+            <li><strong>Desafio extra:</strong> crie um segundo botão <strong>"Remover item"</strong> que
+                dispara um toast de aviso diferente, sem fechamento automático
+                (<code>data-bs-autohide="false"</code>).</li>
+        </ol>
+        <div class="alert alert-info">
+            <strong>Dica:</strong> reveja o script no final do exemplo <code>24_toast.html</code> —
+            ele usa <code>bootstrap.Toast.getOrCreateInstance(elemento).show()</code> dentro do evento de
+            clique do botão.
+        </div>
+
+        <hr>
+
+        <h2>Área de solução</h2>
+        <p class="text-muted">Escreva seu código HTML/Bootstrap abaixo desta linha.</p>
+
+        <!-- Escreva sua solução aqui -->
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Escreva aqui o código para exibir o(s) toast(s) ao clicar no(s) botão(ões)
+    </script>
+</body>
+
+</html>

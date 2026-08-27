@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Bootstrap 5 Navs Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container-fluid p-5 bg-primary text-white text-center">
+        <h1>Navs do Bootstrap 5</h1>
+        <p>Exemplos de menus de navegação e componentes de abas</p>
+    </div>
+
+    <div class="container mt-5 pb-5">
+
+        <h2>1. Nav básico</h2>
+        <p>
+            A classe <code>.nav</code> em uma lista, com <code>.nav-link</code> em cada item, cria uma
+            navegação horizontal simples baseada em flexbox.
+        </p>
+        <ul class="nav">
+            <li class="nav-item"><a class="nav-link active" aria-current="page" href="#">Início</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Sobre</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Serviços</a></li>
+            <li class="nav-item"><a class="nav-link disabled" href="#">Indisponível</a></li>
+        </ul>
+
+        <h2 class="mt-5">2. Nav com abas (.nav-tabs)</h2>
+        <p>Adicione <code>.nav-tabs</code> para dar aos itens uma aparência de abas, com bordas e destaque
+            para o item ativo.</p>
+        <ul class="nav nav-tabs">
+            <li class="nav-item"><a class="nav-link active" href="#">Início</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Sobre</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Serviços</a></li>
+            <li class="nav-item"><a class="nav-link disabled" href="#">Indisponível</a></li>
+        </ul>
+
+        <h2 class="mt-5">3. Nav com pills (.nav-pills)</h2>
+        <p>Adicione <code>.nav-pills</code> para itens em formato de "pílula" arredondada.</p>
+        <ul class="nav nav-pills">
+            <li class="nav-item"><a class="nav-link active" href="#">Início</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Sobre</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Serviços</a></li>
+        </ul>
+
+        <h2 class="mt-5">4. Nav preenchendo a largura</h2>
+        <p>
+            <code>.nav-fill</code> faz os itens ocuparem o espaço disponível proporcionalmente ao seu
+            conteúdo, enquanto <code>.nav-justified</code> força todos os itens a terem a mesma largura.
+        </p>
+        <p class="mb-1"><small class="text-muted">.nav-fill</small></p>
+        <ul class="nav nav-pills nav-fill mb-3">
+            <li class="nav-item"><a class="nav-link active" href="#">Início</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Um item bem maior</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Sobre</a></li>
+        </ul>
+        <p class="mb-1"><small class="text-muted">.nav-justified</small></p>
+        <ul class="nav nav-pills nav-justified">
+            <li class="nav-item"><a class="nav-link active" href="#">Início</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Um item bem maior</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Sobre</a></li>
+        </ul>
+
+        <h2 class="mt-5">5. Nav vertical</h2>
+        <p>Adicione <code>.flex-column</code> para empilhar os itens verticalmente, útil como menu
+            lateral.</p>
+        <ul class="nav nav-pills flex-column" style="max-width: 200px">
+            <li class="nav-item"><a class="nav-link active" href="#">Início</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Sobre</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Serviços</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Contato</a></li>
+        </ul>
+
+        <h2 class="mt-5">6. Nav com dropdown</h2>
+        <p>Um item do nav pode conter um menu suspenso, combinando as classes de nav com as de dropdown.</p>
+        <ul class="nav nav-pills">
+            <li class="nav-item"><a class="nav-link active" href="#">Início</a></li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
+                    Produtos
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Notebooks</a></li>
+                    <li><a class="dropdown-item" href="#">Celulares</a></li>
+                    <li><a class="dropdown-item" href="#">Acessórios</a></li>
+                </ul>
+            </li>
+            <li class="nav-item"><a class="nav-link" href="#">Contato</a></li>
+        </ul>
+
+        <h2 class="mt-5">7. Exemplo prático: abas funcionais</h2>
+        <p>
+            Adicionando <code>data-bs-toggle="tab"</code> aos links e associando cada um a um
+            <code>.tab-pane</code> dentro de <code>.tab-content</code>, o Bootstrap alterna o conteúdo
+            exibido automaticamente ao clicar — sem precisar de JavaScript extra.
+        </p>
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#tabDescricao" type="button"
+                    role="tab" aria-controls="tabDescricao" aria-selected="true">
+                    <i class="bi bi-file-text me-1"></i>Descrição
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tabEspecificacoes" type="button"
+                    role="tab" aria-controls="tabEspecificacoes" aria-selected="false">
+                    <i class="bi bi-list-check me-1"></i>Especificações
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#tabAvaliacoes" type="button"
+                    role="tab" aria-controls="tabAvaliacoes" aria-selected="false">
+                    <i class="bi bi-star me-1"></i>Avaliações <span class="badge bg-secondary">24</span>
+                </button>
+            </li>
+        </ul>
+        <div class="tab-content border border-top-0 p-4 rounded-bottom">
+            <div class="tab-pane fade show active" id="tabDescricao" role="tabpanel">
+                Este produto combina desempenho e design, sendo ideal para quem busca praticidade no dia a
+                dia sem abrir mão da qualidade.
+            </div>
+            <div class="tab-pane fade" id="tabEspecificacoes" role="tabpanel">
+                <ul class="mb-0">
+                    <li>Processador de última geração</li>
+                    <li>8 GB de memória RAM</li>
+                    <li>Bateria com autonomia de até 12 horas</li>
+                </ul>
+            </div>
+            <div class="tab-pane fade" id="tabAvaliacoes" role="tabpanel">
+                <div class="d-flex align-items-center mb-2">
+                    <span class="text-warning me-2">★★★★★</span>
+                    <strong>Excelente custo-benefício</strong>
+                </div>
+                <p class="text-muted mb-0">"Superou minhas expectativas, chegou rápido e bem embalado."</p>
+            </div>
+        </div>
+
+        <h2 class="mt-5">8. Exemplo prático: menu de configurações vertical</h2>
+        <p>Combinando <code>.nav-pills</code> vertical com <code>.tab-content</code> em um layout de duas
+            colunas, é possível montar uma página de configurações como as de aplicativos reais.</p>
+        <div class="row">
+            <div class="col-md-3 mb-3">
+                <div class="nav flex-column nav-pills" role="tablist" aria-orientation="vertical">
+                    <button class="nav-link active text-start d-flex align-items-center gap-2"
+                        data-bs-toggle="pill" data-bs-target="#painelPerfil" type="button" role="tab">
+                        <i class="bi bi-person"></i> Perfil
+                    </button>
+                    <button class="nav-link text-start d-flex align-items-center gap-2" data-bs-toggle="pill"
+                        data-bs-target="#painelSeguranca" type="button" role="tab">
+                        <i class="bi bi-shield-lock"></i> Segurança
+                    </button>
+                    <button class="nav-link text-start d-flex align-items-center gap-2" data-bs-toggle="pill"
+                        data-bs-target="#painelNotificacoes" type="button" role="tab">
+                        <i class="bi bi-bell"></i> Notificações
+                    </button>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="tab-content border rounded p-4 h-100">
+                    <div class="tab-pane fade show active" id="painelPerfil" role="tabpanel">
+                        <h5>Perfil</h5>
+                        <p class="text-muted">Atualize seu nome, foto e informações públicas de perfil.</p>
+                    </div>
+                    <div class="tab-pane fade" id="painelSeguranca" role="tabpanel">
+                        <h5>Segurança</h5>
+                        <p class="text-muted">Altere sua senha e configure a autenticação em duas etapas.</p>
+                    </div>
+                    <div class="tab-pane fade" id="painelNotificacoes" role="tabpanel">
+                        <h5>Notificações</h5>
+                        <p class="text-muted">Escolha quais e-mails e alertas você deseja receber.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

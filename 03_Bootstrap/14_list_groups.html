@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Bootstrap 5 List Groups Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container-fluid p-5 bg-primary text-white text-center">
+        <h1>List Groups do Bootstrap 5</h1>
+        <p>Exemplos de listas flexíveis para exibir séries de conteúdo</p>
+    </div>
+
+    <div class="container mt-5">
+
+        <h2>1. List Group básico</h2>
+        <p>
+            Use a classe <code>.list-group</code> em um <code>&lt;ul&gt;</code> e a classe
+            <code>.list-group-item</code> em cada <code>&lt;li&gt;</code> para criar uma lista básica.
+        </p>
+        <ul class="list-group">
+            <li class="list-group-item">Primeiro item</li>
+            <li class="list-group-item">Segundo item</li>
+            <li class="list-group-item">Terceiro item</li>
+            <li class="list-group-item">Quarto item</li>
+        </ul>
+
+        <h2 class="mt-5">2. Estado ativo (.active)</h2>
+        <p>Adicione a classe <code>.active</code> a um item para destacá-lo, indicando o item atualmente
+            selecionado.</p>
+        <ul class="list-group">
+            <li class="list-group-item active">Primeiro item (ativo)</li>
+            <li class="list-group-item">Segundo item</li>
+            <li class="list-group-item">Terceiro item</li>
+            <li class="list-group-item">Quarto item</li>
+        </ul>
+
+        <h2 class="mt-5">3. Item desabilitado (.disabled)</h2>
+        <p>Adicione a classe <code>.disabled</code> a um item para deixá-lo com aparência inativa.</p>
+        <ul class="list-group">
+            <li class="list-group-item">Primeiro item</li>
+            <li class="list-group-item disabled">Segundo item (desabilitado)</li>
+            <li class="list-group-item">Terceiro item</li>
+        </ul>
+
+        <h2 class="mt-5">4. List Group com links ou botões</h2>
+        <p>
+            Em vez de <code>&lt;ul&gt;</code>/<code>&lt;li&gt;</code>, é possível usar
+            <code>&lt;a&gt;</code> ou <code>&lt;button&gt;</code> para criar itens clicáveis, com efeito de
+            hover automático. Para <code>&lt;a&gt;</code>, use <code>.disabled</code> em vez do atributo
+            <code>disabled</code>.
+        </p>
+        <div class="list-group">
+            <a href="#" class="list-group-item list-group-item-action active">Item ativo (link)</a>
+            <a href="#" class="list-group-item list-group-item-action">Segundo item</a>
+            <a href="#" class="list-group-item list-group-item-action">Terceiro item</a>
+            <a href="#" class="list-group-item list-group-item-action disabled">Item desabilitado</a>
+        </div>
+
+        <h2 class="mt-5">5. List Group sem bordas (.list-group-flush)</h2>
+        <p>A classe <code>.list-group-flush</code> remove as bordas externas e os cantos arredondados,
+            útil para colocar a lista dentro de outro componente, como um card.</p>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">Primeiro item</li>
+            <li class="list-group-item">Segundo item</li>
+            <li class="list-group-item">Terceiro item</li>
+        </ul>
+
+        <h2 class="mt-5">6. Cores contextuais</h2>
+        <p>Itens da lista podem receber classes contextuais de cor, como <code>.list-group-item-success</code>,
+            <code>.list-group-item-danger</code>, entre outras.</p>
+        <ul class="list-group">
+            <li class="list-group-item list-group-item-primary">Primary</li>
+            <li class="list-group-item list-group-item-secondary">Secondary</li>
+            <li class="list-group-item list-group-item-success">Success</li>
+            <li class="list-group-item list-group-item-danger">Danger</li>
+            <li class="list-group-item list-group-item-warning">Warning</li>
+            <li class="list-group-item list-group-item-info">Info</li>
+            <li class="list-group-item list-group-item-light">Light</li>
+            <li class="list-group-item list-group-item-dark">Dark</li>
+        </ul>
+
+        <h2 class="mt-5">7. List Group com badges</h2>
+        <p>Combine itens de lista com <code>.badge</code> (usando <code>d-flex</code> para alinhar) para
+            mostrar uma contagem ao lado do texto.</p>
+        <ul class="list-group">
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                Caixa de entrada
+                <span class="badge bg-primary rounded-pill">12</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                Enviados
+                <span class="badge bg-primary rounded-pill">3</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+                Lixeira
+                <span class="badge bg-primary rounded-pill">0</span>
+            </li>
+        </ul>
+
+        <h2 class="mt-5">8. List Group horizontal</h2>
+        <p>A classe <code>.list-group-horizontal</code> exibe os itens lado a lado em vez de empilhados.</p>
+        <ul class="list-group list-group-horizontal">
+            <li class="list-group-item">Primeiro item</li>
+            <li class="list-group-item">Segundo item</li>
+            <li class="list-group-item">Terceiro item</li>
+        </ul>
+
+        <h2 class="mt-5">9. Exemplo prático: menu de navegação</h2>
+        <p>
+            Combinando <code>.list-group</code>, ícones (<a href="https://icons.getbootstrap.com/"
+                target="_blank" rel="noopener">Bootstrap Icons</a>), <code>.active</code>,
+            <code>.disabled</code> e <code>.badge</code>, é possível montar um menu de navegação como o de um
+            aplicativo, com item ativo destacado, contador de notificações e item desabilitado.
+        </p>
+        <div class="list-group rounded-4 overflow-hidden shadow-sm" style="max-width: 400px">
+            <a href="#" class="list-group-item list-group-item-action active d-flex align-items-center gap-3 py-3"
+                style="background-color: #d6336c; border-color: #d6336c">
+                <i class="bi bi-house-door-fill fs-5"></i>
+                <span class="flex-grow-1 fw-semibold">Página inicial</span>
+                <span class="badge rounded-pill border border-white text-white">Ativo</span>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action d-flex align-items-center gap-3 py-3">
+                <i class="bi bi-person fs-5"></i>
+                <span class="flex-grow-1">Perfil</span>
+            </a>
+            <a href="#" class="list-group-item list-group-item-action d-flex align-items-center gap-3 py-3">
+                <i class="bi bi-envelope fs-5"></i>
+                <span class="flex-grow-1">Mensagens</span>
+                <span class="badge rounded-pill" style="background-color: #d6336c">5</span>
+            </a>
+            <a href="#" class="list-group-item disabled d-flex align-items-center gap-3 py-3">
+                <i class="bi bi-gear fs-5"></i>
+                <span class="flex-grow-1">Configurações</span>
+                <small class="text-muted">Desabilitado</small>
+            </a>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Bootstrap 5 Cards Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <style>
+        .card-hover {
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .card-hover:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15) !important;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container-fluid p-5 bg-primary text-white text-center">
+        <h1>Cards do Bootstrap 5</h1>
+        <p>Exemplos de cards flexíveis e reutilizáveis</p>
+    </div>
+
+    <div class="container mt-5">
+
+        <h2>1. Card básico</h2>
+        <p>
+            Um <code>.card</code> é um container flexível composto por <code>.card-body</code>,
+            <code>.card-title</code> e <code>.card-text</code>.
+        </p>
+        <div class="card" style="max-width: 20rem">
+            <div class="card-body">
+                <h5 class="card-title">Título do card</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Subtítulo</h6>
+                <p class="card-text">Um exemplo simples de texto dentro do corpo do card, usado para
+                    complementar o título.</p>
+                <a href="#" class="btn btn-primary">Saiba mais</a>
+            </div>
+        </div>
+
+        <h2 class="mt-5">2. Card com imagem (estilo blog)</h2>
+        <p>Use <code>.card-img-top</code> para uma imagem que ocupa toda a largura do card, geralmente
+            usada no topo, como em um post de blog.</p>
+        <div class="card card-hover shadow-sm" style="max-width: 20rem">
+            <img src="https://picsum.photos/id/1015/600/300" class="card-img-top" alt="Paisagem de montanha">
+            <div class="card-body">
+                <h5 class="card-title">Explorando as montanhas</h5>
+                <p class="card-text">Uma jornada inesquecível pelas trilhas mais bonitas da região, repleta
+                    de paisagens de tirar o fôlego.</p>
+                <p class="card-text"><small class="text-muted">Publicado há 3 dias</small></p>
+                <a href="#" class="btn btn-outline-primary">Ler artigo</a>
+            </div>
+        </div>
+
+        <h2 class="mt-5">3. Card com cabeçalho e rodapé</h2>
+        <p>Adicione <code>.card-header</code> e <code>.card-footer</code> para delimitar seções extras
+            dentro do card.</p>
+        <div class="card" style="max-width: 20rem">
+            <div class="card-header">
+                <i class="bi bi-bell-fill me-2"></i>Notificação
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Atualização disponível</h5>
+                <p class="card-text">Uma nova versão do sistema já pode ser instalada.</p>
+            </div>
+            <div class="card-footer text-muted">
+                Atualizado há 2 horas
+            </div>
+        </div>
+
+        <h2 class="mt-5">4. Card com lista (.list-group)</h2>
+        <p>Um <code>.list-group</code> pode ser inserido dentro do card, entre o cabeçalho e o rodapé, ou
+            no lugar do <code>.card-body</code>.</p>
+        <div class="card" style="max-width: 20rem">
+            <div class="card-header">Plano contratado</div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">10 usuários incluídos</li>
+                <li class="list-group-item">50 GB de armazenamento</li>
+                <li class="list-group-item">Suporte prioritário 24/7</li>
+            </ul>
+            <div class="card-footer">
+                <a href="#" class="btn btn-success w-100">Gerenciar plano</a>
+            </div>
+        </div>
+
+        <h2 class="mt-5">5. Cards coloridos</h2>
+        <p>Combine <code>.text-bg-*</code> com <code>.card</code> para colorir o fundo e ajustar
+            automaticamente a cor do texto.</p>
+        <div class="row g-3">
+            <div class="col-6 col-md-3">
+                <div class="card text-bg-primary">
+                    <div class="card-body">
+                        <h5 class="card-title">Primary</h5>
+                        <p class="card-text">Card com fundo primary.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="card text-bg-success">
+                    <div class="card-body">
+                        <h5 class="card-title">Success</h5>
+                        <p class="card-text">Card com fundo success.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="card text-bg-warning">
+                    <div class="card-body">
+                        <h5 class="card-title">Warning</h5>
+                        <p class="card-text">Card com fundo warning.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="card text-bg-dark">
+                    <div class="card-body">
+                        <h5 class="card-title">Dark</h5>
+                        <p class="card-text">Card com fundo dark.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="mt-5">6. Card com imagem de fundo (overlay)</h2>
+        <p>Use <code>.card-img</code> junto de <code>.card-img-overlay</code> para sobrepor texto diretamente
+            em cima da imagem, útil para banners e destaques.</p>
+        <div class="card text-white" style="max-width: 24rem">
+            <img src="https://picsum.photos/id/1043/700/400" class="card-img" alt="Deserto ao pôr do sol">
+            <div class="card-img-overlay d-flex flex-column justify-content-end"
+                style="background: linear-gradient(to top, rgba(0,0,0,0.75), rgba(0,0,0,0))">
+                <h5 class="card-title">Aventura no deserto</h5>
+                <p class="card-text">Uma experiência única sob o céu estrelado.</p>
+            </div>
+        </div>
+
+        <h2 class="mt-5">7. Grade de produtos</h2>
+        <p>Combinando o sistema de grid (<code>.row-cols-*</code>) com cards, é possível montar uma vitrine
+            de produtos responsiva.</p>
+        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+            <div class="col">
+                <div class="card h-100 card-hover shadow-sm">
+                    <img src="https://picsum.photos/id/119/400/250" class="card-img-top" alt="Produto 1">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Tênis Esportivo</h5>
+                        <p class="card-text text-muted flex-grow-1">Conforto e leveza para o seu dia a dia.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="fw-bold fs-5">R$ 299,90</span>
+                            <button type="button" class="btn btn-primary btn-sm">
+                                <i class="bi bi-cart-plus"></i> Comprar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 card-hover shadow-sm">
+                    <img src="https://picsum.photos/id/175/400/250" class="card-img-top" alt="Produto 2">
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Mochila Urbana</h5>
+                        <p class="card-text text-muted flex-grow-1">Compartimento para notebook e design
+                            resistente à água.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="fw-bold fs-5">R$ 189,00</span>
+                            <button type="button" class="btn btn-primary btn-sm">
+                                <i class="bi bi-cart-plus"></i> Comprar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 card-hover shadow-sm">
+                    <div class="position-relative">
+                        <img src="https://picsum.photos/id/160/400/250" class="card-img-top" alt="Produto 3">
+                        <span class="badge bg-danger position-absolute top-0 end-0 m-2">-20%</span>
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">Relógio Clássico</h5>
+                        <p class="card-text text-muted flex-grow-1">Pulseira em couro legítimo e à prova
+                            d'água.</p>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <span class="fw-bold fs-5">R$ 349,90</span>
+                            <button type="button" class="btn btn-primary btn-sm">
+                                <i class="bi bi-cart-plus"></i> Comprar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="mt-5">8. Cards de preço (Pricing)</h2>
+        <p>Um padrão muito comum para páginas de planos, destacando o plano recomendado com uma borda
+            colorida.</p>
+        <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col">
+                <div class="card h-100 text-center shadow-sm">
+                    <div class="card-header">Básico</div>
+                    <div class="card-body d-flex flex-column">
+                        <h2 class="card-title">R$ 19<small class="text-muted fs-6">/mês</small></h2>
+                        <ul class="list-unstyled my-4">
+                            <li>1 usuário</li>
+                            <li>5 GB de armazenamento</li>
+                            <li>Suporte por e-mail</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary mt-auto">Assinar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 text-center border-primary shadow">
+                    <div class="card-header bg-primary text-white">
+                        Profissional <span class="badge bg-light text-primary ms-1">Popular</span>
+                    </div>
+                    <div class="card-body d-flex flex-column">
+                        <h2 class="card-title">R$ 49<small class="text-muted fs-6">/mês</small></h2>
+                        <ul class="list-unstyled my-4">
+                            <li>10 usuários</li>
+                            <li>50 GB de armazenamento</li>
+                            <li>Suporte prioritário</li>
+                        </ul>
+                        <a href="#" class="btn btn-primary mt-auto">Assinar</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card h-100 text-center shadow-sm">
+                    <div class="card-header">Empresarial</div>
+                    <div class="card-body d-flex flex-column">
+                        <h2 class="card-title">R$ 99<small class="text-muted fs-6">/mês</small></h2>
+                        <ul class="list-unstyled my-4">
+                            <li>Usuários ilimitados</li>
+                            <li>500 GB de armazenamento</li>
+                            <li>Suporte 24/7 dedicado</li>
+                        </ul>
+                        <a href="#" class="btn btn-outline-primary mt-auto">Assinar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="mt-5">9. Card de perfil</h2>
+        <p>Combinando imagem circular, ícones e alinhamento centralizado, um card também pode exibir um
+            perfil de usuário.</p>
+        <div class="card text-center shadow-sm" style="max-width: 20rem">
+            <div class="card-body">
+                <img src="https://picsum.photos/id/1025/120/120" class="rounded-circle mb-3"
+                    alt="Foto de perfil">
+                <h5 class="card-title mb-0">Ana Oliveira</h5>
+                <p class="text-muted">Desenvolvedora Front-end</p>
+                <div class="d-flex justify-content-center gap-3 mb-3">
+                    <a href="#" class="text-dark fs-5" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+                    <a href="#" class="text-dark fs-5" aria-label="GitHub"><i class="bi bi-github"></i></a>
+                    <a href="#" class="text-dark fs-5" aria-label="Twitter/X"><i class="bi bi-twitter-x"></i></a>
+                </div>
+                <a href="#" class="btn btn-primary">Seguir</a>
+                <a href="#" class="btn btn-outline-secondary">Mensagem</a>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Bootstrap 5 Badges Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container-fluid p-5 bg-primary text-white text-center">
+        <h1>Badges do Bootstrap 5</h1>
+        <p>Exemplos de pequenos rótulos de contagem e notificação</p>
+    </div>
+
+    <div class="container mt-5">
+
+        <h2>1. Badge básico (.badge)</h2>
+        <p>A classe <code>.badge</code> cria um pequeno rótulo, geralmente usado junto de outro elemento
+            para destacar uma contagem ou uma nova informação.</p>
+        <span class="badge bg-primary">Novo</span>
+
+        <h2 class="mt-5">2. Cores contextuais</h2>
+        <p>Combine <code>.badge</code> com uma das classes de fundo (<code>.bg-primary</code>,
+            <code>.bg-secondary</code>, <code>.bg-success</code>, <code>.bg-danger</code>,
+            <code>.bg-warning</code>, <code>.bg-info</code>, <code>.bg-light</code> e <code>.bg-dark</code>)
+            para colorir o badge de acordo com o contexto.</p>
+        <span class="badge bg-primary">Primary</span>
+        <span class="badge bg-secondary">Secondary</span>
+        <span class="badge bg-success">Success</span>
+        <span class="badge bg-danger">Danger</span>
+        <span class="badge bg-warning text-dark">Warning</span>
+        <span class="badge bg-info text-dark">Info</span>
+        <span class="badge bg-light text-dark">Light</span>
+        <span class="badge bg-dark">Dark</span>
+
+        <h2 class="mt-5">3. Badges arredondados (.rounded-pill)</h2>
+        <p>Adicione a classe <code>.rounded-pill</code> para deixar as bordas do badge totalmente
+            arredondadas, no formato de "pílula".</p>
+        <span class="badge rounded-pill bg-primary">Primary</span>
+        <span class="badge rounded-pill bg-success">Success</span>
+        <span class="badge rounded-pill bg-danger">Danger</span>
+        <span class="badge rounded-pill bg-warning text-dark">Warning</span>
+        <span class="badge rounded-pill bg-info text-dark">Info</span>
+
+        <h2 class="mt-5">4. Badges em títulos</h2>
+        <p>Badges podem ser usados dentro de qualquer título para indicar uma contagem ou um status
+            relacionado.</p>
+        <h1>Título h1 <span class="badge bg-secondary">Novo</span></h1>
+        <h2>Título h2 <span class="badge bg-secondary">Novo</span></h2>
+        <h3>Título h3 <span class="badge bg-secondary">Novo</span></h3>
+        <h4>Título h4 <span class="badge bg-secondary">Novo</span></h4>
+        <h5>Título h5 <span class="badge bg-secondary">Novo</span></h5>
+
+        <h2 class="mt-5">5. Badges em botões</h2>
+        <p>Badges também podem ser usados dentro de botões, geralmente para mostrar uma contagem
+            (por exemplo, mensagens não lidas).</p>
+        <button type="button" class="btn btn-primary">
+            Mensagens <span class="badge bg-light text-dark">4</span>
+        </button>
+        <button type="button" class="btn btn-secondary">
+            Notificações <span class="badge bg-danger">9</span>
+        </button>
+
+        <h2 class="mt-5">6. Badges posicionados (indicador de notificação)</h2>
+        <p>
+            Com as classes utilitárias de posição (<code>.position-absolute</code>,
+            <code>.top-0</code>, <code>.start-100</code> e <code>.translate-middle</code>), é possível criar
+            um indicador de notificação sobreposto a outro elemento, como um ícone ou um botão.
+        </p>
+        <button type="button" class="btn btn-primary position-relative">
+            Caixa de entrada
+            <span
+                class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                12
+                <span class="visually-hidden">mensagens não lidas</span>
+            </span>
+        </button>
+
+        <button type="button" class="btn btn-secondary position-relative ms-4">
+            Carrinho
+            <span
+                class="position-absolute top-0 start-100 translate-middle p-2 bg-success border border-light rounded-circle">
+                <span class="visually-hidden">novos itens</span>
+            </span>
+        </button>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

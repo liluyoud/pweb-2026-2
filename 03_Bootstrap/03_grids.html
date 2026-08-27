@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Bootstrap 5 Grid Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container-fluid p-5 bg-primary text-white text-center">
+        <h1>Sistema de Grid do Bootstrap 5</h1>
+        <p>Exemplos de como organizar o conteúdo usando linhas (row) e colunas (col)</p>
+    </div>
+
+    <div class="container mt-5">
+
+        <h2>1. Colunas de largura igual</h2>
+        <p>Quando não especificamos um número, o Bootstrap divide o espaço igualmente entre as colunas.</p>
+        <div class="row">
+            <div class="col bg-light border p-3">Coluna 1</div>
+            <div class="col bg-light border p-3">Coluna 2</div>
+            <div class="col bg-light border p-3">Coluna 3</div>
+        </div>
+
+        <h2 class="mt-5">2. Colunas com largura definida (base 12)</h2>
+        <p>O grid do Bootstrap é dividido em 12 colunas. Podemos combinar tamanhos que somem 12.</p>
+        <div class="row">
+            <div class="col-4 bg-info text-white border p-3">col-4</div>
+            <div class="col-4 bg-info text-white border p-3">col-4</div>
+            <div class="col-4 bg-info text-white border p-3">col-4</div>
+        </div>
+        <div class="row mt-2">
+            <div class="col-8 bg-secondary text-white border p-3">col-8</div>
+            <div class="col-4 bg-secondary text-white border p-3">col-4</div>
+        </div>
+
+        <h2 class="mt-5">3. Grid responsivo (breakpoints)</h2>
+        <p>Redimensione a janela do navegador para ver as colunas se ajustando em telas pequenas, médias e grandes.</p>
+        <div class="row">
+            <div class="col-sm-6 col-md-4 col-lg-3 bg-success text-white border p-3">
+                col-sm-6 col-md-4 col-lg-3
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3 bg-success text-white border p-3">
+                col-sm-6 col-md-4 col-lg-3
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3 bg-success text-white border p-3">
+                col-sm-6 col-md-4 col-lg-3
+            </div>
+            <div class="col-sm-6 col-md-4 col-lg-3 bg-success text-white border p-3">
+                col-sm-6 col-md-4 col-lg-3
+            </div>
+        </div>
+
+        <h2 class="mt-5">4. Deslocamento de colunas (offset)</h2>
+        <p>A classe <code>offset</code> adiciona um espaço vazio antes da coluna.</p>
+        <div class="row">
+            <div class="col-4 bg-warning border p-3">col-4</div>
+            <div class="col-4 offset-4 bg-warning border p-3">col-4 offset-4</div>
+        </div>
+
+        <h2 class="mt-5">5. Colunas aninhadas (nesting)</h2>
+        <p>É possível colocar uma nova linha (row) dentro de uma coluna para criar sub-colunas.</p>
+        <div class="row">
+            <div class="col-8 bg-light border p-3">
+                Coluna principal (col-8)
+                <div class="row mt-2">
+                    <div class="col-6 bg-danger text-white border p-2">Sub-coluna 1</div>
+                    <div class="col-6 bg-danger text-white border p-2">Sub-coluna 2</div>
+                </div>
+            </div>
+            <div class="col-4 bg-light border p-3">
+                Coluna lateral (col-4)
+            </div>
+        </div>
+
+        <h2 class="mt-5 mb-4">6. Alinhamento e ordem das colunas</h2>
+        <p>Use classes utilitárias como <code>order</code> e <code>align-items-center</code> para controlar o
+            posicionamento.</p>
+        <div class="row align-items-center" style="min-height: 100px;">
+            <div class="col bg-dark text-white border p-3 order-3">Primeiro no código, mas exibido por último (order-3)</div>
+            <div class="col bg-dark text-white border p-3 order-1">Exibido primeiro (order-1)</div>
+            <div class="col bg-dark text-white border p-3 order-2">Exibido no meio (order-2)</div>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

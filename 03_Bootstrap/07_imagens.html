@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Bootstrap 5 Imagens Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container-fluid p-5 bg-primary text-white text-center">
+        <h1>Imagens do Bootstrap 5</h1>
+        <p>Exemplos de classes utilitárias para tratar imagens</p>
+    </div>
+
+    <div class="container mt-5">
+
+        <h2>1. Imagem responsiva (.img-fluid)</h2>
+        <p>A classe <code>.img-fluid</code> aplica <code>max-width: 100%</code> e <code>height: auto</code> à
+            imagem, fazendo com que ela se ajuste ao tamanho do elemento pai (útil para telas de todos os
+            tamanhos).</p>
+        <img src="https://picsum.photos/id/1015/1200/500" class="img-fluid" alt="Paisagem de montanha">
+
+        <h2 class="mt-5">2. Miniaturas (.img-thumbnail)</h2>
+        <p>A classe <code>.img-thumbnail</code> adiciona uma borda arredondada e um leve espaçamento ao redor
+            da imagem, como se fosse uma moldura.</p>
+        <img src="https://picsum.photos/id/1025/300/300" class="img-thumbnail" alt="Cachorro">
+
+        <h2 class="mt-5">3. Formas de imagem</h2>
+        <p>
+            O Bootstrap possui classes utilitárias para dar formas diferentes às imagens: <code>.rounded</code>
+            (cantos arredondados), <code>.rounded-circle</code> (círculo) e <code>.shadow</code> (sombra).
+        </p>
+        <div class="d-flex flex-wrap gap-4 align-items-center">
+            <figure class="text-center">
+                <img src="https://picsum.photos/id/1035/200/200" class="rounded" alt="Floresta">
+                <figcaption><code>.rounded</code></figcaption>
+            </figure>
+            <figure class="text-center">
+                <img src="https://picsum.photos/id/1041/200/200" class="rounded-circle" alt="Neve">
+                <figcaption><code>.rounded-circle</code></figcaption>
+            </figure>
+            <figure class="text-center">
+                <img src="https://picsum.photos/id/1043/200/200" class="rounded shadow" alt="Deserto">
+                <figcaption><code>.rounded .shadow</code></figcaption>
+            </figure>
+        </div>
+
+        <h2 class="mt-5">4. Alinhamento de imagens</h2>
+        <p>
+            Imagens podem ser alinhadas com classes de <code>float</code>, com <code>.mx-auto</code> junto de
+            <code>.d-block</code> (centralizar) ou com classes de texto como <code>.text-center</code>.
+        </p>
+
+        <p><strong>Alinhamento à esquerda (.float-start)</strong></p>
+        <div class="clearfix mb-3">
+            <img src="https://picsum.photos/id/1050/150/150" class="float-start me-3" alt="Barco">
+            <p>Texto ao redor da imagem alinhada à esquerda. Suspendisse eget felis non magna finibus
+                sodales. Curabitur vel nibh at nulla congue tincidunt. Aliquam erat volutpat. Donec sed
+                sagittis lorem, at sollicitudin nunc.</p>
+        </div>
+
+        <p><strong>Alinhamento à direita (.float-end)</strong></p>
+        <div class="clearfix mb-3">
+            <img src="https://picsum.photos/id/1060/150/150" class="float-end ms-3" alt="Árvores">
+            <p>Texto ao redor da imagem alinhada à direita. Suspendisse eget felis non magna finibus
+                sodales. Curabitur vel nibh at nulla congue tincidunt. Aliquam erat volutpat. Donec sed
+                sagittis lorem, at sollicitudin nunc.</p>
+        </div>
+
+        <p><strong>Centralizada (.mx-auto .d-block)</strong></p>
+        <img src="https://picsum.photos/id/1074/300/200" class="mx-auto d-block rounded" alt="Cachorro na grama">
+
+        <h2 class="mt-5">5. Componente Figure</h2>
+        <p>
+            O componente <code>&lt;figure&gt;</code> combina uma imagem (<code>.figure-img</code>) com uma
+            legenda (<code>.figure-caption</code>), útil para mostrar imagens com uma descrição.
+        </p>
+        <figure class="figure">
+            <img src="https://picsum.photos/id/1084/500/300" class="figure-img img-fluid rounded" alt="Cachoeira">
+            <figcaption class="figure-caption">Uma bela cachoeira em meio à natureza.</figcaption>
+        </figure>
+
+        <h2 class="mt-5">6. Galeria responsiva</h2>
+        <p>Combinando o sistema de grid com <code>.img-fluid</code> é possível montar uma galeria de imagens
+            que se adapta ao tamanho da tela.</p>
+        <div class="row g-3">
+            <div class="col-6 col-md-3">
+                <img src="https://picsum.photos/id/1011/400/400" class="img-fluid rounded" alt="Foto 1">
+            </div>
+            <div class="col-6 col-md-3">
+                <img src="https://picsum.photos/id/1012/400/400" class="img-fluid rounded" alt="Foto 2">
+            </div>
+            <div class="col-6 col-md-3">
+                <img src="https://picsum.photos/id/1013/400/400" class="img-fluid rounded" alt="Foto 3">
+            </div>
+            <div class="col-6 col-md-3">
+                <img src="https://picsum.photos/id/1014/400/400" class="img-fluid rounded" alt="Foto 4">
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

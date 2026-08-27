@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Bootstrap 5 Button Groups Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container-fluid p-5 bg-primary text-white text-center">
+        <h1>Grupos de Botões do Bootstrap 5</h1>
+        <p>Exemplos de como agrupar botões relacionados</p>
+    </div>
+
+    <div class="container mt-5">
+
+        <h2>1. Grupo de botões básico (.btn-group)</h2>
+        <p>Use um elemento <code>&lt;div&gt;</code> com a classe <code>.btn-group</code> para criar um grupo
+            de botões.</p>
+        <div class="btn-group" role="group" aria-label="Grupo básico">
+            <button type="button" class="btn btn-primary">Esquerda</button>
+            <button type="button" class="btn btn-primary">Meio</button>
+            <button type="button" class="btn btn-primary">Direita</button>
+        </div>
+
+        <h2 class="mt-5">2. Tamanhos do grupo de botões</h2>
+        <p>
+            Em vez de aplicar o tamanho a cada botão do grupo individualmente, use a classe
+            <code>.btn-group-lg</code> no próprio grupo para um grupo grande, ou <code>.btn-group-sm</code>
+            para um grupo pequeno.
+        </p>
+        <div class="btn-group btn-group-lg mb-2" role="group" aria-label="Grupo grande">
+            <button type="button" class="btn btn-secondary">Esquerda</button>
+            <button type="button" class="btn btn-secondary">Meio</button>
+            <button type="button" class="btn btn-secondary">Direita</button>
+        </div>
+        <br>
+        <div class="btn-group" role="group" aria-label="Grupo padrão">
+            <button type="button" class="btn btn-secondary">Esquerda</button>
+            <button type="button" class="btn btn-secondary">Meio</button>
+            <button type="button" class="btn btn-secondary">Direita</button>
+        </div>
+        <br>
+        <div class="btn-group btn-group-sm mt-2" role="group" aria-label="Grupo pequeno">
+            <button type="button" class="btn btn-secondary">Esquerda</button>
+            <button type="button" class="btn btn-secondary">Meio</button>
+            <button type="button" class="btn btn-secondary">Direita</button>
+        </div>
+
+        <h2 class="mt-5">3. Grupos de botões verticais</h2>
+        <p>O Bootstrap 5 também suporta grupos de botões verticais. Use a classe
+            <code>.btn-group-vertical</code> para criar um grupo de botões vertical.</p>
+        <div class="btn-group-vertical" role="group" aria-label="Grupo vertical">
+            <button type="button" class="btn btn-primary">Botão 1</button>
+            <button type="button" class="btn btn-primary">Botão 2</button>
+            <button type="button" class="btn btn-primary">Botão 3</button>
+        </div>
+
+        <h2 class="mt-5">4. Barra de ferramentas (.btn-toolbar)</h2>
+        <p>Vários grupos de botões podem ser combinados em uma barra de ferramentas usando a classe
+            <code>.btn-toolbar</code>, útil para agrupar controles relacionados, como em um editor.</p>
+        <div class="btn-toolbar" role="toolbar" aria-label="Barra de ferramentas">
+            <div class="btn-group me-2" role="group" aria-label="Primeiro grupo">
+                <button type="button" class="btn btn-outline-dark">1</button>
+                <button type="button" class="btn btn-outline-dark">2</button>
+                <button type="button" class="btn btn-outline-dark">3</button>
+            </div>
+            <div class="btn-group me-2" role="group" aria-label="Segundo grupo">
+                <button type="button" class="btn btn-outline-dark">4</button>
+                <button type="button" class="btn btn-outline-dark">5</button>
+            </div>
+            <div class="btn-group" role="group" aria-label="Terceiro grupo">
+                <button type="button" class="btn btn-outline-dark">6</button>
+            </div>
+        </div>
+
+        <h2 class="mt-5">5. Grupo com dropdown</h2>
+        <p>Um grupo de botões também pode conter um menu suspenso, combinando <code>.btn-group</code> com um
+            botão <code>.dropdown-toggle</code>.</p>
+        <div class="btn-group" role="group">
+            <button type="button" class="btn btn-success">Botão 1</button>
+            <button type="button" class="btn btn-success">Botão 2</button>
+            <div class="btn-group" role="group">
+                <button type="button" class="btn btn-success dropdown-toggle" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Mais opções
+                </button>
+                <ul class="dropdown-menu">
+                    <li><a class="dropdown-item" href="#">Opção 1</a></li>
+                    <li><a class="dropdown-item" href="#">Opção 2</a></li>
+                    <li><a class="dropdown-item" href="#">Opção 3</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Bootstrap 5 Cores Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container-fluid p-5 bg-primary text-white text-center">
+        <h1>Cores do Bootstrap 5</h1>
+        <p>Exemplos de classes contextuais de cor para texto, fundo e a combinação dos dois</p>
+    </div>
+
+    <div class="container mt-5">
+
+        <h2>1. Cores de texto (.text-color)</h2>
+        <p>
+            O Bootstrap 5 possui classes contextuais que dão "significado através de cores". As classes de
+            cor de texto são: <code>.text-muted</code>, <code>.text-primary</code>, <code>.text-success</code>,
+            <code>.text-info</code>, <code>.text-warning</code>, <code>.text-danger</code>,
+            <code>.text-secondary</code>, <code>.text-white</code>, <code>.text-dark</code>,
+            <code>.text-body</code> e <code>.text-light</code>.
+        </p>
+        <p class="text-muted">.text-muted</p>
+        <p class="text-primary">.text-primary</p>
+        <p class="text-success">.text-success</p>
+        <p class="text-info">.text-info</p>
+        <p class="text-warning">.text-warning</p>
+        <p class="text-danger">.text-danger</p>
+        <p class="text-secondary">.text-secondary</p>
+        <p class="text-white bg-dark">.text-white (com fundo escuro para ficar visível)</p>
+        <p class="text-dark">.text-dark</p>
+        <p class="text-body">.text-body (cor padrão do corpo do texto)</p>
+        <p class="text-light bg-dark">.text-light (com fundo escuro para ficar visível)</p>
+
+        <h2 class="mt-5">2. Cores de fundo (.bg-color)</h2>
+        <p>
+            As classes de cor de fundo são: <code>.bg-primary</code>, <code>.bg-success</code>,
+            <code>.bg-info</code>, <code>.bg-warning</code>, <code>.bg-danger</code>,
+            <code>.bg-secondary</code>, <code>.bg-dark</code> e <code>.bg-light</code>.
+        </p>
+        <p>
+            As classes <code>.bg-color</code> acima não funcionam muito bem com texto, ou pelo menos é
+            preciso especificar uma classe <code>.text-color</code> adequada para obter a cor de texto
+            correta em cada fundo.
+        </p>
+        <p class="bg-primary text-white p-2">.bg-primary</p>
+        <p class="bg-success text-white p-2">.bg-success</p>
+        <p class="bg-info text-dark p-2">.bg-info</p>
+        <p class="bg-warning text-dark p-2">.bg-warning</p>
+        <p class="bg-danger text-white p-2">.bg-danger</p>
+        <p class="bg-secondary text-white p-2">.bg-secondary</p>
+        <p class="bg-dark text-white p-2">.bg-dark</p>
+        <p class="bg-light text-dark p-2">.bg-light</p>
+
+        <h2 class="mt-5">3. Cores de fundo com texto automático (.text-bg-color)</h2>
+        <p>
+            Usando as classes <code>.text-bg-color</code>, o Bootstrap cuida automaticamente da cor de
+            texto correta para cada cor de fundo, sem precisar combinar manualmente com uma classe
+            <code>.text-color</code>.
+        </p>
+        <p class="text-bg-primary p-2">.text-bg-primary</p>
+        <p class="text-bg-success p-2">.text-bg-success</p>
+        <p class="text-bg-info p-2">.text-bg-info</p>
+        <p class="text-bg-warning p-2">.text-bg-warning</p>
+        <p class="text-bg-danger p-2">.text-bg-danger</p>
+        <p class="text-bg-secondary p-2">.text-bg-secondary</p>
+        <p class="text-bg-dark p-2">.text-bg-dark</p>
+        <p class="text-bg-light p-2">.text-bg-light</p>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

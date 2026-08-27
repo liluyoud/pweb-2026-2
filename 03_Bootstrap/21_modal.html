@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Bootstrap 5 Modal Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container-fluid p-5 bg-primary text-white text-center">
+        <h1>Modal do Bootstrap 5</h1>
+        <p>Exemplos de janelas de diálogo sobrepostas</p>
+    </div>
+
+    <div class="container mt-5 pb-5">
+
+        <h2>1. Modal básico</h2>
+        <p>
+            Um botão com <code>data-bs-toggle="modal"</code> apontando via <code>data-bs-target</code> para
+            o <code>id</code> do <code>.modal</code> o abre. A estrutura interna usa
+            <code>.modal-dialog</code> &gt; <code>.modal-content</code> &gt; <code>.modal-header</code>,
+            <code>.modal-body</code> e <code>.modal-footer</code>.
+        </p>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalBasico">
+            Abrir modal
+        </button>
+        <div class="modal fade" id="modalBasico" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Título do modal</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Fechar"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Este é o conteúdo básico de um modal do Bootstrap 5.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-primary">Salvar alterações</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="mt-5">2. Tamanhos do modal</h2>
+        <p>Use <code>.modal-sm</code>, <code>.modal-lg</code> ou <code>.modal-xl</code> em
+            <code>.modal-dialog</code> para controlar a largura da janela.</p>
+        <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+            data-bs-target="#modalPequeno">Pequeno</button>
+        <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+            data-bs-target="#modalGrande">Grande</button>
+        <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+            data-bs-target="#modalExtraGrande">Extra grande</button>
+
+        <div class="modal fade" id="modalPequeno" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-sm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Modal pequeno</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Fechar"></button>
+                    </div>
+                    <div class="modal-body">Conteúdo compacto (.modal-sm).</div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="modalGrande" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Modal grande</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Fechar"></button>
+                    </div>
+                    <div class="modal-body">Conteúdo com mais espaço (.modal-lg).</div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="modalExtraGrande" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Modal extra grande</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Fechar"></button>
+                    </div>
+                    <div class="modal-body">Conteúdo com largura máxima (.modal-xl).</div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="mt-5">3. Modal centralizado verticalmente</h2>
+        <p>Adicione <code>.modal-dialog-centered</code> para que o modal apareça centralizado na tela, em
+            vez de fixado no topo.</p>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalCentralizado">
+            Abrir centralizado
+        </button>
+        <div class="modal fade" id="modalCentralizado" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Modal centralizado</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Fechar"></button>
+                    </div>
+                    <div class="modal-body">Este modal fica centralizado verticalmente na tela.</div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="mt-5">4. Modal com rolagem (.modal-dialog-scrollable)</h2>
+        <p>Quando o conteúdo é muito longo, <code>.modal-dialog-scrollable</code> mantém o cabeçalho e o
+            rodapé fixos enquanto apenas o corpo rola.</p>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalRolagem">
+            Abrir com rolagem
+        </button>
+        <div class="modal fade" id="modalRolagem" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Termos de uso</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Fechar"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Parágrafo 1: conteúdo longo de exemplo para demonstrar a rolagem interna do
+                            modal.</p>
+                        <p>Parágrafo 2: continue rolando para ver o cabeçalho e o rodapé permanecerem
+                            fixos.</p>
+                        <p>Parágrafo 3: mais texto de exemplo.</p>
+                        <p>Parágrafo 4: mais texto de exemplo.</p>
+                        <p>Parágrafo 5: mais texto de exemplo.</p>
+                        <p>Parágrafo 6: mais texto de exemplo.</p>
+                        <p>Parágrafo 7: mais texto de exemplo.</p>
+                        <p>Parágrafo 8: fim do conteúdo de exemplo.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Recusar</button>
+                        <button type="button" class="btn btn-primary">Aceitar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="mt-5">5. Backdrop estático</h2>
+        <p>
+            Com <code>data-bs-backdrop="static"</code> o modal não fecha ao clicar fora dele — só pelo botão
+            de fechar. Útil para ações importantes que exigem uma resposta explícita.
+        </p>
+        <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#modalEstatico">
+            Abrir (não fecha ao clicar fora)
+        </button>
+        <div class="modal fade" id="modalEstatico" data-bs-backdrop="static" data-bs-keyboard="false"
+            tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Ação obrigatória</h5>
+                    </div>
+                    <div class="modal-body">
+                        Clique fora ou pressione Esc não vai fechar este modal — apenas o botão abaixo.
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Entendi</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="mt-5">6. Modal em tela cheia (.modal-fullscreen)</h2>
+        <p>Ocupa 100% da largura e altura da janela, ideal para conteúdos imersivos em qualquer
+            tamanho de tela.</p>
+        <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalTelaCheia">
+            Abrir em tela cheia
+        </button>
+        <div class="modal fade" id="modalTelaCheia" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Modal em tela cheia</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Fechar"></button>
+                    </div>
+                    <div class="modal-body d-flex align-items-center justify-content-center">
+                        <p class="fs-4 text-muted">Conteúdo ocupando 100% da tela.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="mt-5">7. Modal com formulário</h2>
+        <p>Modais são muito usados para formulários rápidos, como cadastro ou login, sem precisar sair da
+            página atual.</p>
+        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalFormulario">
+            <i class="bi bi-person-plus me-1"></i>Novo contato
+        </button>
+        <div class="modal fade" id="modalFormulario" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Novo contato</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Fechar"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="contatoNome" class="form-label">Nome</label>
+                                <input type="text" class="form-control" id="contatoNome"
+                                    placeholder="Nome completo">
+                            </div>
+                            <div class="mb-3">
+                                <label for="contatoEmail" class="form-label">E-mail</label>
+                                <input type="email" class="form-control" id="contatoEmail"
+                                    placeholder="voce@email.com">
+                            </div>
+                            <div class="mb-0">
+                                <label for="contatoTelefone" class="form-label">Telefone</label>
+                                <input type="tel" class="form-control" id="contatoTelefone"
+                                    placeholder="(00) 00000-0000">
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-success">Salvar contato</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="mt-5">8. Modal de confirmação (exclusão)</h2>
+        <p>Um padrão muito comum para confirmar ações destrutivas antes de executá-las de fato.</p>
+        <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#modalExcluir">
+            <i class="bi bi-trash me-1"></i>Excluir item
+        </button>
+        <div class="modal fade" id="modalExcluir" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-body text-center p-4">
+                        <i class="bi bi-exclamation-triangle-fill text-danger display-4"></i>
+                        <h5 class="mt-3">Tem certeza que deseja excluir?</h5>
+                        <p class="text-muted">Esta ação não pode ser desfeita.</p>
+                        <div class="d-flex justify-content-center gap-2 mt-4">
+                            <button type="button" class="btn btn-outline-secondary"
+                                data-bs-dismiss="modal">Cancelar</button>
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Sim, excluir</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h2 class="mt-5">9. Exemplo prático: visualização de produto</h2>
+        <p>Combinando imagem, preço e botão de ação, um modal também pode funcionar como uma visualização
+            rápida de produto em uma loja.</p>
+        <div class="card card-hover shadow-sm" style="max-width: 16rem">
+            <img src="https://picsum.photos/id/119/400/250" class="card-img-top" alt="Tênis esportivo">
+            <div class="card-body">
+                <h5 class="card-title">Tênis Esportivo</h5>
+                <p class="fw-bold mb-2">R$ 299,90</p>
+                <button type="button" class="btn btn-primary w-100" data-bs-toggle="modal"
+                    data-bs-target="#modalProduto">
+                    Visualização rápida
+                </button>
+            </div>
+        </div>
+        <div class="modal fade" id="modalProduto" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Tênis Esportivo</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Fechar"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row g-4">
+                            <div class="col-md-6">
+                                <img src="https://picsum.photos/id/119/500/400" class="img-fluid rounded"
+                                    alt="Tênis esportivo">
+                            </div>
+                            <div class="col-md-6">
+                                <h4 class="fw-bold">R$ 299,90</h4>
+                                <div class="text-warning mb-2">★★★★☆ <span class="text-muted">(128
+                                        avaliações)</span></div>
+                                <p class="text-muted">Conforto e leveza para o seu dia a dia, com solado de
+                                    alta aderência e material respirável.</p>
+                                <div class="d-grid">
+                                    <button type="button" class="btn btn-success">
+                                        <i class="bi bi-cart-plus me-1"></i>Adicionar ao carrinho
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
