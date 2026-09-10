@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atividade 6 - Validação de Formulário</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    #enunciado {
+      background-color: #fff8dc;
+      border: 1px solid #e0c66b;
+      border-radius: 8px;
+      padding: 15px 20px;
+      margin-bottom: 25px;
+    }
+
+    label {
+      display: block;
+      margin-top: 12px;
+      font-weight: bold;
+    }
+
+    input {
+      padding: 6px;
+      margin-top: 4px;
+      width: 250px;
+    }
+
+    input:valid {
+      border-color: green;
+    }
+
+    input:invalid {
+      border-color: red;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 8px 14px;
+      cursor: pointer;
+    }
+
+    #resultado {
+      margin-top: 10px;
+      font-weight: bold;
+      color: darkgreen;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="enunciado">
+    <h2>Atividade 6: Validação de Formulário</h2>
+    <p>Duas partes:</p>
+    <ol>
+      <li><strong>HTML:</strong> adicione os atributos que faltam nos campos abaixo:
+        <ul>
+          <li>Campo "nome": adicionar <code>required</code></li>
+          <li>Campo "idade": adicionar <code>min="1"</code> e <code>max="120"</code></li>
+        </ul>
+      </li>
+      <li><strong>JavaScript:</strong> complete a função <code>validar()</code>, chamada no evento
+        "submit" do formulário, usando <code>campo.checkValidity()</code> para verificar se o
+        formulário inteiro é válido. Se for válido, mostre "Formulário válido!"; senão, mostre
+        "Formulário inválido!" na div de resultado.</li>
+    </ol>
+  </div>
+
+  <form id="formulario" novalidate>
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" name="nome">
+
+    <label for="idade">Idade:</label>
+    <input type="number" id="idade" name="idade">
+
+    <button type="submit">Enviar</button>
+  </form>
+
+  <div id="resultado">Resultado aparecerá aqui...</div>
+
+  <script>
+    const formulario = document.getElementById("formulario");
+    const resultado = document.getElementById("resultado");
+
+    formulario.addEventListener("submit", function (evento) {
+      evento.preventDefault();
+      validar();
+    });
+
+    function validar() {
+      // TODO: usar formulario.checkValidity() para saber se o formulário é válido
+      // TODO: mostrar o resultado em resultado.textContent
+    }
+  </script>
+
+</body>
+
+</html>

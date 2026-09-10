@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atividade 3 - Atributos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    #enunciado {
+      background-color: #fff8dc;
+      border: 1px solid #e0c66b;
+      border-radius: 8px;
+      padding: 15px 20px;
+      margin-bottom: 25px;
+    }
+
+    button {
+      margin: 5px;
+      padding: 8px 14px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="enunciado">
+    <h2>Atividade 3: Acessando e Alterando Atributos</h2>
+    <p>Complete as 3 funções abaixo:</p>
+    <ol>
+      <li><strong>mudarLink()</strong>: usando <code>element.attribute</code>, mude o <code>href</code>
+        do link para "https://developer.mozilla.org".</li>
+      <li><strong>mudarEstilo()</strong>: usando <code>element.style.property</code>, mude o fundo do
+        parágrafo para verde claro (lightgreen) e o tamanho da fonte para 20px.</li>
+      <li><strong>criarAtributo()</strong>: usando <code>setAttribute()</code>, crie um novo atributo
+        <code>title</code> na imagem com o texto "Minha imagem".</li>
+    </ol>
+  </div>
+
+  <a id="link" href="https://www.w3schools.com">Link de exemplo</a>
+  <br><br>
+  <p id="paragrafo">Este parágrafo vai mudar de estilo.</p>
+  <img id="imagem" src="https://placehold.co/120" alt="Imagem de exemplo" width="120">
+
+  <br><br>
+  <button type="button" onclick="mudarLink()">1. Mudar href do link</button>
+  <button type="button" onclick="mudarEstilo()">2. Mudar estilo do parágrafo</button>
+  <button type="button" onclick="criarAtributo()">3. Criar atributo title</button>
+
+  <script>
+    function mudarLink() {
+      // TODO: document.getElementById("link").href = "..."
+    }
+
+    function mudarEstilo() {
+      // TODO: mudar paragrafo.style.backgroundColor e paragrafo.style.fontSize
+    }
+
+    function criarAtributo() {
+      // TODO: usar imagem.setAttribute("title", "Minha imagem")
+    }
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atividade 9 - Load Events</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    #enunciado {
+      background-color: #fff8dc;
+      border: 1px solid #e0c66b;
+      border-radius: 8px;
+      padding: 15px 20px;
+      margin-bottom: 25px;
+    }
+
+    #log {
+      margin-top: 15px;
+      list-style: none;
+      padding: 0;
+    }
+
+    #log li {
+      padding: 6px 10px;
+      border-bottom: 1px solid #eee;
+      font-family: monospace;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="enunciado">
+    <h2>Atividade 9: DOMContentLoaded x window load</h2>
+    <p>Complete o script no final da página:</p>
+    <ol>
+      <li>Adicione um listener para o evento <code>DOMContentLoaded</code> no <code>document</code>
+        que adicione a mensagem "DOM pronto!" no log.</li>
+      <li>Adicione um listener para o evento <code>load</code> na <code>window</code> que adicione a
+        mensagem "Página totalmente carregada!" no log.</li>
+      <li>Observe qual mensagem aparece primeiro no log.</li>
+    </ol>
+  </div>
+
+  <img id="imagem" src="https://picsum.photos/400/200?random=2" alt="Imagem de exemplo">
+
+  <ul id="log"></ul>
+
+  <script>
+    function adicionarAoLog(mensagem) {
+      const item = document.createElement("li");
+      item.textContent = mensagem;
+      document.getElementById("log").appendChild(item);
+    }
+
+    // TODO: document.addEventListener("DOMContentLoaded", function () { adicionarAoLog("DOM pronto!"); });
+
+    // TODO: window.addEventListener("load", function () { adicionarAoLog("Página totalmente carregada!"); });
+  </script>
+
+</body>
+
+</html>

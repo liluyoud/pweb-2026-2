@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atividade 2 - Seleção de Elementos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    #enunciado {
+      background-color: #fff8dc;
+      border: 1px solid #e0c66b;
+      border-radius: 8px;
+      padding: 15px 20px;
+      margin-bottom: 25px;
+    }
+
+    button {
+      margin: 5px;
+      padding: 8px 14px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="enunciado">
+    <h2>Atividade 2: Métodos de Seleção</h2>
+    <p>Complete cada função usando o método de seleção indicado:</p>
+    <ol>
+      <li><strong>testarId()</strong>: use <code>getElementById()</code> para selecionar o parágrafo com
+        id "unico" e mudar sua cor para azul.</li>
+      <li><strong>testarTag()</strong>: use <code>getElementsByTagName("li")</code> para colocar todos os
+        itens da lista em negrito.</li>
+      <li><strong>testarClasse()</strong>: use <code>getElementsByClassName("destaque")</code> para colocar
+        fundo amarelo em todos os elementos com essa classe.</li>
+      <li><strong>testarQuery()</strong>: use <code>querySelector(".destaque")</code> para sublinhar
+        apenas o PRIMEIRO elemento com classe "destaque".</li>
+      <li><strong>testarQueryAll()</strong>: use <code>querySelectorAll(".destaque")</code> para colocar
+        borda vermelha em TODOS os elementos com essa classe.</li>
+    </ol>
+  </div>
+
+  <p id="unico">Parágrafo com id único.</p>
+
+  <ul>
+    <li>Item 1</li>
+    <li>Item 2</li>
+    <li>Item 3</li>
+  </ul>
+
+  <p class="destaque">Parágrafo destaque A</p>
+  <p class="destaque">Parágrafo destaque B</p>
+  <p class="destaque">Parágrafo destaque C</p>
+
+  <br>
+  <button type="button" onclick="testarId()">1. getElementById</button>
+  <button type="button" onclick="testarTag()">2. getElementsByTagName</button>
+  <button type="button" onclick="testarClasse()">3. getElementsByClassName</button>
+  <button type="button" onclick="testarQuery()">4. querySelector</button>
+  <button type="button" onclick="testarQueryAll()">5. querySelectorAll</button>
+
+  <script>
+    function testarId() {
+      // TODO: selecionar por id e mudar a cor para azul
+    }
+
+    function testarTag() {
+      // TODO: selecionar todos os <li> e colocar em negrito (percorrer com um for)
+    }
+
+    function testarClasse() {
+      // TODO: selecionar por classe "destaque" e colocar fundo amarelo (percorrer com um for)
+    }
+
+    function testarQuery() {
+      // TODO: selecionar o primeiro ".destaque" e sublinhar (text-decoration)
+    }
+
+    function testarQueryAll() {
+      // TODO: selecionar todos ".destaque" e colocar borda vermelha (usar forEach)
+    }
+  </script>
+
+</body>
+
+</html>

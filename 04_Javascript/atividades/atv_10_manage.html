@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atividade 10 - Event Management</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    #enunciado {
+      background-color: #fff8dc;
+      border: 1px solid #e0c66b;
+      border-radius: 8px;
+      padding: 15px 20px;
+      margin-bottom: 25px;
+    }
+
+    .caixa {
+      margin-top: 10px;
+      padding: 20px;
+      border: 2px solid #333;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    button {
+      margin-top: 8px;
+      margin-right: 5px;
+      padding: 8px 14px;
+      cursor: pointer;
+    }
+
+    #resultado {
+      margin-top: 15px;
+      font-weight: bold;
+      color: darkgreen;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="enunciado">
+    <h2>Atividade 10: Adicionando e Removendo Eventos</h2>
+    <p>Complete o script abaixo:</p>
+    <ol>
+      <li>Adicione o listener <code>listenerCaixa</code> na caixa usando
+        <code>addEventListener("click", listenerCaixa)</code>, para que a mensagem "Caixa clicada!"
+        apareça no resultado.</li>
+      <li>No botão "Remover", use <code>removeEventListener("click", listenerCaixa)</code> para
+        desativar o clique da caixa.</li>
+    </ol>
+  </div>
+
+  <div class="caixa" id="caixa">Clique aqui</div>
+  <button type="button" id="botaoRemover">Remover listener</button>
+
+  <div id="resultado">Resultado aparecerá aqui...</div>
+
+  <script>
+    const caixa = document.getElementById("caixa");
+    const resultado = document.getElementById("resultado");
+
+    function listenerCaixa() {
+      resultado.textContent = "Caixa clicada!";
+    }
+
+    // TODO: adicionar o listenerCaixa na caixa com addEventListener
+
+    document.getElementById("botaoRemover").addEventListener("click", function () {
+      // TODO: remover o listenerCaixa da caixa com removeEventListener
+      resultado.textContent = "Listener removido.";
+    });
+  </script>
+
+</body>
+
+</html>

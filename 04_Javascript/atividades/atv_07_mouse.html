@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atividade 7 - Eventos de Mouse</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    #enunciado {
+      background-color: #fff8dc;
+      border: 1px solid #e0c66b;
+      border-radius: 8px;
+      padding: 15px 20px;
+      margin-bottom: 25px;
+    }
+
+    .caixa {
+      margin-top: 15px;
+      padding: 20px;
+      border: 2px solid #333;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    #resultado {
+      margin-top: 15px;
+      font-weight: bold;
+      color: darkgreen;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="enunciado">
+    <h2>Atividade 7: Eventos de Mouse</h2>
+    <p>Complete os event listeners abaixo:</p>
+    <ol>
+      <li><strong>caixaClique</strong>: no evento <code>click</code>, mude o texto da caixa para
+        "Cliquei!" e o fundo para amarelo.</li>
+      <li><strong>caixaHover</strong>: use <code>mouseenter</code> para deixar o fundo verde, e
+        <code>mouseleave</code> para voltar o fundo ao normal (branco).</li>
+    </ol>
+  </div>
+
+  <div class="caixa" id="caixaClique">Clique aqui</div>
+  <div class="caixa" id="caixaHover">Passe o mouse aqui</div>
+
+  <div id="resultado">Resultado aparecerá aqui...</div>
+
+  <script>
+    const caixaClique = document.getElementById("caixaClique");
+    const caixaHover = document.getElementById("caixaHover");
+
+    // TODO: caixaClique.addEventListener("click", function () { ... });
+
+    // TODO: caixaHover.addEventListener("mouseenter", function () { ... });
+
+    // TODO: caixaHover.addEventListener("mouseleave", function () { ... });
+  </script>
+
+</body>
+
+</html>

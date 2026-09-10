@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manipulação do DOM</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    #caixa {
+      border: 2px solid #333;
+      padding: 20px;
+      margin-top: 20px;
+      border-radius: 8px;
+    }
+
+    button {
+      margin: 5px;
+      padding: 8px 14px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1 id="titulo">Exemplo de Manipulação do DOM</h1>
+
+  <p id="paragrafo">Este é um parágrafo que pode ser alterado pelo JavaScript.</p>
+
+  <img id="imagem" src="https://placehold.co/150" alt="Imagem de exemplo" width="150">
+
+  <div id="caixa">
+    <p>Esta caixa pode mudar de cor e texto.</p>
+  </div>
+
+  <br>
+
+  <button onclick="mudarTitulo()">Mudar título</button>
+  <button onclick="mudarParagrafo()">Mudar parágrafo</button>
+  <button onclick="mudarCorCaixa()">Mudar cor da caixa</button>
+  <button onclick="mudarImagem()">Trocar imagem</button>
+  <button onclick="resetar()">Resetar tudo</button>
+
+  <script>
+    function mudarTitulo() {
+      document.getElementById("titulo").innerHTML = "Título alterado via JavaScript!";
+      document.getElementById("titulo").style.color = "blue";
+    }
+
+    function mudarParagrafo() {
+      document.getElementById("paragrafo").innerHTML = "O texto deste parágrafo foi alterado com document.getElementById().";
+    }
+
+    function mudarCorCaixa() {
+      document.getElementById("caixa").style.backgroundColor = "lightgreen";
+      document.getElementById("caixa").innerHTML = "<p>A cor de fundo desta caixa foi alterada!</p>";
+    }
+
+    function mudarImagem() {
+      document.getElementById("imagem").src = "https://placehold.co/150/ff0000/ffffff";
+    }
+
+    function resetar() {
+      document.getElementById("titulo").innerHTML = "Exemplo de Manipulação do DOM";
+      document.getElementById("titulo").style.color = "black";
+      document.getElementById("paragrafo").innerHTML = "Este é um parágrafo que pode ser alterado pelo JavaScript.";
+      document.getElementById("caixa").style.backgroundColor = "white";
+      document.getElementById("caixa").innerHTML = "<p>Esta caixa pode mudar de cor e texto.</p>";
+      document.getElementById("imagem").src = "https://placehold.co/150";
+    }
+  </script>
+
+</body>
+
+</html>

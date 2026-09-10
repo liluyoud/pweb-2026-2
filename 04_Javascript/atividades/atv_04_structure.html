@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atividade 4 - Estrutura do HTML</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    #enunciado {
+      background-color: #fff8dc;
+      border: 1px solid #e0c66b;
+      border-radius: 8px;
+      padding: 15px 20px;
+      margin-bottom: 25px;
+    }
+
+    ul {
+      border: 1px dashed #999;
+      padding: 10px 30px;
+      min-height: 40px;
+    }
+
+    button {
+      margin: 5px;
+      padding: 8px 14px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="enunciado">
+    <h2>Atividade 4: Manipulando a Estrutura do HTML</h2>
+    <p>Complete as 3 funções abaixo para manipular a lista &lt;ul id="lista"&gt;:</p>
+    <ol>
+      <li><strong>adicionarItem()</strong>: use <code>createElement()</code> e <code>appendChild()</code>
+        para criar um novo &lt;li&gt; com o texto "Novo item" e adicioná-lo ao final da lista.</li>
+      <li><strong>removerItem()</strong>: use <code>removeChild()</code> para remover o último item
+        da lista (dica: <code>lista.lastElementChild</code>).</li>
+      <li><strong>substituirItem()</strong>: use <code>replaceChild()</code> para substituir o primeiro
+        item da lista por um novo &lt;li&gt; com o texto "Item substituído".</li>
+    </ol>
+  </div>
+
+  <ul id="lista">
+    <li>Item 1</li>
+    <li>Item 2</li>
+  </ul>
+
+  <button type="button" onclick="adicionarItem()">1. Adicionar item</button>
+  <button type="button" onclick="removerItem()">2. Remover último item</button>
+  <button type="button" onclick="substituirItem()">3. Substituir primeiro item</button>
+
+  <script>
+    function adicionarItem() {
+      // TODO: criar um <li> com createElement(), definir o texto e adicionar com appendChild()
+    }
+
+    function removerItem() {
+      // TODO: usar lista.removeChild(lista.lastElementChild)
+    }
+
+    function substituirItem() {
+      // TODO: criar um novo <li> e usar lista.replaceChild(novoItem, lista.firstElementChild)
+    }
+  </script>
+
+</body>
+
+</html>

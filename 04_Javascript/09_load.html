@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eventos de Carregamento (Load Events)</title>
+
+  <script>
+    // Marca o instante mais cedo possível, para calcular o tempo decorrido de cada evento.
+    window.tempoInicio = performance.now();
+  </script>
+
+  <!-- link de exemplo: dispara "load" quando a folha de estilo termina de carregar -->
+  <link id="linkFonte" rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto&display=swap">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 750px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    section {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 15px 20px;
+      margin-bottom: 20px;
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+
+    video {
+      max-width: 100%;
+      margin-top: 10px;
+    }
+
+    #log {
+      margin-top: 10px;
+      max-height: 300px;
+      overflow-y: auto;
+      list-style: none;
+      padding: 0;
+    }
+
+    #log li {
+      padding: 6px 10px;
+      border-bottom: 1px solid #eee;
+      font-family: monospace;
+      font-size: 14px;
+    }
+
+    #log li.dom {
+      color: #b30000;
+    }
+
+    #log li.win {
+      color: #0044cc;
+    }
+
+    #log li.recurso {
+      color: #006600;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>JavaScript Load Events</h1>
+
+  <section>
+    <h2>DOMContentLoaded x window load</h2>
+    <p>
+      <code>DOMContentLoaded</code> dispara assim que o HTML foi totalmente lido e a árvore DOM
+      está pronta, sem esperar imagens, folhas de estilo, etc.
+      Já o <code>load</code> da <code>window</code> só dispara depois que TODOS os recursos
+      dependentes da página (imagens, CSS, scripts, sub-frames) terminaram de carregar.
+    </p>
+    <p>Observe no log abaixo qual evento dispara primeiro.</p>
+  </section>
+
+  <section>
+    <h2>Eventos de carregamento de recursos individuais</h2>
+
+    <h3>&lt;img&gt;</h3>
+    <img id="imagemDemo" src="https://picsum.photos/500/250?random=1" alt="Imagem de exemplo carregada dinamicamente">
+
+    <h3>&lt;script&gt; (carregado dinamicamente)</h3>
+    <p>Um script externo é criado e adicionado à página via JavaScript; seu evento "load" é registrado no log.</p>
+
+    <h3>&lt;link&gt; (folha de estilo)</h3>
+    <p>A fonte do Google Fonts declarada no &lt;head&gt; também dispara um evento "load" quando termina de carregar.</p>
+
+    <h3>&lt;video&gt;</h3>
+    <video id="videoDemo" controls width="400">
+      <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+      Seu navegador não suporta vídeo.
+    </video>
+  </section>
+
+  <section>
+    <h2>Log de eventos (ordem cronológica)</h2>
+    <ul id="log"></ul>
+  </section>
+
+  <script>
+    const log = document.getElementById("log");
+
+    function adicionarAoLog(mensagem, classe) {
+      const tempo = (performance.now() - window.tempoInicio).toFixed(1);
+      const item = document.createElement("li");
+      item.className = classe;
+      item.textContent = "[+" + tempo + "ms] " + mensagem;
+      log.appendChild(item);
+    }
+
+    // 1. DOMContentLoaded: HTML lido e DOM pronto, sem esperar recursos externos.
+    document.addEventListener("DOMContentLoaded", function () {
+      adicionarAoLog("DOMContentLoaded disparado: o DOM já pode ser manipulado com segurança.", "dom");
+    });
+
+    // 2. window load: dispara só depois que TODOS os recursos terminaram.
+    window.addEventListener("load", function () {
+      const imagem = document.getElementById("imagemDemo");
+      adicionarAoLog(
+        "window 'load' disparado: página totalmente carregada. Imagem tem " +
+        imagem.naturalWidth + "x" + imagem.naturalHeight + " pixels.",
+        "win"
+      );
+    });
+
+    // 3. <img> load
+    const imagemDemo = document.getElementById("imagemDemo");
+    imagemDemo.addEventListener("load", function () {
+      adicionarAoLog("Evento 'load' da <img>: imagem terminou de baixar.", "recurso");
+    });
+
+    // 4. <script> load (criado dinamicamente)
+    const scriptExterno = document.createElement("script");
+    scriptExterno.src = "https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js";
+    scriptExterno.addEventListener("load", function () {
+      adicionarAoLog("Evento 'load' do <script>: script externo carregado e executado.", "recurso");
+    });
+    document.head.appendChild(scriptExterno);
+
+    // 5. <link> load (folha de estilo do Google Fonts declarada no <head>)
+    const linkFonte = document.getElementById("linkFonte");
+    linkFonte.addEventListener("load", function () {
+      adicionarAoLog("Evento 'load' do <link>: folha de estilo (fonte) carregada e interpretada.", "recurso");
+    });
+
+    // 6. <video> - eventos específicos de mídia
+    const videoDemo = document.getElementById("videoDemo");
+    videoDemo.addEventListener("loadedmetadata", function () {
+      adicionarAoLog(
+        "Evento 'loadedmetadata' do <video>: duração = " + videoDemo.duration.toFixed(1) + "s.",
+        "recurso"
+      );
+    });
+    videoDemo.addEventListener("canplay", function () {
+      adicionarAoLog("Evento 'canplay' do <video>: já é possível iniciar a reprodução.", "recurso");
+    });
+  </script>
+
+</body>
+
+</html>

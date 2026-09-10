@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atividade 1 - Manipulação do DOM</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    #enunciado {
+      background-color: #fff8dc;
+      border: 1px solid #e0c66b;
+      border-radius: 8px;
+      padding: 15px 20px;
+      margin-bottom: 25px;
+    }
+
+    button {
+      margin: 5px;
+      padding: 8px 14px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div id="enunciado">
+    <h2>Atividade 1: document.getElementById()</h2>
+    <p>Complete as 3 funções JavaScript no final da página usando <code>document.getElementById()</code>:</p>
+    <ol>
+      <li>Ao clicar em "Mudar título", o texto do &lt;h1&gt; deve mudar para "Título alterado!".</li>
+      <li>Ao clicar em "Mudar cor", o parágrafo deve ficar com a cor de texto vermelha.</li>
+      <li>Ao clicar em "Trocar imagem", o <code>src</code> da imagem deve mudar para
+        <code>https://placehold.co/150/orange/fff</code>.</li>
+    </ol>
+  </div>
+
+  <h1 id="titulo">Título original</h1>
+  <p id="paragrafo">Parágrafo original.</p>
+  <img id="imagem" src="https://placehold.co/150" alt="Imagem de exemplo" width="150">
+
+  <br><br>
+  <button type="button" onclick="mudarTitulo()">Mudar título</button>
+  <button type="button" onclick="mudarCor()">Mudar cor</button>
+  <button type="button" onclick="trocarImagem()">Trocar imagem</button>
+
+  <script>
+    function mudarTitulo() {
+      // TODO: usar document.getElementById("titulo") para mudar o texto do título
+    }
+
+    function mudarCor() {
+      // TODO: usar document.getElementById("paragrafo") para mudar a cor do texto para vermelho
+    }
+
+    function trocarImagem() {
+      // TODO: usar document.getElementById("imagem") para trocar o src da imagem
+    }
+  </script>
+
+</body>
+
+</html>

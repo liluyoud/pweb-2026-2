@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Validação de Formulário</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    section {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 15px 20px;
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-top: 12px;
+      font-weight: bold;
+    }
+
+    input {
+      padding: 6px;
+      margin-top: 4px;
+      width: 250px;
+    }
+
+    /* Constraint Validation CSS Pseudo Selectors */
+    input:required {
+      border-left: 4px solid orange;
+    }
+
+    input:optional {
+      border-left: 4px solid gray;
+    }
+
+    input:valid {
+      border-color: green;
+      background-color: #eaffea;
+    }
+
+    input:invalid {
+      border-color: red;
+      background-color: #ffeaea;
+    }
+
+    input:disabled {
+      background-color: #eee;
+      color: #999;
+    }
+
+    button {
+      margin-top: 15px;
+      padding: 8px 14px;
+      cursor: pointer;
+    }
+
+    #resultado {
+      margin-top: 10px;
+      font-weight: bold;
+      color: darkgreen;
+      white-space: pre-line;
+    }
+
+    .erro {
+      color: red;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Validação de Formulário (Form Validation)</h1>
+
+  <!-- Validação automática do HTML5 -->
+  <section>
+    <h2>Validação automática do navegador</h2>
+    <p>
+      Os atributos <code>required</code>, <code>type</code>, <code>min</code>, <code>max</code> e
+      <code>pattern</code> fazem o próprio navegador validar o formulário antes de enviar.
+      Repare também nas cores: elas vêm dos seletores CSS <code>:valid</code>, <code>:invalid</code>,
+      <code>:required</code>, <code>:optional</code> e <code>:disabled</code>.
+    </p>
+
+    <form id="formulario" novalidate>
+
+      <label for="nome">Nome (obrigatório - required):</label>
+      <input type="text" id="nome" name="nome" required minlength="3" placeholder="Digite seu nome">
+
+      <label for="email">E-mail (type="email"):</label>
+      <input type="email" id="email" name="email" required placeholder="nome@exemplo.com">
+
+      <label for="idade">Idade (min="1" max="120"):</label>
+      <input type="number" id="idade" name="idade" min="1" max="120" required>
+
+      <label for="usuario">Usuário (pattern - só letras e números, 4 a 10 caracteres):</label>
+      <input type="text" id="usuario" name="usuario" pattern="[A-Za-z0-9]{4,10}" required
+        title="Use de 4 a 10 letras ou números, sem espaços ou símbolos.">
+
+      <label for="site">Site (opcional - sem "required"):</label>
+      <input type="url" id="site" name="site" placeholder="https://exemplo.com">
+
+      <label for="codigo">Código (disabled):</label>
+      <input type="text" id="codigo" name="codigo" value="Campo desabilitado" disabled>
+
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
+  <div id="resultado">Resultado aparecerá aqui...</div>
+
+  <script>
+    const formulario = document.getElementById("formulario");
+    const resultado = document.getElementById("resultado");
+
+    // Usamos "novalidate" no form e fazemos a validação manualmente em JavaScript,
+    // usando a Constraint Validation API (checkValidity, validity, setCustomValidity).
+    formulario.addEventListener("submit", function (evento) {
+      evento.preventDefault();
+
+      const campos = formulario.querySelectorAll("input");
+      let mensagens = [];
+      let tudoValido = true;
+
+      campos.forEach(function (campo) {
+        // Reseta mensagem customizada anterior
+        campo.setCustomValidity("");
+
+        if (!campo.checkValidity()) {
+          tudoValido = false;
+
+          // Usa o objeto "validity" para descobrir qual regra falhou
+          if (campo.validity.valueMissing) {
+            campo.setCustomValidity("Campo obrigatório não preenchido.");
+            mensagens.push("- " + campo.name + ": campo obrigatório não preenchido.");
+          } else if (campo.validity.typeMismatch) {
+            mensagens.push("- " + campo.name + ": formato inválido (ex.: e-mail incorreto).");
+          } else if (campo.validity.tooShort) {
+            mensagens.push("- " + campo.name + ": texto muito curto.");
+          } else if (campo.validity.rangeUnderflow || campo.validity.rangeOverflow) {
+            mensagens.push("- " + campo.name + ": valor fora do intervalo permitido.");
+          } else if (campo.validity.patternMismatch) {
+            mensagens.push("- " + campo.name + ": não segue o padrão exigido (pattern).");
+          } else {
+            mensagens.push("- " + campo.name + ": valor inválido.");
+          }
+        }
+      });
+
+      if (tudoValido) {
+        resultado.classList.remove("erro");
+        resultado.textContent = "Formulário válido! Todos os campos passaram na validação.";
+      } else {
+        resultado.classList.add("erro");
+        resultado.textContent = "Formulário inválido:\n" + mensagens.join("\n");
+      }
+    });
+  </script>
+
+</body>
+
+</html>

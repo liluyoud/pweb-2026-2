@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Handlers</title>
+  <link rel="stylesheet" href="05_events.css">
+</head>
+
+<body>
+
+  <h1>Adicionando Event Handlers</h1>
+
+  <!-- onclick via JavaScript -->
+  <section>
+    <h2>1. onclick via JavaScript (document.getElementById(id).onclick)</h2>
+    <p>Este botão não tem "onclick" no HTML. O evento é adicionado pelo script.</p>
+    <button type="button" id="botao1">Clique em mim</button>
+  </section>
+
+  <!-- onmouseover / onmouseout -->
+  <section>
+    <h2>2. onmouseover / onmouseout</h2>
+    <div id="caixaHover">Passe o mouse sobre esta caixa</div>
+  </section>
+
+  <!-- onchange -->
+  <section>
+    <h2>3. onchange</h2>
+    <select id="selecao" aria-label="Escolha uma tecnologia">
+      <option value="">Escolha uma opção</option>
+      <option value="html">HTML</option>
+      <option value="css">CSS</option>
+      <option value="javascript">JavaScript</option>
+    </select>
+  </section>
+
+  <!-- onkeyup -->
+  <section>
+    <h2>4. onkeyup</h2>
+    <input type="text" id="campoTexto" placeholder="Digite algo aqui...">
+  </section>
+
+  <div id="resultado">Resultado aparecerá aqui...</div>
+
+  <script src="05_events.js"></script>
+
+</body>
+
+</html>

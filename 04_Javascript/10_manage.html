@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Management</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 750px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    section {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 15px 20px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      margin-top: 8px;
+      margin-right: 5px;
+      padding: 8px 14px;
+      cursor: pointer;
+    }
+
+    .caixa {
+      margin-top: 10px;
+      padding: 20px;
+      border: 2px solid #333;
+      border-radius: 8px;
+      text-align: center;
+    }
+
+    #externa {
+      background-color: #fddede;
+      padding: 30px;
+    }
+
+    #interna {
+      background-color: #d0e8ff;
+      padding: 20px;
+      border: 2px dashed #333;
+    }
+
+    #maisInterna {
+      background-color: #d6ffd6;
+      padding: 15px;
+      border: 2px dotted #333;
+    }
+
+    label {
+      display: block;
+      margin-top: 8px;
+    }
+
+    #log {
+      margin-top: 10px;
+      max-height: 250px;
+      overflow-y: auto;
+      list-style: none;
+      padding: 0;
+    }
+
+    #log li {
+      padding: 6px 10px;
+      border-bottom: 1px solid #eee;
+      font-family: monospace;
+      font-size: 14px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>JavaScript Event Management</h1>
+  <p>Gerenciar eventos envolve <strong>adicionar</strong>, <strong>remover</strong>,
+    <strong>bloquear</strong> e <strong>controlar</strong> como os eventos se comportam.</p>
+
+  <!-- Adicionando eventos -->
+  <section>
+    <h2>1. Adicionando eventos: addEventListener()</h2>
+    <p>É possível adicionar vários listeners diferentes ao mesmo elemento, sem sobrescrever um ao outro.</p>
+    <button type="button" id="botaoAdicionar">Botão com 2 listeners</button>
+  </section>
+
+  <!-- Removendo eventos -->
+  <section>
+    <h2>2. Removendo eventos: removeEventListener()</h2>
+    <p>O listener só pode ser removido se foi adicionado com uma função nomeada (não anônima).</p>
+    <div class="caixa" id="caixaRemover">Clique aqui (listener ativo)</div>
+    <button type="button" id="botaoRemover">Remover listener da caixa</button>
+    <button type="button" id="botaoReadicionar">Readicionar listener</button>
+  </section>
+
+  <!-- Bloqueando eventos -->
+  <section>
+    <h2>3. Bloqueando eventos: preventDefault()</h2>
+    <p>Impede o comportamento padrão do navegador para aquele evento.</p>
+    <label>
+      <input type="checkbox" id="bloquearLink"> Bloquear navegação do link com preventDefault()
+    </label>
+    <br>
+    <a href="https://www.w3schools.com" id="linkTeste" target="_blank" rel="noopener">Ir para w3schools.com</a>
+  </section>
+
+  <!-- Controlando propagação -->
+  <section>
+    <h2>4. Controlando eventos: stopPropagation() (bubbling)</h2>
+    <p>Por padrão, um clique num elemento filho também "borbulha" (bubbling) para os pais.</p>
+    <label>
+      <input type="checkbox" id="pararPropagacao"> Parar propagação no clique da caixa interna
+    </label>
+
+    <div class="caixa" id="externa">
+      Caixa EXTERNA
+      <div class="caixa" id="interna">
+        Caixa INTERNA
+        <div class="caixa" id="maisInterna">Caixa MAIS INTERNA (clique aqui)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- once -->
+  <section>
+    <h2>5. Controlando execução: opção { once: true }</h2>
+    <p>O listener é executado apenas uma única vez e depois se remove automaticamente.</p>
+    <button type="button" id="botaoOnce">Clique em mim (só funciona 1 vez)</button>
+  </section>
+
+  <section>
+    <h2>Log de eventos (mais recente no topo)</h2>
+    <ul id="log"></ul>
+  </section>
+
+  <script>
+    const log = document.getElementById("log");
+
+    function adicionarAoLog(mensagem) {
+      const item = document.createElement("li");
+      item.textContent = mensagem;
+      log.insertBefore(item, log.firstChild);
+    }
+
+    // 1. Adicionando múltiplos listeners ao mesmo elemento
+    const botaoAdicionar = document.getElementById("botaoAdicionar");
+    botaoAdicionar.addEventListener("click", function () {
+      adicionarAoLog("Listener 1: botão clicado.");
+    });
+    botaoAdicionar.addEventListener("click", function () {
+      adicionarAoLog("Listener 2: o mesmo clique também disparou este segundo listener.");
+    });
+
+    // 2. Removendo e readicionando um listener (precisa de função nomeada)
+    const caixaRemover = document.getElementById("caixaRemover");
+
+    function listenerCaixa() {
+      adicionarAoLog("Caixa clicada: o listener ainda está ativo.");
+    }
+
+    caixaRemover.addEventListener("click", listenerCaixa);
+
+    document.getElementById("botaoRemover").addEventListener("click", function () {
+      caixaRemover.removeEventListener("click", listenerCaixa);
+      caixaRemover.textContent = "Clique aqui (listener REMOVIDO)";
+      adicionarAoLog("O listener da caixa foi removido com removeEventListener().");
+    });
+
+    document.getElementById("botaoReadicionar").addEventListener("click", function () {
+      caixaRemover.addEventListener("click", listenerCaixa);
+      caixaRemover.textContent = "Clique aqui (listener ativo)";
+      adicionarAoLog("O listener da caixa foi readicionado com addEventListener().");
+    });
+
+    // 3. Bloqueando o comportamento padrão com preventDefault()
+    const linkTeste = document.getElementById("linkTeste");
+    const bloquearLink = document.getElementById("bloquearLink");
+
+    linkTeste.addEventListener("click", function (evento) {
+      if (bloquearLink.checked) {
+        evento.preventDefault();
+        adicionarAoLog("Clique no link bloqueado com preventDefault(): navegação não ocorreu.");
+      } else {
+        adicionarAoLog("Clique no link permitido: o navegador seguiu o comportamento padrão.");
+      }
+    });
+
+    // 4. Controlando propagação com stopPropagation()
+    const externa = document.getElementById("externa");
+    const interna = document.getElementById("interna");
+    const maisInterna = document.getElementById("maisInterna");
+    const pararPropagacao = document.getElementById("pararPropagacao");
+
+    externa.addEventListener("click", function () {
+      adicionarAoLog("Evento chegou na caixa EXTERNA (bubbling).");
+    });
+
+    interna.addEventListener("click", function () {
+      adicionarAoLog("Evento chegou na caixa INTERNA (bubbling).");
+    });
+
+    maisInterna.addEventListener("click", function (evento) {
+      if (pararPropagacao.checked) {
+        evento.stopPropagation();
+        adicionarAoLog("Clique na caixa MAIS INTERNA: propagação PARADA com stopPropagation().");
+      } else {
+        adicionarAoLog("Clique na caixa MAIS INTERNA: evento vai continuar propagando (bubbling).");
+      }
+    });
+
+    // 5. Executando um listener apenas uma vez com { once: true }
+    document.getElementById("botaoOnce").addEventListener("click", function () {
+      adicionarAoLog("Este listener rodou uma vez e agora está desativado (once: true).");
+    }, { once: true });
+  </script>
+
+</body>
+
+</html>

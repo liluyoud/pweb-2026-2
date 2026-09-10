@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eventos de Mouse</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 750px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    section {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 15px 20px;
+      margin-bottom: 20px;
+    }
+
+    .caixa {
+      margin-top: 10px;
+      padding: 20px;
+      border: 2px solid #333;
+      border-radius: 8px;
+      text-align: center;
+      -webkit-user-select: none;
+      user-select: none;
+      transition: background-color 0.15s;
+    }
+
+    #areaMovimento {
+      height: 100px;
+      background-color: #f5f5f5;
+    }
+
+    #areaWheel {
+      height: 80px;
+      overflow: hidden;
+      background-color: #f5f5f5;
+    }
+
+    #dropZone {
+      height: 80px;
+      background-color: #f5f5f5;
+      border-style: dashed;
+    }
+
+    #dropZone.arrastando-sobre {
+      background-color: #d0f0d0;
+    }
+
+    #itemArrastavel {
+      display: inline-block;
+      padding: 10px 15px;
+      background-color: #4287f5;
+      color: white;
+      border-radius: 6px;
+      cursor: grab;
+      margin-top: 10px;
+    }
+
+    #resultado {
+      margin-top: 10px;
+      font-weight: bold;
+      color: darkgreen;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Eventos de Mouse</h1>
+
+  <!-- click / dblclick -->
+  <section>
+    <h2>click / dblclick</h2>
+    <div class="caixa" id="caixaClick">Clique ou dê duplo clique aqui</div>
+  </section>
+
+  <!-- mousedown / mouseup -->
+  <section>
+    <h2>mousedown / mouseup</h2>
+    <div class="caixa" id="caixaMouseDown">Pressione e solte o botão do mouse aqui</div>
+  </section>
+
+  <!-- mousemove -->
+  <section>
+    <h2>mousemove</h2>
+    <div class="caixa" id="areaMovimento">Mova o mouse dentro desta área</div>
+  </section>
+
+  <!-- mouseover / mouseout -->
+  <section>
+    <h2>mouseover / mouseout</h2>
+    <div class="caixa" id="caixaOverOut">
+      Passe o mouse aqui
+      <br>
+      <strong id="filhoOverOut">(elemento filho dentro da caixa)</strong>
+    </div>
+    <p><em>Repare que mouseover/mouseout também disparam ao passar pelo elemento filho.</em></p>
+  </section>
+
+  <!-- mouseenter / mouseleave -->
+  <section>
+    <h2>mouseenter / mouseleave</h2>
+    <div class="caixa" id="caixaEnterLeave">
+      Passe o mouse aqui
+      <br>
+      <strong>(elemento filho dentro da caixa)</strong>
+    </div>
+    <p><em>mouseenter/mouseleave NÃO disparam ao passar pelo elemento filho, só na entrada/saída real.</em></p>
+  </section>
+
+  <!-- contextmenu -->
+  <section>
+    <h2>contextmenu</h2>
+    <div class="caixa" id="caixaContexto">Clique com o botão direito aqui (menu customizado)</div>
+  </section>
+
+  <!-- wheel -->
+  <section>
+    <h2>wheel</h2>
+    <div class="caixa" id="areaWheel">Role a roda do mouse sobre esta área</div>
+  </section>
+
+  <!-- drag events -->
+  <section>
+    <h2>drag events (dragstart, dragover, drop, dragend)</h2>
+    <div id="itemArrastavel" draggable="true">Arraste-me</div>
+    <div class="caixa" id="dropZone">Solte o item aqui</div>
+  </section>
+
+  <div id="resultado">Resultado aparecerá aqui...</div>
+
+  <script>
+    const resultado = document.getElementById("resultado");
+
+    function mostrarResultado(texto) {
+      resultado.textContent = texto;
+    }
+
+    // click / dblclick
+    const caixaClick = document.getElementById("caixaClick");
+    let contadorCliques = 0;
+
+    caixaClick.addEventListener("click", function () {
+      contadorCliques++;
+      this.style.backgroundColor = "lightyellow";
+      this.textContent = "Click disparado! (" + contadorCliques + " clique(s))";
+      mostrarResultado("Evento 'click' disparado.");
+    });
+    caixaClick.addEventListener("dblclick", function () {
+      this.style.backgroundColor = "lightsalmon";
+      this.textContent = "Dblclick disparado!";
+      mostrarResultado("Evento 'dblclick' disparado (clique duplo).");
+    });
+
+    // mousedown / mouseup
+    const caixaMouseDown = document.getElementById("caixaMouseDown");
+    caixaMouseDown.addEventListener("mousedown", function () {
+      this.style.backgroundColor = "lightcoral";
+      mostrarResultado("Evento 'mousedown' disparado: botão do mouse pressionado.");
+    });
+    caixaMouseDown.addEventListener("mouseup", function () {
+      this.style.backgroundColor = "";
+      mostrarResultado("Evento 'mouseup' disparado: botão do mouse solto.");
+    });
+
+    // mousemove
+    const areaMovimento = document.getElementById("areaMovimento");
+    areaMovimento.addEventListener("mousemove", function (evento) {
+      const texto = "Evento 'mousemove': posição X=" + evento.offsetX + ", Y=" + evento.offsetY;
+      this.textContent = texto;
+      mostrarResultado(texto);
+    });
+    areaMovimento.addEventListener("mouseleave", function () {
+      this.textContent = "Mova o mouse dentro desta área";
+    });
+
+    // mouseover / mouseout (dispara também nos filhos)
+    const caixaOverOut = document.getElementById("caixaOverOut");
+    caixaOverOut.addEventListener("mouseover", function (evento) {
+      this.style.backgroundColor = "lightyellow";
+      mostrarResultado("Evento 'mouseover' disparado (alvo: " + evento.target.tagName + ").");
+    });
+    caixaOverOut.addEventListener("mouseout", function (evento) {
+      this.style.backgroundColor = "";
+      mostrarResultado("Evento 'mouseout' disparado (alvo: " + evento.target.tagName + ").");
+    });
+
+    // mouseenter / mouseleave (NÃO dispara nos filhos)
+    const caixaEnterLeave = document.getElementById("caixaEnterLeave");
+    caixaEnterLeave.addEventListener("mouseenter", function () {
+      this.style.backgroundColor = "lightgreen";
+      mostrarResultado("Evento 'mouseenter' disparado (entrou na caixa).");
+    });
+    caixaEnterLeave.addEventListener("mouseleave", function () {
+      this.style.backgroundColor = "";
+      mostrarResultado("Evento 'mouseleave' disparado (saiu da caixa).");
+    });
+
+    // contextmenu
+    const caixaContexto = document.getElementById("caixaContexto");
+    caixaContexto.addEventListener("contextmenu", function (evento) {
+      evento.preventDefault();
+      this.style.backgroundColor = "lightpink";
+      this.textContent = "Evento 'contextmenu' disparado! Menu padrão bloqueado.";
+      mostrarResultado("Evento 'contextmenu' disparado: menu padrão do navegador foi bloqueado.");
+    });
+
+    // wheel
+    const areaWheel = document.getElementById("areaWheel");
+    areaWheel.addEventListener("wheel", function (evento) {
+      const direcao = evento.deltaY > 0 ? "para baixo" : "para cima";
+      const texto = "Evento 'wheel' disparado: rolagem " + direcao + " (deltaY=" + evento.deltaY + ").";
+      this.textContent = texto;
+      mostrarResultado(texto);
+    });
+
+    // drag events
+    const itemArrastavel = document.getElementById("itemArrastavel");
+    const dropZone = document.getElementById("dropZone");
+
+    itemArrastavel.addEventListener("dragstart", function (evento) {
+      evento.dataTransfer.setData("text/plain", "itemArrastavel");
+      mostrarResultado("Evento 'dragstart' disparado: começou a arrastar o item.");
+    });
+
+    itemArrastavel.addEventListener("dragend", function () {
+      mostrarResultado("Evento 'dragend' disparado: o arraste terminou.");
+    });
+
+    dropZone.addEventListener("dragover", function (evento) {
+      evento.preventDefault(); // necessário para permitir o drop
+      dropZone.classList.add("arrastando-sobre");
+    });
+
+    dropZone.addEventListener("dragleave", function () {
+      dropZone.classList.remove("arrastando-sobre");
+    });
+
+    dropZone.addEventListener("drop", function (evento) {
+      evento.preventDefault();
+      dropZone.classList.remove("arrastando-sobre");
+      dropZone.textContent = "Item solto aqui!";
+      mostrarResultado("Evento 'drop' disparado: o item foi solto na zona de destino.");
+    });
+  </script>
+
+</body>
+
+</html>

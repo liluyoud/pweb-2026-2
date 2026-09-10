@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Eventos de Teclado</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    section {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 15px 20px;
+      margin-bottom: 20px;
+    }
+
+    input {
+      padding: 8px;
+      width: 100%;
+      max-width: 300px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+
+    table {
+      margin-top: 15px;
+      border-collapse: collapse;
+      width: 100%;
+    }
+
+    th,
+    td {
+      border: 1px solid #ccc;
+      padding: 8px 12px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f0f0f0;
+      width: 30%;
+    }
+
+    #status {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 6px 14px;
+      border-radius: 6px;
+      background-color: #eee;
+      font-weight: bold;
+    }
+
+    #status.pressionado {
+      background-color: lightgreen;
+    }
+
+    #log {
+      margin-top: 10px;
+      max-height: 250px;
+      overflow-y: auto;
+      list-style: none;
+      padding: 0;
+    }
+
+    #log li {
+      padding: 6px 10px;
+      border-bottom: 1px solid #eee;
+      font-family: monospace;
+      font-size: 14px;
+    }
+
+    #log li.keydown {
+      color: #b30000;
+    }
+
+    #log li.keyup {
+      color: #006600;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Eventos de Teclado (Keyboard Events)</h1>
+
+  <section>
+    <p>
+      Clique no campo abaixo e pressione qualquer tecla. O evento <code>keydown</code> dispara
+      quando a tecla é pressionada, e o <code>keyup</code>, quando é solta.
+    </p>
+
+    <input type="text" id="campo" placeholder="Digite ou pressione teclas aqui...">
+
+    <div>
+      <span id="status">Aguardando tecla...</span>
+    </div>
+
+    <table>
+      <tr>
+        <th>Último evento</th>
+        <td id="ultimoEvento">-</td>
+      </tr>
+      <tr>
+        <th>event.key</th>
+        <td id="valorKey">-</td>
+      </tr>
+      <tr>
+        <th>event.code</th>
+        <td id="valorCode">-</td>
+      </tr>
+      <tr>
+        <th>Shift pressionado?</th>
+        <td id="valorShift">-</td>
+      </tr>
+      <tr>
+        <th>Ctrl pressionado?</th>
+        <td id="valorCtrl">-</td>
+      </tr>
+      <tr>
+        <th>Alt pressionado?</th>
+        <td id="valorAlt">-</td>
+      </tr>
+    </table>
+  </section>
+
+  <section>
+    <h2>Log de eventos (mais recente no topo)</h2>
+    <ul id="log"></ul>
+  </section>
+
+  <script>
+    const campo = document.getElementById("campo");
+    const status = document.getElementById("status");
+    const ultimoEvento = document.getElementById("ultimoEvento");
+    const valorKey = document.getElementById("valorKey");
+    const valorCode = document.getElementById("valorCode");
+    const valorShift = document.getElementById("valorShift");
+    const valorCtrl = document.getElementById("valorCtrl");
+    const valorAlt = document.getElementById("valorAlt");
+    const log = document.getElementById("log");
+
+    function atualizarInformacoes(evento) {
+      ultimoEvento.textContent = evento.type;
+      valorKey.textContent = evento.key;
+      valorCode.textContent = evento.code;
+      valorShift.textContent = evento.shiftKey ? "Sim" : "Não";
+      valorCtrl.textContent = evento.ctrlKey ? "Sim" : "Não";
+      valorAlt.textContent = evento.altKey ? "Sim" : "Não";
+    }
+
+    function adicionarAoLog(evento) {
+      const item = document.createElement("li");
+      item.className = evento.type;
+      item.textContent = evento.type + " -> key: '" + evento.key + "', code: '" + evento.code + "'";
+      log.insertBefore(item, log.firstChild);
+    }
+
+    // keydown: dispara quando a tecla é pressionada
+    campo.addEventListener("keydown", function (evento) {
+      status.textContent = "Tecla pressionada: " + evento.key;
+      status.classList.add("pressionado");
+      atualizarInformacoes(evento);
+      adicionarAoLog(evento);
+    });
+
+    // keyup: dispara quando a tecla é solta
+    campo.addEventListener("keyup", function (evento) {
+      status.textContent = "Tecla solta: " + evento.key;
+      status.classList.remove("pressionado");
+      atualizarInformacoes(evento);
+      adicionarAoLog(evento);
+    });
+  </script>
+
+</body>
+
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manipulação da Estrutura do HTML</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    section {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 15px 20px;
+      margin-bottom: 20px;
+    }
+
+    ul {
+      min-height: 40px;
+      border: 1px dashed #999;
+      padding: 10px 30px;
+    }
+
+    button {
+      margin-top: 10px;
+      margin-right: 5px;
+      padding: 8px 14px;
+      cursor: pointer;
+    }
+
+    #resultado {
+      margin-top: 10px;
+      font-weight: bold;
+      color: darkgreen;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Manipulando a Estrutura do HTML</h1>
+
+  <!-- createElement + appendChild -->
+  <section>
+    <h2>1. createElement() + appendChild()</h2>
+    <p>Cria um novo item &lt;li&gt; e adiciona no final da lista.</p>
+    <ul id="lista">
+      <li>Item original 1</li>
+      <li>Item original 2</li>
+    </ul>
+    <button type="button" onclick="adicionarItem()">Adicionar item (createElement + appendChild)</button>
+  </section>
+
+  <!-- removeChild -->
+  <section>
+    <h2>2. removeChild()</h2>
+    <p>Remove o último item da lista.</p>
+    <button type="button" onclick="removerUltimoItem()">Remover último item</button>
+  </section>
+
+  <!-- replaceChild -->
+  <section>
+    <h2>3. replaceChild()</h2>
+    <p>Substitui o primeiro item da lista por um novo elemento.</p>
+    <button type="button" onclick="substituirPrimeiroItem()">Substituir primeiro item</button>
+  </section>
+
+  <div id="resultado">Resultado aparecerá aqui...</div>
+
+  <script>
+    function mostrarResultado(texto) {
+      document.getElementById("resultado").innerHTML = texto;
+    }
+
+    let contador = 3;
+
+    // 1. createElement + appendChild
+    function adicionarItem() {
+      const lista = document.getElementById("lista");
+
+      const novoItem = document.createElement("li");
+      novoItem.textContent = "Item novo " + contador;
+      contador++;
+
+      lista.appendChild(novoItem);
+
+      mostrarResultado("Um novo &lt;li&gt; foi criado com createElement() e adicionado com appendChild().");
+    }
+
+    // 2. removeChild
+    function removerUltimoItem() {
+      const lista = document.getElementById("lista");
+
+      if (lista.lastElementChild) {
+        lista.removeChild(lista.lastElementChild);
+        mostrarResultado("O último item da lista foi removido com removeChild().");
+      } else {
+        mostrarResultado("Não há mais itens para remover.");
+      }
+    }
+
+    // 3. replaceChild
+    function substituirPrimeiroItem() {
+      const lista = document.getElementById("lista");
+
+      if (lista.firstElementChild) {
+        const novoItem = document.createElement("li");
+        novoItem.textContent = "Item substituído!";
+        novoItem.style.color = "red";
+
+        lista.replaceChild(novoItem, lista.firstElementChild);
+
+        mostrarResultado("O primeiro item foi substituído com replaceChild().");
+      } else {
+        mostrarResultado("Não há itens para substituir.");
+      }
+    }
+  </script>
+
+</body>
+
+</html>

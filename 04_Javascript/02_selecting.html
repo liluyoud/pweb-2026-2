@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Seleção de Elementos DOM</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+
+    section {
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      padding: 15px 20px;
+      margin-bottom: 20px;
+    }
+
+    .item {
+      color: #333;
+    }
+
+    .destaque {
+      background-color: yellow;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 8px 14px;
+      cursor: pointer;
+    }
+
+    #resultado {
+      margin-top: 10px;
+      font-weight: bold;
+      color: darkgreen;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Métodos de Seleção de Elementos</h1>
+
+  <!-- getElementById -->
+  <section>
+    <h2>1. document.getElementById(id)</h2>
+    <p id="paragrafoUnico">Este parágrafo tem um id único: "paragrafoUnico".</p>
+    <button type="button" onclick="testarGetElementById()">Selecionar por ID</button>
+  </section>
+
+  <!-- getElementsByTagName -->
+  <section>
+    <h2>2. document.getElementsByTagName(name)</h2>
+    <ul>
+      <li class="item">Item de lista 1</li>
+      <li class="item">Item de lista 2</li>
+      <li class="item">Item de lista 3</li>
+    </ul>
+    <button type="button" onclick="testarGetElementsByTagName()">Selecionar todos os &lt;li&gt;</button>
+  </section>
+
+  <!-- getElementsByClassName -->
+  <section>
+    <h2>3. document.getElementsByClassName(name)</h2>
+    <p class="item">Parágrafo com classe "item" - A</p>
+    <p class="item">Parágrafo com classe "item" - B</p>
+    <p class="item">Parágrafo com classe "item" - C</p>
+    <button type="button" onclick="testarGetElementsByClassName()">Selecionar por classe "item"</button>
+  </section>
+
+  <!-- querySelector -->
+  <section>
+    <h2>4. document.querySelector(selector)</h2>
+    <div class="item">Primeira div com classe "item"</div>
+    <div class="item">Segunda div com classe "item"</div>
+    <button type="button" onclick="testarQuerySelector()">Selecionar a primeira ".item"</button>
+  </section>
+
+  <!-- querySelectorAll -->
+  <section>
+    <h2>5. document.querySelectorAll(selector)</h2>
+    <span class="item">Span 1</span> |
+    <span class="item">Span 2</span> |
+    <span class="item">Span 3</span>
+    <br>
+    <button type="button" onclick="testarQuerySelectorAll()">Selecionar todos ".item" e destacar</button>
+  </section>
+
+  <!-- innerHTML vs textContent -->
+  <section>
+    <h2>innerHTML x textContent</h2>
+    <p id="conteudo"><strong>Texto</strong> com <em>formatação HTML</em>.</p>
+    <button type="button" onclick="mostrarInnerHTML()">Mostrar innerHTML</button>
+    <button type="button" onclick="mostrarTextContent()">Mostrar textContent</button>
+  </section>
+
+  <div id="resultado">Resultado aparecerá aqui...</div>
+
+  <script>
+    function mostrarResultado(texto) {
+      document.getElementById("resultado").innerHTML = texto;
+    }
+
+    // 1. getElementById
+    function testarGetElementById() {
+      const elemento = document.getElementById("paragrafoUnico");
+      elemento.style.color = "blue";
+      mostrarResultado("getElementById: elemento selecionado e cor alterada para azul.");
+    }
+
+    // 2. getElementsByTagName
+    function testarGetElementsByTagName() {
+      const itens = document.getElementsByTagName("li");
+      for (let i = 0; i < itens.length; i++) {
+        itens[i].style.fontWeight = "bold";
+      }
+      mostrarResultado("getElementsByTagName: " + itens.length + " itens &lt;li&gt; encontrados e destacados.");
+    }
+
+    // 3. getElementsByClassName
+    function testarGetElementsByClassName() {
+      const itens = document.getElementsByClassName("item");
+      for (let i = 0; i < itens.length; i++) {
+        itens[i].style.border = "1px dashed red";
+      }
+      mostrarResultado("getElementsByClassName: " + itens.length + " elementos com classe 'item' encontrados.");
+    }
+
+    // 4. querySelector
+    function testarQuerySelector() {
+      const elemento = document.querySelector(".item");
+      elemento.style.backgroundColor = "lightblue";
+      mostrarResultado("querySelector: apenas o PRIMEIRO elemento '.item' foi selecionado.");
+    }
+
+    // 5. querySelectorAll
+    function testarQuerySelectorAll() {
+      const elementos = document.querySelectorAll(".item");
+      elementos.forEach(function (el) {
+        el.classList.add("destaque");
+      });
+      mostrarResultado("querySelectorAll: " + elementos.length + " elementos '.item' foram destacados.");
+    }
+
+    // innerHTML
+    function mostrarInnerHTML() {
+      const conteudo = document.getElementById("conteudo").innerHTML;
+      mostrarResultado("innerHTML: " + conteudo.replace(/</g, "&lt;").replace(/>/g, "&gt;"));
+    }
+
+    // textContent
+    function mostrarTextContent() {
+      const conteudo = document.getElementById("conteudo").textContent;
+      mostrarResultado("textContent: " + conteudo);
+    }
+  </script>
+
+</body>
+
+</html>
