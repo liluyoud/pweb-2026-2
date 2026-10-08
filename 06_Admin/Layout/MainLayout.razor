@@ -1,0 +1,180 @@
+@inherits LayoutComponentBase
+
+<MudThemeProvider Theme="@_theme" IsDarkMode="_isDarkMode" />
+<MudPopoverProvider />
+<MudDialogProvider />
+<MudSnackbarProvider />
+
+<MudLayout>
+    <MudAppBar Elevation="0">
+        <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@DrawerToggle" />
+        <MudDivider Vertical="true" FlexItem="true" Class="mx-3 my-3" />
+        <MudBreadcrumbs Items="_breadcrumbs" Class="d-none d-md-flex" />
+
+        <MudSpacer />
+        <MudPaper Elevation="0" Width="440px" Class="mud-background-gray rounded-lg px-3 d-none d-md-flex">
+            <MudTextField T="string" @bind-Value="_busca" Placeholder="Pesquisar..." Underline="false"
+                          Adornment="Adornment.Start" AdornmentIcon="@Icons.Material.Filled.Search" Margin="Margin.Dense" />
+        </MudPaper>
+        <MudSpacer />
+
+        <MudStack Row="true" Spacing="1" AlignItems="AlignItems.Center">
+            <MudIconButton Icon="@DarkLightModeButtonIcon" Color="Color.Inherit" OnClick="@DarkModeToggle" />
+
+            <MudMenu AnchorOrigin="Origin.BottomRight" TransformOrigin="Origin.TopRight">
+                <ActivatorContent>
+                    @* padding no wrapper (e não no MudBadge) para o badge continuar colado no ícone *@
+                    <div class="d-flex pa-3 cursor-pointer">
+                        <MudBadge Content="@_notificacoes.Count" Color="Color.Error">
+                            <MudIcon Icon="@Icons.Material.Outlined.Notifications" Size="Size.Medium" />
+                        </MudBadge>
+                    </div>
+                </ActivatorContent>
+                <ChildContent>
+                    <MudText Typo="Typo.subtitle2" Class="px-4 pt-2 pb-1">Notificações</MudText>
+                    <MudDivider Class="mb-1" />
+                    @foreach (var notificacao in _notificacoes)
+                    {
+                        <MudMenuItem>
+                            <MudText Typo="Typo.body2">@notificacao.Titulo</MudText>
+                            <MudText Typo="Typo.caption" Class="mud-text-secondary">@notificacao.Tempo</MudText>
+                        </MudMenuItem>
+                    }
+                </ChildContent>
+            </MudMenu>
+
+            <MudDivider Vertical="true" FlexItem="true" Class="mx-3 my-4" />
+
+            <MudMenu AnchorOrigin="Origin.BottomRight" TransformOrigin="Origin.TopRight">
+                <ActivatorContent>
+                    <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="2">
+                        <MudAvatar Size="Size.Large">
+                            <MudImage Src="img/alex-morgan.jpg" Alt="Alex Morgan" />
+                        </MudAvatar>
+                        <MudStack Spacing="0" Class="d-none d-md-flex">
+                            <MudStack Row="true" Spacing="2" AlignItems="AlignItems.Center">
+                                <MudText Typo="Typo.subtitle2">Alex Morgan</MudText>
+                                <MudChip T="string" Size="Size.Small" Color="Color.Success" Variant="Variant.Text" Class="ma-0">Online</MudChip>
+                            </MudStack>
+                            <MudText Typo="Typo.caption" Class="mud-text-secondary">alex.morgan@afya.com.br</MudText>
+                        </MudStack>
+                        <MudIcon Icon="@Icons.Material.Filled.KeyboardArrowDown" Size="Size.Small" />
+                    </MudStack>
+                </ActivatorContent>
+                <ChildContent>
+                    <MudMenuItem Icon="@Icons.Material.Outlined.Person">Perfil</MudMenuItem>
+                    <MudMenuItem Icon="@Icons.Material.Outlined.Settings">Configurações</MudMenuItem>
+                    <MudDivider />
+                    <MudMenuItem Icon="@Icons.Material.Outlined.Logout">Sair</MudMenuItem>
+                </ChildContent>
+            </MudMenu>
+        </MudStack>
+    </MudAppBar>
+
+    <MudDrawer @bind-Open="_drawerOpen" Width="280px" Elevation="0" ClipMode="DrawerClipMode.Never" Variant="DrawerVariant.Responsive">
+        <MudDrawerHeader Class="align-center py-6">
+            <MudStack Row="true" AlignItems="AlignItems.Center" Spacing="2">
+                <MudIcon Icon="@Icons.Material.Outlined.ChangeHistory" Color="Color.Error" Size="Size.Large" />
+                <MudText Typo="Typo.h5">Afya Pedagógico</MudText>
+            </MudStack>
+        </MudDrawerHeader>
+        <NavMenu />
+    </MudDrawer>
+
+    <MudMainContent>
+        <MudContainer MaxWidth="MaxWidth.False" Class="py-6">
+            @Body
+        </MudContainer>
+    </MudMainContent>
+</MudLayout>
+
+@code {
+    private bool _drawerOpen = true;
+    private bool _isDarkMode;
+    private string? _busca;
+
+    private readonly List<BreadcrumbItem> _breadcrumbs = new()
+    {
+        new BreadcrumbItem("Home", "/", false, null),
+        new BreadcrumbItem("Dashboard", null, true, null),
+    };
+
+    private record Notificacao(string Titulo, string Tempo);
+
+    private readonly List<Notificacao> _notificacoes = new()
+    {
+        new("Mariana Souza adicionou um novo cliente", "há 5 minutos"),
+        new("Ana Martins publicou um novo relatório", "há 45 minutos"),
+        new("João Silva atualizou as permissões do sistema", "há 1 hora"),
+    };
+
+    private void DrawerToggle() => _drawerOpen = !_drawerOpen;
+
+    private void DarkModeToggle() => _isDarkMode = !_isDarkMode;
+
+    private string DarkLightModeButtonIcon => _isDarkMode ? Icons.Material.Outlined.DarkMode : Icons.Material.Outlined.LightMode;
+
+    private readonly MudTheme _theme = new()
+    {
+        PaletteLight = new PaletteLight
+        {
+            Primary = "#2563EB",
+            Secondary = "#7C3AED",
+            Tertiary = "#60A5FA",
+            Info = "#3B82F6",
+            Success = "#10B981",
+            Warning = "#F97316",
+            Error = "#EF4444",
+            Background = "#F4F6FB",
+            BackgroundGray = "#F1F3F7",
+            Surface = "#FFFFFF",
+            AppbarBackground = "#FFFFFF",
+            AppbarText = "#1F2937",
+            DrawerBackground = "#FFFFFF",
+            DrawerText = "#374151",
+            DrawerIcon = "#4B5563",
+            TextPrimary = "#111827",
+            TextSecondary = "#6B7280",
+            LinesDefault = "#E5E7EB",
+            TableLines = "#EEF0F4",
+            Divider = "#E5E7EB",
+        },
+        PaletteDark = new PaletteDark
+        {
+            Primary = "#3B82F6",
+            Secondary = "#8B5CF6",
+            Tertiary = "#93C5FD",
+            Info = "#60A5FA",
+            Success = "#34D399",
+            Warning = "#FB923C",
+            Error = "#F87171",
+            Background = "#111827",
+            BackgroundGray = "#1F2937",
+            Surface = "#1A2233",
+            AppbarBackground = "#1A2233",
+            AppbarText = "#E5E7EB",
+            DrawerBackground = "#1A2233",
+            DrawerText = "#D1D5DB",
+            DrawerIcon = "#9CA3AF",
+            TextPrimary = "#F3F4F6",
+            TextSecondary = "#9CA3AF",
+            LinesDefault = "#2D3748",
+            TableLines = "#2D3748",
+            Divider = "#2D3748",
+        },
+        LayoutProperties = new LayoutProperties
+        {
+            DefaultBorderRadius = "12px",
+            AppbarHeight = "72px",
+        },
+        Typography = new Typography
+        {
+            Default = new DefaultTypography { FontFamily = new[] { "Inter", "Roboto", "Helvetica", "Arial", "sans-serif" } },
+            H4 = new H4Typography { FontWeight = "700", FontSize = "2rem" },
+            H5 = new H5Typography { FontWeight = "700", FontSize = "1.375rem" },
+            H6 = new H6Typography { FontWeight = "700", FontSize = "1.125rem" },
+            Subtitle2 = new Subtitle2Typography { FontWeight = "600" },
+            Button = new ButtonTypography { TextTransform = "none", FontWeight = "600" },
+        },
+    };
+}

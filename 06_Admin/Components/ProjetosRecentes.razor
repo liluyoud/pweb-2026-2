@@ -1,0 +1,60 @@
+<DashboardCard Titulo="Projetos Recentes">
+    <Acoes>
+        <MudButton Href="projetos" Variant="Variant.Text" Color="Color.Primary" EndIcon="@Icons.Material.Filled.ArrowForward">Ver todos</MudButton>
+    </Acoes>
+    <ChildContent>
+        <MudTable Items="Projetos" Dense="true" Hover="true" Elevation="0" Breakpoint="Breakpoint.Sm" HeaderClass="mud-background-gray">
+            <HeaderContent>
+                <MudTh>Projeto</MudTh>
+                <MudTh>Cliente</MudTh>
+                <MudTh>Responsável</MudTh>
+                <MudTh>Status</MudTh>
+                <MudTh>Progresso</MudTh>
+                <MudTh>Prazo</MudTh>
+                <MudTh>Ações</MudTh>
+            </HeaderContent>
+            <RowTemplate>
+                <MudTd DataLabel="Projeto">
+                    <MudStack Row="true" Spacing="2" AlignItems="AlignItems.Center">
+                        <MudAvatar Size="Size.Small" Rounded="true" Class="@Ui.FundoSuave(context.Cor)">
+                            <MudIcon Icon="@context.Icone" Color="@context.Cor" Size="Size.Small" />
+                        </MudAvatar>
+                        <MudText Typo="Typo.body2">@context.Nome</MudText>
+                    </MudStack>
+                </MudTd>
+                <MudTd DataLabel="Cliente">@context.Cliente</MudTd>
+                <MudTd DataLabel="Responsável">
+                    <MudStack Row="true" Spacing="2" AlignItems="AlignItems.Center">
+                        <MudAvatar Size="Size.Small" Color="Color.Default">@Ui.Iniciais(context.Responsavel)</MudAvatar>
+                        <MudText Typo="Typo.body2">@context.Responsavel</MudText>
+                    </MudStack>
+                </MudTd>
+                <MudTd DataLabel="Status">
+                    <MudChip T="string" Size="Size.Small" Variant="Variant.Text" Color="@context.StatusCor">@context.Status</MudChip>
+                </MudTd>
+                <MudTd DataLabel="Progresso">
+                    <MudGrid Spacing="1" Class="align-center">
+                        <MudItem xs="9">
+                            <MudProgressLinear Value="@context.Progresso" Color="@(context.Progresso == 100 ? Color.Success : Color.Primary)" Rounded="true" Size="Size.Medium" />
+                        </MudItem>
+                        <MudItem xs="3">
+                            <MudText Typo="Typo.body2">@context.Progresso%</MudText>
+                        </MudItem>
+                    </MudGrid>
+                </MudTd>
+                <MudTd DataLabel="Prazo">@context.Prazo</MudTd>
+                <MudTd DataLabel="Ações">
+                    <MudMenu Icon="@Icons.Material.Filled.MoreVert" Size="Size.Small" Dense="true">
+                        <MudMenuItem>Ver detalhes</MudMenuItem>
+                        <MudMenuItem>Editar</MudMenuItem>
+                        <MudMenuItem>Excluir</MudMenuItem>
+                    </MudMenu>
+                </MudTd>
+            </RowTemplate>
+        </MudTable>
+    </ChildContent>
+</DashboardCard>
+
+@code {
+    [Parameter, EditorRequired] public IReadOnlyList<ProjetoRecente> Projetos { get; set; } = Array.Empty<ProjetoRecente>();
+}

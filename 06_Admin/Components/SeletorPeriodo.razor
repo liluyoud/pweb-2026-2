@@ -1,0 +1,16 @@
+<MudMenu Label="@Valor" Variant="Variant.Outlined" Color="Color.Default" Size="Size.Large"
+         StartIcon="@Icons.Material.Outlined.CalendarToday" EndIcon="@Icons.Material.Filled.KeyboardArrowDown"
+         AnchorOrigin="Origin.BottomRight" TransformOrigin="Origin.TopRight">
+    @foreach (var opcao in Opcoes)
+    {
+        <MudMenuItem OnClick="@(() => SelecionarAsync(opcao))">@opcao</MudMenuItem>
+    }
+</MudMenu>
+
+@code {
+    [Parameter, EditorRequired] public IReadOnlyList<string> Opcoes { get; set; } = Array.Empty<string>();
+    [Parameter] public string Valor { get; set; } = "";
+    [Parameter] public EventCallback<string> ValorChanged { get; set; }
+
+    private Task SelecionarAsync(string opcao) => ValorChanged.InvokeAsync(opcao);
+}

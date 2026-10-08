@@ -1,0 +1,56 @@
+<MudPaper Elevation="1" Class="pa-4" Height="100%">
+    <MudStack Row="true" Spacing="3" AlignItems="AlignItems.Center">
+        <MudAvatar Size="Size.Large" Class="@Ui.FundoSuave(Kpi.Cor)">
+            <MudIcon Icon="@Kpi.Icone" Color="@Kpi.Cor" />
+        </MudAvatar>
+        <div>
+            <MudText Typo="Typo.body2" Class="mud-text-secondary">@Kpi.Titulo</MudText>
+            <MudText Typo="Typo.h5">@Kpi.Valor</MudText>
+        </div>
+    </MudStack>
+    <MudStack Row="true" Justify="Justify.SpaceBetween" AlignItems="AlignItems.End" Class="mt-2">
+        <div>
+            <MudStack Row="true" Spacing="1" AlignItems="AlignItems.Center">
+                <MudIcon Icon="@(Kpi.Positivo ? Icons.Material.Filled.TrendingUp : Icons.Material.Filled.TrendingDown)"
+                         Color="@CorTendencia" Size="Size.Small" />
+                <MudText Typo="Typo.h6" Color="@CorTendencia">@Kpi.Variacao</MudText>
+            </MudStack>
+            <MudText Typo="Typo.caption" Class="mud-text-secondary">comparado ao mês anterior.</MudText>
+        </div>
+        <MudChart T="double" ChartType="ChartType.Line" Width="110px" Height="50px"
+                  ChartSeries="_series" ChartLabels="_rotulos" ChartOptions="_opcoes" />
+    </MudStack>
+</MudPaper>
+
+@code {
+    [Parameter, EditorRequired] public Kpi Kpi { get; set; } = default!;
+
+    private List<ChartSeries<double>> _series = new();
+    private string[] _rotulos = Array.Empty<string>();
+    private LineChartOptions _opcoes = new();
+
+    private Color CorTendencia => Kpi.Positivo ? Color.Success : Color.Error;
+
+    protected override void OnParametersSet()
+    {
+        var serie = new ChartSeries<double> { Name = Kpi.Titulo, Data = Kpi.Tendencia };
+        _series = new() { serie };
+        _rotulos = Enumerable.Repeat("", Kpi.Tendencia.Length).ToArray();
+        _opcoes = new LineChartOptions
+        {
+            ChartPalette = new[] { Kpi.CorHex },
+            ShowLegend = false,
+            ShowToolTips = false,
+            YAxisLines = false,
+            XAxisLines = false,
+            YAxisToStringFunc = _ => "",
+            YAxisRequireZeroPoint = false,
+            // o SVG do sparkline é reduzido ~6x para caber em 110px; traço 12 resulta em ~2px na tela
+            LineStrokeWidth = 12,
+            SeriesDisplayOverrides = new Dictionary<IChartSeries, MudBlazor.Charts.SeriesDisplayOverride>
+            {
+                [serie] = new() { LineDisplayType = LineDisplayType.Area, FillOpacity = 0.15, StrokeOpacity = 1 },
+            },
+        };
+    }
+}

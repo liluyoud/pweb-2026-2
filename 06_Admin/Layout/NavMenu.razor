@@ -1,0 +1,30 @@
+<MudNavMenu Color="Color.Primary" Rounded="true" Class="px-3">
+    <MudNavLink Href="" Match="NavLinkMatch.All" Icon="@Icons.Material.Filled.GridView">Dashboard</MudNavLink>
+    <MudNavLink Href="analytics" Icon="@Icons.Material.Outlined.BarChart">Analytics</MudNavLink>
+    <MudNavLink Href="clientes" Icon="@Icons.Material.Outlined.People">Clientes</MudNavLink>
+    <MudNavLink Href="projetos" Icon="@Icons.Material.Outlined.Folder">
+        <MudStack Row="true" Justify="Justify.SpaceBetween" AlignItems="AlignItems.Center" Class="mud-width-full">
+            <span>Projetos</span>
+            <MudChip T="string" Size="Size.Small" Color="Color.Primary" Variant="Variant.Filled" Class="ma-0">8</MudChip>
+        </MudStack>
+    </MudNavLink>
+    <MudNavLink Href="financeiro" Icon="@Icons.Material.Outlined.MonetizationOn">Financeiro</MudNavLink>
+    <MudNavLink Href="relatorios" Icon="@Icons.Material.Outlined.Description">Relatórios</MudNavLink>
+
+    <MudDivider Class="my-3 mx-4" />
+
+    <MudNavLink Href="administracao" Icon="@Icons.Material.Outlined.Settings">Administração</MudNavLink>
+    <MudNavLink Href="usuarios" Icon="@Icons.Material.Outlined.Group">Usuários</MudNavLink>
+    <MudNavLink Href="permissoes" Icon="@Icons.Material.Outlined.Lock">Permissões</MudNavLink>
+    <MudNavLink Href="integracoes" Icon="@Icons.Material.Outlined.Hub">
+        <MudStack Row="true" Justify="Justify.SpaceBetween" AlignItems="AlignItems.Center" Class="mud-width-full">
+            <span>Integrações</span>
+            <MudChip T="string" Size="Size.Small" Color="Color.Primary" Variant="Variant.Filled" Class="ma-0">Novo</MudChip>
+        </MudStack>
+    </MudNavLink>
+
+    <MudDivider Class="my-3 mx-4" />
+
+    <MudNavLink Href="configuracoes" Icon="@Icons.Material.Outlined.Settings">Configurações</MudNavLink>
+    <MudNavLink Href="ajuda" Icon="@Icons.Material.Outlined.HelpOutline">Ajuda</MudNavLink>
+</MudNavMenu>

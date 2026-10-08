@@ -1,0 +1,15 @@
+<MudStack Row="true" Justify="Justify.SpaceBetween" AlignItems="AlignItems.Center" Wrap="Wrap.Wrap" Class="mb-4">
+    <div>
+        <MudText Typo="Typo.h4">@Titulo</MudText>
+        <MudText Typo="Typo.body1" Class="mud-text-secondary">@Subtitulo</MudText>
+    </div>
+    <MudStack Row="true" Spacing="3" AlignItems="AlignItems.Center">
+        @Acoes
+    </MudStack>
+</MudStack>
+
+@code {
+    [Parameter, EditorRequired] public string Titulo { get; set; } = "";
+    [Parameter] public string? Subtitulo { get; set; }
+    [Parameter] public RenderFragment? Acoes { get; set; }
+}

@@ -1,0 +1,40 @@
+<DashboardCard Titulo="Performance dos Projetos">
+    <Menu>
+        <MudMenuItem>Ver todos os projetos</MudMenuItem>
+    </Menu>
+    <ChildContent>
+        @* cada projeto ocupa uma faixa de mesma altura; a borda inferior da faixa é o separador *@
+        <div class="flex-grow-1 d-flex flex-column">
+            @for (var i = 0; i < Projetos.Count; i++)
+            {
+                var projeto = Projetos[i];
+                var separador = i < Projetos.Count - 1 ? "border-b border-solid mud-border-lines-default" : "";
+                <div class="@($"flex-grow-1 d-flex flex-column justify-center {separador}")">
+                    <MudGrid Spacing="2" Class="align-center py-1">
+                        <MudItem xs="7" md="4">
+                            <MudStack Row="true" Spacing="3" AlignItems="AlignItems.Center">
+                                <MudAvatar Size="Size.Small" Rounded="true" Class="@Ui.FundoSuave(projeto.Cor)">
+                                    <MudIcon Icon="@projeto.Icone" Color="@projeto.Cor" Size="Size.Small" />
+                                </MudAvatar>
+                                <MudText Typo="Typo.body1">@projeto.Nome</MudText>
+                            </MudStack>
+                        </MudItem>
+                        <MudItem xs="5" md="4">
+                            <MudProgressLinear Value="@projeto.Percentual" Color="@projeto.Cor" Rounded="true" Size="Size.Medium" />
+                        </MudItem>
+                        <MudItem xs="4" md="1">
+                            <MudText Typo="Typo.subtitle2">@projeto.Percentual%</MudText>
+                        </MudItem>
+                        <MudItem xs="8" md="3" Class="d-flex justify-end">
+                            <MudText Typo="Typo.body2" Class="mud-text-secondary">@projeto.TarefasConcluidas de @projeto.TarefasTotal tarefas</MudText>
+                        </MudItem>
+                    </MudGrid>
+                </div>
+            }
+        </div>
+    </ChildContent>
+</DashboardCard>
+
+@code {
+    [Parameter, EditorRequired] public IReadOnlyList<ProjetoPerformance> Projetos { get; set; } = Array.Empty<ProjetoPerformance>();
+}

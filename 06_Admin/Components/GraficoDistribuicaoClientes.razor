@@ -1,0 +1,59 @@
+<DashboardCard Titulo="Distribuição de Clientes">
+    <Menu>
+        <MudMenuItem>Exportar dados</MudMenuItem>
+    </Menu>
+    <ChildContent>
+        <MudGrid Spacing="2" Class="align-center mt-1">
+            <MudItem xs="12" sm="8">
+                <MudChart T="double" ChartType="ChartType.Donut" Width="100%" Height="290px"
+                          ChartSeries="_series" ChartLabels="_rotulos" ChartOptions="_opcoes">
+                    <CustomGraphics>
+                        <text x="50%" y="46%" text-anchor="middle" dominant-baseline="middle" font-size="28" font-weight="700" fill="currentColor">
+                            @Total.ToString("N0", CulturaBr)
+                        </text>
+                        <text x="50%" y="58%" text-anchor="middle" dominant-baseline="middle" font-size="14" fill="currentColor" opacity="0.6">
+                            clientes
+                        </text>
+                    </CustomGraphics>
+                </MudChart>
+            </MudItem>
+            <MudItem xs="12" sm="4">
+                <MudStack Spacing="3">
+                    @foreach (var segmento in Segmentos)
+                    {
+                        <MudStack Row="true" Justify="Justify.SpaceBetween" AlignItems="AlignItems.Center">
+                            <MudStack Row="true" Spacing="2" AlignItems="AlignItems.Center">
+                                <MudIcon Icon="@Icons.Material.Filled.Circle" Color="@segmento.Cor" Size="Size.Small" />
+                                <MudText Typo="Typo.body1">@segmento.Nome</MudText>
+                            </MudStack>
+                            <MudText Typo="Typo.subtitle2">@segmento.Percentual%</MudText>
+                        </MudStack>
+                    }
+                </MudStack>
+            </MudItem>
+        </MudGrid>
+    </ChildContent>
+</DashboardCard>
+
+@code {
+    private static readonly System.Globalization.CultureInfo CulturaBr = new("pt-BR");
+
+    [Parameter, EditorRequired] public int Total { get; set; }
+    [Parameter, EditorRequired] public IReadOnlyList<SegmentoCliente> Segmentos { get; set; } = Array.Empty<SegmentoCliente>();
+
+    private List<ChartSeries<double>> _series = new();
+    private string[] _rotulos = Array.Empty<string>();
+    private DonutChartOptions _opcoes = new();
+
+    protected override void OnParametersSet()
+    {
+        _series = new() { new ChartSeries<double> { Name = "Clientes", Data = Segmentos.Select(s => (double)s.Percentual).ToArray() } };
+        _rotulos = Segmentos.Select(s => s.Nome).ToArray();
+        _opcoes = new DonutChartOptions
+        {
+            ChartPalette = Segmentos.Select(s => s.CorHex).ToArray(),
+            ShowLegend = false,
+            DonutRingRatio = 0.35,
+        };
+    }
+}

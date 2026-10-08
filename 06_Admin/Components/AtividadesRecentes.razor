@@ -1,0 +1,27 @@
+<DashboardCard Titulo="Atividades Recentes">
+    <Menu>
+        <MudMenuItem>Ver histórico completo</MudMenuItem>
+    </Menu>
+    <ChildContent>
+        <MudStack Spacing="3">
+            @foreach (var atividade in Atividades)
+            {
+                <MudStack Row="true" Spacing="3" AlignItems="AlignItems.Center">
+                    <MudAvatar Size="Size.Small" Color="@atividade.Cor">
+                        <MudIcon Icon="@atividade.Icone" Size="Size.Small" />
+                    </MudAvatar>
+                    <MudAvatar Size="Size.Medium" Color="Color.Default">@Ui.Iniciais(atividade.Nome)</MudAvatar>
+                    <div class="flex-grow-1">
+                        <MudText Typo="Typo.subtitle2">@atividade.Nome</MudText>
+                        <MudText Typo="Typo.body2" Class="mud-text-secondary">@atividade.Acao</MudText>
+                    </div>
+                    <MudText Typo="Typo.body2" Class="mud-text-secondary">@atividade.Tempo</MudText>
+                </MudStack>
+            }
+        </MudStack>
+    </ChildContent>
+</DashboardCard>
+
+@code {
+    [Parameter, EditorRequired] public IReadOnlyList<Atividade> Atividades { get; set; } = Array.Empty<Atividade>();
+}

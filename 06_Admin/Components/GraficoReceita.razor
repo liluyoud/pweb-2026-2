@@ -1,0 +1,59 @@
+<DashboardCard Titulo="Receita e Crescimento" Subtitulo="Desempenho financeiro nos últimos meses">
+    <Acoes>
+        <MudStack Row="true" Spacing="4" AlignItems="AlignItems.Center" Class="mt-2">
+            <MudStack Row="true" Spacing="1" AlignItems="AlignItems.Center">
+                <MudIcon Icon="@Icons.Material.Filled.Circle" Color="Color.Primary" Size="Size.Small" />
+                <MudText Typo="Typo.body2">Receita</MudText>
+            </MudStack>
+            <MudStack Row="true" Spacing="1" AlignItems="AlignItems.Center">
+                <MudIcon Icon="@Icons.Material.Filled.Remove" Color="Color.Tertiary" Size="Size.Small" />
+                <MudText Typo="Typo.body2">Meta</MudText>
+            </MudStack>
+        </MudStack>
+    </Acoes>
+    <Menu>
+        <MudMenuItem>Exportar dados</MudMenuItem>
+        <MudMenuItem>Ver relatório completo</MudMenuItem>
+    </Menu>
+    <ChildContent>
+        @* os rótulos do eixo X são desenhados abaixo da área do SVG; o pb-6 reserva esse espaço dentro do card *@
+        <div class="pb-6">
+            <MudChart T="double" ChartType="ChartType.Line" Width="100%" Height="260px" MatchBoundsToSize="true"
+                      ChartSeries="_series" ChartLabels="Meses" ChartOptions="_opcoes" />
+        </div>
+    </ChildContent>
+</DashboardCard>
+
+@code {
+    [Parameter, EditorRequired] public string[] Meses { get; set; } = Array.Empty<string>();
+    [Parameter, EditorRequired] public double[] Receita { get; set; } = Array.Empty<double>();
+    [Parameter, EditorRequired] public double[] Meta { get; set; } = Array.Empty<double>();
+
+    private List<ChartSeries<double>> _series = new();
+    private LineChartOptions _opcoes = new();
+
+    protected override void OnParametersSet()
+    {
+        var receita = new ChartSeries<double> { Name = "Receita", Data = Receita };
+        var meta = new ChartSeries<double> { Name = "Meta", Data = Meta };
+        _series = new() { receita, meta };
+        _opcoes = new LineChartOptions
+        {
+            ChartPalette = new[] { "#2563EB", "#60A5FA" },
+            ShowLegend = false,
+            ShowDataMarkers = true,
+            LineStrokeWidth = 3,
+            YAxisTicks = 50000,
+            MaxNumYAxisTicks = 7,
+            YAxisSuggestedMax = 300000,
+            YAxisRequireZeroPoint = true,
+            XAxisLines = true,
+            YAxisToStringFunc = v => v == 0 ? "0" : $"{v / 1000:0}K",
+            SeriesDisplayOverrides = new Dictionary<IChartSeries, MudBlazor.Charts.SeriesDisplayOverride>
+            {
+                [receita] = new() { LineDisplayType = LineDisplayType.Area, FillOpacity = 0.15, StrokeOpacity = 1 },
+                [meta] = new() { StrokeOpacity = 0.8 },
+            },
+        };
+    }
+}
