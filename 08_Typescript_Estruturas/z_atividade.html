@@ -1,0 +1,1476 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            <title>Atividade&colon; Estruturas de controle e fun&ccedil;&otilde;es em TypeScript</title>
+            <style>
+/* From extension vscode.github */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+.vscode-dark img[src$=\#gh-light-mode-only],
+.vscode-light img[src$=\#gh-dark-mode-only],
+.vscode-high-contrast:not(.vscode-high-contrast-light) img[src$=\#gh-light-mode-only],
+.vscode-high-contrast-light img[src$=\#gh-dark-mode-only] {
+	display: none;
+}
+
+</style>
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex/dist/katex.min.css">
+<link href="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/markdown.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Microsoft/vscode/extensions/markdown-language-features/media/highlight.css">
+<style>
+            body {
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe WPC', 'Segoe UI', system-ui, 'Ubuntu', 'Droid Sans', sans-serif;
+                font-size: 14px;
+                line-height: 1.6;
+            }
+        </style>
+        <style>
+.task-list-item {
+    list-style-type: none;
+}
+
+.task-list-item-checkbox {
+    margin-left: -20px;
+    vertical-align: middle;
+    pointer-events: none;
+}
+</style>
+<style>
+:root {
+  --color-note: #0969da;
+  --color-tip: #1a7f37;
+  --color-warning: #9a6700;
+  --color-severe: #bc4c00;
+  --color-caution: #d1242f;
+  --color-important: #8250df;
+}
+
+</style>
+<style>
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-note: #2f81f7;
+    --color-tip: #3fb950;
+    --color-warning: #d29922;
+    --color-severe: #db6d28;
+    --color-caution: #f85149;
+    --color-important: #a371f7;
+  }
+}
+
+</style>
+<style>
+.markdown-alert {
+  padding: 0.5rem 1rem;
+  margin-bottom: 16px;
+  color: inherit;
+  border-left: .25em solid #888;
+}
+
+.markdown-alert>:first-child {
+  margin-top: 0
+}
+
+.markdown-alert>:last-child {
+  margin-bottom: 0
+}
+
+.markdown-alert .markdown-alert-title {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  line-height: 1
+}
+
+.markdown-alert .markdown-alert-title .octicon {
+  margin-right: 0.5rem;
+  display: inline-block;
+  overflow: visible !important;
+  vertical-align: text-bottom;
+  fill: currentColor;
+}
+
+.markdown-alert.markdown-alert-note {
+  border-left-color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-note .markdown-alert-title {
+  color: var(--color-note);
+}
+
+.markdown-alert.markdown-alert-important {
+  border-left-color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-important .markdown-alert-title {
+  color: var(--color-important);
+}
+
+.markdown-alert.markdown-alert-warning {
+  border-left-color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-warning .markdown-alert-title {
+  color: var(--color-warning);
+}
+
+.markdown-alert.markdown-alert-tip {
+  border-left-color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-tip .markdown-alert-title {
+  color: var(--color-tip);
+}
+
+.markdown-alert.markdown-alert-caution {
+  border-left-color: var(--color-caution);
+}
+
+.markdown-alert.markdown-alert-caution .markdown-alert-title {
+  color: var(--color-caution);
+}
+
+</style>
+        
+        </head>
+        <body class="vscode-body vscode-light">
+            <span id="markdown-mermaid" aria-hidden="true" data-config="{&quot;darkModeTheme&quot;:&quot;vscode&quot;,&quot;lightModeTheme&quot;:&quot;vscode&quot;,&quot;maxTextSize&quot;:50000,&quot;clickDrag&quot;:&quot;alt&quot;,&quot;showControls&quot;:&quot;onHoverOrFocus&quot;,&quot;resizable&quot;:true,&quot;maxHeight&quot;:&quot;&quot;}"></span>
+				<h1 id="atividade-estruturas-de-controle-e-funções-em-typescript">Atividade: Estruturas de controle e funções em TypeScript</h1>
+<p>São 5 exercícios baseados em situações do mundo real. Em cada um, você vai escrever um programa em <strong>TypeScript</strong>, transformá-lo em <strong>JavaScript</strong> e usar esse JavaScript numa <strong>página HTML</strong> que o usuário pode abrir no navegador.</p>
+<p>No final, você vai publicar tudo no <strong>GitHub</strong> e enviar o link pelo Canvas.</p>
+<blockquote>
+<p>📅 <strong>Entrega:</strong> até <strong>29/10/2026 (quinta-feira)</strong>
+📤 <strong>O que enviar:</strong> o link do seu repositório no GitHub, pela atividade do Canvas</p>
+</blockquote>
+<h2 id="conteúdos-por-exercício">Conteúdos por exercício</h2>
+<table>
+<thead>
+<tr>
+<th>Ex.</th>
+<th>Situação</th>
+<th>Conteúdos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>01</td>
+<td>Situação do aluno no semestre</td>
+<td><code>if</code>, <code>else if</code>, <code>else</code>, operadores lógicos, ternário, funções</td>
+</tr>
+<tr>
+<td>02</td>
+<td>Conta de luz</td>
+<td><code>switch</code> (com cases agrupados), parâmetro padrão, tipos literais</td>
+</tr>
+<tr>
+<td>03</td>
+<td>Simulador de parcelamento</td>
+<td><code>for</code>, <code>break</code>, <code>continue</code>, parâmetro opcional</td>
+</tr>
+<tr>
+<td>04</td>
+<td>Meta de economia</td>
+<td><code>while</code>, <code>break</code>, tipo de função, parâmetro padrão</td>
+</tr>
+<tr>
+<td>05</td>
+<td>Caixa do mercado (integrador)</td>
+<td>parâmetros rest, sobrecarga de funções e <strong>todos</strong> os anteriores</td>
+</tr>
+</tbody>
+</table>
+<h2 id="sumário">Sumário</h2>
+<ul>
+<li><a href="#parte-1-preparando-o-ambiente">Parte 1: Preparando o ambiente</a></li>
+<li><a href="#parte-2-criando-o-projeto-no-vs-code">Parte 2: Criando o projeto no VS Code</a></li>
+<li><a href="#parte-3-transformando-typescript-em-javascript">Parte 3: Transformando TypeScript em JavaScript</a></li>
+<li><a href="#parte-4-rodando-a-p%C3%A1gina-no-navegador">Parte 4: Rodando a página no navegador</a></li>
+<li><a href="#parte-5-depurando-o-c%C3%B3digo">Parte 5: Depurando o código</a></li>
+<li><a href="#parte-6-os-exerc%C3%ADcios">Parte 6: Os exercícios</a></li>
+<li><a href="#parte-7-publicando-no-github">Parte 7: Publicando no GitHub</a></li>
+<li><a href="#parte-8-entregando-no-canvas">Parte 8: Entregando no Canvas</a></li>
+</ul>
+<hr>
+<h2 id="parte-1-preparando-o-ambiente">Parte 1: Preparando o ambiente</h2>
+<p>Você vai precisar de 4 programas: <strong>Node.js</strong>, <strong>TypeScript</strong>, <strong>VS Code</strong> e <strong>Git</strong>. Se algum já estiver instalado, pule o passo dele e só faça a verificação.</p>
+<h3 id="11-instalar-o-nodejs">1.1 Instalar o Node.js</h3>
+<p>O TypeScript é instalado pelo <strong>npm</strong>, o gerenciador de pacotes que vem junto com o Node.js.</p>
+<ol>
+<li>Acesse <a href="https://nodejs.org">https://nodejs.org</a> e baixe a versão <strong>LTS</strong>.</li>
+<li>Instale com as opções padrão (Avançar, Avançar, Concluir).</li>
+<li>Abra um terminal novo e confira:<pre><code class="language-bash">node -v
+npm -v
+</code></pre>
+Os dois comandos devem mostrar um número de versão, como <code>v24.11.0</code> e <code>11.6.2</code>.</li>
+</ol>
+<blockquote>
+<p>💡 No Windows, o terminal pode ser o <strong>PowerShell</strong> ou o <strong>Prompt de Comando</strong>. Se você já estava com um terminal aberto antes de instalar, <strong>feche e abra de novo</strong>.</p>
+</blockquote>
+<h3 id="12-instalar-o-typescript">1.2 Instalar o TypeScript</h3>
+<ol>
+<li>No terminal, rode:<pre><code class="language-bash">npm install -g typescript
+</code></pre>
+O <code>-g</code> instala o TypeScript de forma <strong>global</strong>, para que o comando <code>tsc</code> funcione em qualquer pasta.</li>
+<li>Confira:<pre><code class="language-bash">tsc -v
+</code></pre>
+Deve aparecer algo como <code>Version 7.0.2</code>.</li>
+</ol>
+<blockquote>
+<p>⚠️ <strong>Erro comum no Windows:</strong> se aparecer a mensagem <em>&quot;tsc.ps1 não pode ser carregado porque a execução de scripts foi desabilitada neste sistema&quot;</em>, rode este comando <strong>uma vez</strong> no PowerShell e tente de novo:</p>
+<pre><code class="language-powershell"><span class="hljs-built_in">Set-ExecutionPolicy</span> <span class="hljs-literal">-Scope</span> CurrentUser RemoteSigned
+</code></pre>
+</blockquote>
+<h3 id="13-instalar-o-vs-code-e-as-extensões">1.3 Instalar o VS Code e as extensões</h3>
+<ol>
+<li>Baixe e instale o VS Code em <a href="https://code.visualstudio.com">https://code.visualstudio.com</a>.
+<ul>
+<li>No Windows, durante a instalação, marque as opções <strong>&quot;Adicionar a ação 'Abrir com Code'&quot;</strong> e <strong>&quot;Adicionar ao PATH&quot;</strong>.</li>
+</ul>
+</li>
+<li>Abra o VS Code, clique no ícone de <strong>Extensões</strong> na barra lateral (ou <code>Ctrl+Shift+X</code>) e instale:
+<ul>
+<li><strong>Live Server</strong> (autor: Ritwick Dey): abre a página HTML num servidor local e recarrega sozinha quando você salva.</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>💡 O VS Code já vem com suporte a TypeScript e com o depurador de navegador. Não é preciso instalar mais nada para isso.</p>
+</blockquote>
+<h3 id="14-instalar-o-git">1.4 Instalar o Git</h3>
+<ol>
+<li>Baixe e instale o Git em <a href="https://git-scm.com">https://git-scm.com</a>, com as opções padrão.</li>
+<li>Confira num terminal novo:<pre><code class="language-bash">git --version
+</code></pre>
+</li>
+</ol>
+<hr>
+<h2 id="parte-2-criando-o-projeto-no-vs-code">Parte 2: Criando o projeto no VS Code</h2>
+<h3 id="21-criar-e-abrir-a-pasta">2.1 Criar e abrir a pasta</h3>
+<ol>
+<li>Crie uma pasta chamada <strong><code>pweb-ts-estruturas</code></strong> num lugar fácil de achar, como <code>Documentos</code>.</li>
+<li>Abra essa pasta no VS Code de uma das formas:
+<ul>
+<li>No VS Code: <strong>Arquivo → Abrir Pasta...</strong> (<code>File → Open Folder...</code>) e escolha a pasta; ou</li>
+<li>No Windows Explorer: clique com o botão direito na pasta → <strong>Abrir com Code</strong>; ou</li>
+<li>Num terminal, dentro da pasta: <code>code .</code></li>
+</ul>
+</li>
+<li>Se o VS Code perguntar <em>&quot;Você confia nos autores dos arquivos desta pasta?&quot;</em>, clique em <strong>Sim, confio</strong>.</li>
+<li>Abra o <strong>terminal integrado</strong>: menu <strong>Terminal → Novo Terminal</strong> (ou <code>Ctrl+`</code>). Ele já abre dentro da pasta do projeto.</li>
+</ol>
+<h3 id="22-estrutura-do-projeto">2.2 Estrutura do projeto</h3>
+<p>No final da atividade, o projeto deve ficar assim:</p>
+<pre><code>pweb-ts-estruturas/
+├── .vscode/
+│   └── launch.json      ← configuração do depurador (Parte 5)
+├── ex01/
+│   ├── index.html       ← página do exercício
+│   ├── ex01.ts          ← o código que VOCÊ escreve
+│   ├── ex01.js          ← gerado pelo tsc (não edite!)
+│   └── ex01.js.map      ← gerado pelo tsc (usado na depuração)
+├── ex02/ ...
+├── ex03/ ...
+├── ex04/ ...
+├── ex05/ ...
+├── index.html           ← página inicial com links para os exercícios
+├── style.css            ← estilo compartilhado por todas as páginas
+├── tsconfig.json        ← configuração do TypeScript
+└── README.md            ← seu nome e os links da atividade
+</code></pre>
+<p>Para criar uma pasta ou um arquivo, use os ícones que aparecem ao passar o mouse sobre o nome do projeto, no <strong>Explorador</strong> do VS Code (<code>Ctrl+Shift+E</code>).</p>
+<h3 id="23-criar-o-tsconfigjson">2.3 Criar o <code>tsconfig.json</code></h3>
+<p>O <code>tsconfig.json</code> diz ao compilador <strong>como</strong> transformar o TypeScript em JavaScript. Crie esse arquivo na raiz do projeto com o conteúdo:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;compilerOptions&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">{</span>
+    <span class="hljs-attr">&quot;target&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;ES2020&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;module&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;ES2020&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;moduleDetection&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;force&quot;</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;lib&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;ES2020&quot;</span><span class="hljs-punctuation">,</span> <span class="hljs-string">&quot;DOM&quot;</span><span class="hljs-punctuation">]</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;strict&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span><span class="hljs-punctuation">,</span>
+    <span class="hljs-attr">&quot;sourceMap&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-keyword">true</span>
+  <span class="hljs-punctuation">}</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;include&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span><span class="hljs-string">&quot;**/*.ts&quot;</span><span class="hljs-punctuation">]</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+<p>O que cada opção faz:</p>
+<table>
+<thead>
+<tr>
+<th>Opção</th>
+<th>Para que serve</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>target</code></td>
+<td>Versão do JavaScript gerado. O ES2020 roda em qualquer navegador atual.</td>
+</tr>
+<tr>
+<td><code>module</code> e <code>moduleDetection</code></td>
+<td>Tratam cada arquivo <code>.ts</code> como um <strong>módulo</strong> separado. Assim, uma função <code>formatar()</code> no ex01 não entra em conflito com outra <code>formatar()</code> no ex04.</td>
+</tr>
+<tr>
+<td><code>lib</code></td>
+<td>Inclui os tipos do <strong>DOM</strong> (<code>document</code>, <code>HTMLInputElement</code>...), para usar o TypeScript numa página web.</td>
+</tr>
+<tr>
+<td><code>strict</code></td>
+<td>Liga todas as verificações de tipo. <strong>Obrigatório nesta atividade.</strong></td>
+</tr>
+<tr>
+<td><code>sourceMap</code></td>
+<td>Gera os arquivos <code>.js.map</code>, que permitem <strong>depurar o <code>.ts</code></strong> em vez do <code>.js</code>.</td>
+</tr>
+<tr>
+<td><code>include</code></td>
+<td>Compila todos os <code>.ts</code> de todas as pastas do projeto.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="24-criar-o-stylecss-e-o-indexhtml-da-raiz">2.4 Criar o <code>style.css</code> e o <code>index.html</code> da raiz</h3>
+<p>Esses dois arquivos são compartilhados por todos os exercícios. Copie-os como estão.</p>
+<p><strong><code>style.css</code></strong></p>
+<pre><code class="language-css"><span class="hljs-selector-tag">body</span> {
+  <span class="hljs-attribute">font-family</span>: system-ui, sans-serif;
+  <span class="hljs-attribute">max-width</span>: <span class="hljs-number">640px</span>;
+  <span class="hljs-attribute">margin</span>: <span class="hljs-number">2rem</span> auto;
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">0</span> <span class="hljs-number">1rem</span>;
+  <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1.5</span>;
+}
+
+<span class="hljs-selector-tag">label</span> {
+  <span class="hljs-attribute">display</span>: block;
+  <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">0.75rem</span>;
+  <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">600</span>;
+}
+
+<span class="hljs-selector-tag">input</span>,
+select,
+<span class="hljs-selector-tag">textarea</span>,
+<span class="hljs-selector-tag">button</span> {
+  <span class="hljs-attribute">font</span>: inherit;
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">0.4rem</span> <span class="hljs-number">0.6rem</span>;
+  <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">0.25rem</span>;
+}
+
+<span class="hljs-selector-tag">button</span> {
+  <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">1rem</span>;
+  <span class="hljs-attribute">cursor</span>: pointer;
+}
+
+<span class="hljs-selector-id">#resultado</span> {
+  <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">1.5rem</span>;
+  <span class="hljs-attribute">padding</span>: <span class="hljs-number">1rem</span>;
+  <span class="hljs-attribute">border-radius</span>: <span class="hljs-number">8px</span>;
+  <span class="hljs-attribute">background</span>: <span class="hljs-number">#f1f3f5</span>;
+  <span class="hljs-attribute">white-space</span>: pre-line;
+}
+
+<span class="hljs-selector-class">.sucesso</span> { <span class="hljs-attribute">background</span>: <span class="hljs-number">#d3f9d8</span> <span class="hljs-meta">!important</span>; }
+<span class="hljs-selector-class">.alerta</span>  { <span class="hljs-attribute">background</span>: <span class="hljs-number">#fff3bf</span> <span class="hljs-meta">!important</span>; }
+<span class="hljs-selector-class">.erro</span>    { <span class="hljs-attribute">background</span>: <span class="hljs-number">#ffe3e3</span> <span class="hljs-meta">!important</span>; }
+
+<span class="hljs-selector-tag">table</span> { <span class="hljs-attribute">border-collapse</span>: collapse; <span class="hljs-attribute">margin-top</span>: <span class="hljs-number">1rem</span>; }
+<span class="hljs-selector-tag">th</span>, <span class="hljs-selector-tag">td</span> { <span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid <span class="hljs-number">#ccc</span>; <span class="hljs-attribute">padding</span>: <span class="hljs-number">0.3rem</span> <span class="hljs-number">0.8rem</span>; <span class="hljs-attribute">text-align</span>: right; }
+</code></pre>
+<p><strong><code>index.html</code></strong> (troque <code>Seu Nome</code> pelo seu nome)</p>
+<pre><code class="language-html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;pt-br&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Atividade: Estruturas em TypeScript<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;style.css&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Estruturas em TypeScript<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Aluno(a): Seu Nome<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;ex01/index.html&quot;</span>&gt;</span>Ex. 01: Situação do aluno<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;ex02/index.html&quot;</span>&gt;</span>Ex. 02: Conta de luz<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;ex03/index.html&quot;</span>&gt;</span>Ex. 03: Simulador de parcelamento<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;ex04/index.html&quot;</span>&gt;</span>Ex. 04: Meta de economia<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;ex05/index.html&quot;</span>&gt;</span>Ex. 05: Caixa do mercado<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+<hr>
+<h2 id="parte-3-transformando-typescript-em-javascript">Parte 3: Transformando TypeScript em JavaScript</h2>
+<p>O navegador <strong>não entende TypeScript</strong>, só JavaScript. O compilador <code>tsc</code> faz duas coisas:</p>
+<ol>
+<li><strong>verifica os tipos</strong> e mostra os erros;</li>
+<li><strong>gera o arquivo <code>.js</code></strong> correspondente, removendo os tipos.</li>
+</ol>
+<h3 id="31-compilar-uma-vez">3.1 Compilar uma vez</h3>
+<p>No terminal integrado, na raiz do projeto, rode:</p>
+<pre><code class="language-bash">tsc
+</code></pre>
+<p>Sem nenhum argumento, o <code>tsc</code> lê o <code>tsconfig.json</code> e compila <strong>todos</strong> os <code>.ts</code> do projeto. Depois disso, aparece um <code>.js</code> e um <code>.js.map</code> ao lado de cada <code>.ts</code>.</p>
+<blockquote>
+<p>⚠️ Não rode <code>tsc ex01.ts</code> (com o nome do arquivo). Quando você informa um arquivo, o <code>tsc</code> <strong>ignora o <code>tsconfig.json</code></strong> e usa as configurações padrão.</p>
+</blockquote>
+<h3 id="32-compilar-automaticamente-modo-watch">3.2 Compilar automaticamente (modo watch)</h3>
+<p>É mais prático deixar o compilador observando os arquivos:</p>
+<pre><code class="language-bash">tsc --watch
+</code></pre>
+<p>A cada vez que você salvar um <code>.ts</code>, ele recompila sozinho e mostra:</p>
+<pre><code>Found 0 errors. Watching for file changes.
+</code></pre>
+<p>Deixe esse terminal aberto enquanto trabalha. Para parar, pressione <code>Ctrl+C</code>. Para usar outro terminal ao mesmo tempo, clique no <strong>+</strong> do painel de terminais.</p>
+<h3 id="33-entendendo-os-erros">3.3 Entendendo os erros</h3>
+<p>Se houver um erro de tipo, o <code>tsc</code> mostra o arquivo, a linha, a coluna e a mensagem:</p>
+<pre><code>ex01/ex01.ts:12:7 - error TS2322: Type 'string' is not assignable to type 'number'.
+</code></pre>
+<p>O VS Code também sublinha o erro em vermelho e o lista no painel <strong>Problemas</strong> (<code>Ctrl+Shift+M</code>).</p>
+<blockquote>
+<p>⚠️ Por padrão, o <code>tsc</code> <strong>gera o <code>.js</code> mesmo com erros</strong>. Não se engane: a atividade só é considerada correta se compilar com <strong>0 erros</strong>.</p>
+</blockquote>
+<h3 id="34-ligando-o-typescript-ao-html">3.4 Ligando o TypeScript ao HTML</h3>
+<p>Cada página HTML carrega o <strong><code>.js</code></strong> gerado (nunca o <code>.ts</code>):</p>
+<pre><code class="language-html"><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;module&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;ex01.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</code></pre>
+<p>O <code>type=&quot;module&quot;</code> é necessário porque o <code>tsconfig.json</code> trata cada arquivo como módulo.</p>
+<p>Para ler e escrever na página, use <code>document.getElementById</code> com uma <strong>asserção de tipo</strong> (<code>as</code>), que informa ao TypeScript qual é o tipo do elemento:</p>
+<pre><code class="language-ts"><span class="hljs-keyword">const</span> campoNome = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;nome&#x27;</span>) <span class="hljs-keyword">as</span> <span class="hljs-title class_">HTMLInputElement</span>;
+<span class="hljs-keyword">const</span> botao = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;calcular&#x27;</span>) <span class="hljs-keyword">as</span> <span class="hljs-title class_">HTMLButtonElement</span>;
+<span class="hljs-keyword">const</span> saida = <span class="hljs-variable language_">document</span>.<span class="hljs-title function_">getElementById</span>(<span class="hljs-string">&#x27;resultado&#x27;</span>) <span class="hljs-keyword">as</span> <span class="hljs-title class_">HTMLElement</span>;
+
+botao.<span class="hljs-title function_">addEventListener</span>(<span class="hljs-string">&#x27;click&#x27;</span>, <span class="hljs-function">() =&gt;</span> {
+  <span class="hljs-keyword">const</span> nome = campoNome.<span class="hljs-property">value</span>;   <span class="hljs-comment">// .value sempre é string</span>
+  saida.<span class="hljs-property">textContent</span> = <span class="hljs-string">`Olá, <span class="hljs-subst">${nome}</span>!`</span>;
+});
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Elemento HTML</th>
+<th>Tipo no TypeScript</th>
+<th>Como ler o valor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;input type=&quot;text&quot;&gt;</code></td>
+<td><code>HTMLInputElement</code></td>
+<td><code>campo.value</code> (string)</td>
+</tr>
+<tr>
+<td><code>&lt;input type=&quot;number&quot;&gt;</code></td>
+<td><code>HTMLInputElement</code></td>
+<td><code>Number(campo.value)</code> ou <code>campo.valueAsNumber</code></td>
+</tr>
+<tr>
+<td><code>&lt;input type=&quot;checkbox&quot;&gt;</code></td>
+<td><code>HTMLInputElement</code></td>
+<td><code>campo.checked</code> (boolean)</td>
+</tr>
+<tr>
+<td><code>&lt;select&gt;</code></td>
+<td><code>HTMLSelectElement</code></td>
+<td><code>campo.value</code> (string)</td>
+</tr>
+<tr>
+<td><code>&lt;textarea&gt;</code></td>
+<td><code>HTMLTextAreaElement</code></td>
+<td><code>campo.value</code> (string)</td>
+</tr>
+<tr>
+<td><code>&lt;button&gt;</code></td>
+<td><code>HTMLButtonElement</code></td>
+<td>(use <code>addEventListener('click', ...)</code>)</td>
+</tr>
+<tr>
+<td><code>&lt;div&gt;</code>, <code>&lt;p&gt;</code>...</td>
+<td><code>HTMLElement</code></td>
+<td><code>textContent</code>, <code>innerHTML</code>, <code>className</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>⚠️ <strong>Não use <code>onclick=&quot;...&quot;</code> no HTML.</strong> Como o código é um módulo, as funções dele não ficam visíveis para o HTML. Use sempre <code>addEventListener</code> no <code>.ts</code>.</p>
+</blockquote>
+<blockquote>
+<p>💡 <strong>Separe a lógica da página.</strong> Escreva as regras do exercício (cálculos e decisões) em funções que recebem e devolvem valores, sem tocar no <code>document</code>. Deixe para o evento do botão só a leitura dos campos, a chamada dessas funções e a exibição do resultado. Assim, fica fácil testar as funções no console.</p>
+</blockquote>
+<hr>
+<h2 id="parte-4-rodando-a-página-no-navegador">Parte 4: Rodando a página no navegador</h2>
+<ol>
+<li>Deixe o <code>tsc --watch</code> rodando (Parte 3.2).</li>
+<li>No Explorador do VS Code, clique com o botão direito no <code>index.html</code> da raiz → <strong>Open with Live Server</strong>. Outra opção é clicar em <strong>Go Live</strong>, no canto inferior direito.</li>
+<li>O navegador abre em <code>http://127.0.0.1:5500/index.html</code>. Clique no link do exercício.</li>
+<li>Ao salvar um <code>.ts</code>, o <code>tsc</code> gera o novo <code>.js</code> e o Live Server <strong>recarrega a página sozinho</strong>.</li>
+</ol>
+<blockquote>
+<p>⚠️ <strong>Não abra o HTML com dois cliques</strong> (endereço <code>file:///...</code>). Páginas com <code>type=&quot;module&quot;</code> não funcionam assim. Use sempre o Live Server.</p>
+</blockquote>
+<blockquote>
+<p>💡 Para ver os <code>console.log</code> e os erros de execução, abra as <strong>Ferramentas do Desenvolvedor</strong> do navegador com <code>F12</code> e vá na aba <strong>Console</strong>.</p>
+</blockquote>
+<hr>
+<h2 id="parte-5-depurando-o-código">Parte 5: Depurando o código</h2>
+<p>Depurar é <strong>pausar</strong> o programa numa linha e executá-lo <strong>passo a passo</strong>, olhando o valor das variáveis. Graças aos arquivos <code>.js.map</code>, você pausa e avança <strong>direto no <code>.ts</code></strong>.</p>
+<h3 id="51-configurar-o-depurador-do-vs-code">5.1 Configurar o depurador do VS Code</h3>
+<ol>
+<li>
+<p>Crie a pasta <code>.vscode</code> na raiz do projeto (com o ponto no início) e, dentro dela, o arquivo <code>launch.json</code>:</p>
+<pre><code class="language-json"><span class="hljs-punctuation">{</span>
+  <span class="hljs-attr">&quot;version&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;0.2.0&quot;</span><span class="hljs-punctuation">,</span>
+  <span class="hljs-attr">&quot;configurations&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-punctuation">[</span>
+    <span class="hljs-punctuation">{</span>
+      <span class="hljs-attr">&quot;type&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;chrome&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;request&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;launch&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;name&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;Depurar exercício&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;url&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;http://127.0.0.1:5500/ex01/index.html&quot;</span><span class="hljs-punctuation">,</span>
+      <span class="hljs-attr">&quot;webRoot&quot;</span><span class="hljs-punctuation">:</span> <span class="hljs-string">&quot;${workspaceFolder}&quot;</span>
+    <span class="hljs-punctuation">}</span>
+  <span class="hljs-punctuation">]</span>
+<span class="hljs-punctuation">}</span>
+</code></pre>
+</li>
+<li>
+<p>Se você usa o <strong>Edge</strong> em vez do Chrome, troque <code>&quot;chrome&quot;</code> por <code>&quot;msedge&quot;</code>.</p>
+</li>
+<li>
+<p>Para depurar outro exercício, troque <code>ex01</code> na <code>url</code> pelo exercício desejado.</p>
+</li>
+</ol>
+<h3 id="52-depurar-passo-a-passo">5.2 Depurar passo a passo</h3>
+<ol>
+<li>Confira se o <code>tsc --watch</code> e o <strong>Live Server</strong> estão rodando.</li>
+<li>Abra o <code>ex01.ts</code> e clique <strong>à esquerda do número de uma linha</strong> dentro da função do botão. Aparece uma bolinha vermelha, que é o <strong>ponto de interrupção</strong> (<em>breakpoint</em>).</li>
+<li>Pressione <strong><code>F5</code></strong> (ou vá no ícone <strong>Executar e Depurar</strong>, <code>Ctrl+Shift+D</code>, e clique em ▶ <strong>Depurar exercício</strong>). Uma janela nova do navegador se abre.</li>
+<li>Preencha os campos e clique no botão. O VS Code <strong>pausa na linha marcada</strong>.</li>
+<li>Agora você pode:</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Tecla</th>
+<th>Ação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>F10</code></td>
+<td>Executa a linha atual e vai para a próxima (<em>step over</em>)</td>
+</tr>
+<tr>
+<td><code>F11</code></td>
+<td>Entra na função chamada na linha atual (<em>step into</em>)</td>
+</tr>
+<tr>
+<td><code>Shift+F11</code></td>
+<td>Sai da função atual (<em>step out</em>)</td>
+</tr>
+<tr>
+<td><code>F5</code></td>
+<td>Continua até o próximo breakpoint</td>
+</tr>
+<tr>
+<td><code>Shift+F5</code></td>
+<td>Para a depuração</td>
+</tr>
+</tbody>
+</table>
+<ol start="6">
+<li>Enquanto o programa está pausado:
+<ul>
+<li>passe o mouse sobre uma variável para ver o valor dela;</li>
+<li>veja todas as variáveis no painel <strong>Variáveis</strong>, à esquerda;</li>
+<li>adicione expressões no painel <strong>Inspecionar</strong> (<em>Watch</em>), como <code>media &gt;= 7</code>;</li>
+<li>digite expressões no <strong>Console de Depuração</strong>.</li>
+</ul>
+</li>
+</ol>
+<h3 id="53-alternativa-depurar-no-próprio-navegador">5.3 Alternativa: depurar no próprio navegador</h3>
+<ol>
+<li>Abra a página pelo Live Server e pressione <code>F12</code>.</li>
+<li>Vá na aba <strong>Sources</strong> (Fontes) e procure o arquivo <strong><code>ex01.ts</code></strong> na lista à esquerda.</li>
+<li>Clique no número de uma linha para criar o breakpoint, e use os botões de passo no painel à direita.</li>
+</ol>
+<blockquote>
+<p>💡 Você também pode escrever a instrução <code>debugger;</code> numa linha do <code>.ts</code>. Com as ferramentas do desenvolvedor abertas, o navegador pausa ali. <strong>Remova essa linha antes de entregar.</strong></p>
+</blockquote>
+<hr>
+<h2 id="parte-6-os-exercícios">Parte 6: Os exercícios</h2>
+<h3 id="regras-gerais">Regras gerais</h3>
+<ol>
+<li>Cada exercício fica na sua pasta (<code>ex01/</code>, <code>ex02/</code>...), com <code>index.html</code> e <code>exNN.ts</code>.</li>
+<li>O HTML de cada exercício é dado abaixo. <strong>Copie-o como está</strong>, porque o seu código depende dos <code>id</code>s dos elementos. Só troque <code>Seu Nome</code> pelo seu nome.</li>
+<li>O projeto deve compilar com <strong>0 erros</strong> (<code>tsc</code>).</li>
+<li><strong>Não use <code>any</code>.</strong></li>
+<li>Todas as funções devem ter os <strong>tipos dos parâmetros e do retorno anotados</strong>.</li>
+<li>Mostre os valores em reais com duas casas decimais: <code>`R$ ${valor.toFixed(2)}`</code>.</li>
+<li>Teste cada exercício com <strong>todos os casos da tabela &quot;Casos de teste&quot;</strong>.</li>
+</ol>
+<hr>
+<h3 id="exercício-01-situação-do-aluno-no-semestre">Exercício 01: Situação do aluno no semestre</h3>
+<p><strong>Contexto:</strong> a coordenação quer uma página onde o aluno digita as notas e a frequência e descobre na hora a sua situação no semestre.</p>
+<p><strong>Regras de negócio:</strong></p>
+<ul>
+<li>As notas <code>n1</code> e <code>n2</code> vão de 0 a 10, e a frequência vai de 0 a 100 (%). Fora disso, os dados são <strong>inválidos</strong>.</li>
+<li>A média é <code>(n1 + n2) / 2</code>.</li>
+<li>Frequência abaixo de 75% → <strong>Reprovado por falta</strong>, qualquer que seja a média.</li>
+<li>Média maior ou igual a 7 → <strong>Aprovado</strong>.</li>
+<li>Média maior ou igual a 4 → <strong>Exame final</strong>. Mostre quanto o aluno precisa tirar no exame: <code>10 - media</code>.</li>
+<li>Média abaixo de 4 → <strong>Reprovado por nota</strong>.</li>
+</ul>
+<p><strong>Tarefas:</strong></p>
+<ol>
+<li>Crie <code>calcularMedia(n1: number, n2: number): number</code>.</li>
+<li>Crie <code>dadosValidos(n1: number, n2: number, frequencia: number): boolean</code>. Use os operadores <code>||</code> ou <code>&amp;&amp;</code> numa única condição.</li>
+<li>Crie <code>situacao(media: number, frequencia: number): string</code> usando <code>if</code>, <code>else if</code> e <code>else</code>. A ordem das condições importa: <strong>pense em qual regra deve ser testada primeiro</strong>.</li>
+<li>No clique do botão:
+<ul>
+<li>se os dados forem inválidos, mostre <code>Dados inválidos</code> e <strong>saia da função</strong> com <code>return</code> (retorno antecipado);</li>
+<li>caso contrário, mostre o nome, a média com uma casa decimal e a situação.</li>
+</ul>
+</li>
+<li>Use o <strong>operador ternário</strong> para escolher a classe CSS do resultado: <code>'sucesso'</code> se aprovado, <code>'erro'</code> nos outros casos.</li>
+</ol>
+<p><strong><code>ex01/index.html</code></strong></p>
+<pre><code class="language-html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;pt-br&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Ex. 01: Situação do aluno<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;../style.css&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Situação do aluno<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;../index.html&quot;</span>&gt;</span>← Voltar<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> · Seu Nome<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;nome&quot;</span>&gt;</span>Nome do aluno<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;nome&quot;</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;n1&quot;</span>&gt;</span>Nota 1 (0 a 10)<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;number&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;n1&quot;</span> <span class="hljs-attr">step</span>=<span class="hljs-string">&quot;0.1&quot;</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;n2&quot;</span>&gt;</span>Nota 2 (0 a 10)<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;number&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;n2&quot;</span> <span class="hljs-attr">step</span>=<span class="hljs-string">&quot;0.1&quot;</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;frequencia&quot;</span>&gt;</span>Frequência (%)<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;number&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;frequencia&quot;</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;calcular&quot;</span>&gt;</span>Ver situação<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;resultado&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;module&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;ex01.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+<p><strong>Casos de teste:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Nome</th>
+<th>N1</th>
+<th>N2</th>
+<th>Frequência</th>
+<th>Resultado esperado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ana</td>
+<td>8</td>
+<td>7</td>
+<td>90</td>
+<td>Ana: média 7.5. Aprovado</td>
+</tr>
+<tr>
+<td>Bruno</td>
+<td>5</td>
+<td>6</td>
+<td>80</td>
+<td>Bruno: média 5.5. Exame final (precisa tirar 4.5)</td>
+</tr>
+<tr>
+<td>Carla</td>
+<td>9</td>
+<td>10</td>
+<td>70</td>
+<td>Carla: média 9.5. Reprovado por falta</td>
+</tr>
+<tr>
+<td>Diego</td>
+<td>2</td>
+<td>3</td>
+<td>95</td>
+<td>Diego: média 2.5. Reprovado por nota</td>
+</tr>
+<tr>
+<td>Eva</td>
+<td>11</td>
+<td>5</td>
+<td>80</td>
+<td>Dados inválidos</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="exercício-02-conta-de-luz">Exercício 02: Conta de luz</h3>
+<p><strong>Contexto:</strong> a distribuidora de energia quer que o cliente simule o valor da conta de acordo com o consumo, o tipo de cliente e a <strong>bandeira tarifária</strong> do mês. <em>(Os valores abaixo são fictícios.)</em></p>
+<p><strong>Regras de negócio:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Tipo de cliente</th>
+<th>Tarifa por kWh</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Residencial ou Rural</td>
+<td>R$ 0,80</td>
+</tr>
+<tr>
+<td>Comercial ou Industrial</td>
+<td>R$ 0,95</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Bandeira</th>
+<th>Adicional por kWh</th>
+<th>Mensagem</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Verde</td>
+<td>R$ 0,00</td>
+<td>Condições favoráveis de geração de energia.</td>
+</tr>
+<tr>
+<td>Amarela</td>
+<td>R$ 0,02</td>
+<td>Condições de geração menos favoráveis.</td>
+</tr>
+<tr>
+<td>Vermelha patamar 1</td>
+<td>R$ 0,04</td>
+<td>Condições mais caras de geração. Economize!</td>
+</tr>
+<tr>
+<td>Vermelha patamar 2</td>
+<td>R$ 0,08</td>
+<td>Condições mais caras de geração. Economize!</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Tarefas:</strong></p>
+<ol>
+<li>Crie os tipos literais:<pre><code class="language-ts"><span class="hljs-keyword">type</span> <span class="hljs-title class_">TipoCliente</span> = <span class="hljs-string">&#x27;residencial&#x27;</span> | <span class="hljs-string">&#x27;rural&#x27;</span> | <span class="hljs-string">&#x27;comercial&#x27;</span> | <span class="hljs-string">&#x27;industrial&#x27;</span>;
+<span class="hljs-keyword">type</span> <span class="hljs-title class_">Bandeira</span> = <span class="hljs-string">&#x27;verde&#x27;</span> | <span class="hljs-string">&#x27;amarela&#x27;</span> | <span class="hljs-string">&#x27;vermelha1&#x27;</span> | <span class="hljs-string">&#x27;vermelha2&#x27;</span>;
+</code></pre>
+</li>
+<li>Crie <code>tarifaPorKwh(tipo: TipoCliente): number</code> com um <code>switch</code> que <strong>agrupa</strong> os cases (dois <code>case</code> seguidos para o mesmo bloco, sem <code>break</code> entre eles).</li>
+<li>Crie <code>adicionalBandeira(consumo: number, bandeira: Bandeira = 'verde'): number</code> com um <code>switch</code>. O parâmetro <code>bandeira</code> tem <strong>valor padrão</strong>.</li>
+<li>Crie <code>mensagemBandeira(bandeira: Bandeira): string</code> com um <code>switch</code> que agrupa as duas bandeiras vermelhas. Inclua um <code>default</code>.</li>
+<li>No clique do botão, leia os <code>&lt;select&gt;</code> e converta com <code>as TipoCliente</code> e <code>as Bandeira</code>. Mostre o valor da energia, o adicional da bandeira, o total e a mensagem.</li>
+<li>Se o consumo for menor ou igual a zero, mostre <code>Informe um consumo válido</code> e saia da função.</li>
+<li>Use a classe <code>'alerta'</code> no resultado quando a bandeira <strong>não</strong> for verde.</li>
+<li><strong>Teste do parâmetro padrão:</strong> num <code>console.log</code>, chame <code>adicionalBandeira(100)</code> sem a bandeira e anote num comentário o resultado e o motivo.</li>
+</ol>
+<p><strong><code>ex02/index.html</code></strong></p>
+<pre><code class="language-html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;pt-br&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Ex. 02: Conta de luz<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;../style.css&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Simulador de conta de luz<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;../index.html&quot;</span>&gt;</span>← Voltar<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> · Seu Nome<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;consumo&quot;</span>&gt;</span>Consumo do mês (kWh)<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;number&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;consumo&quot;</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;tipo&quot;</span>&gt;</span>Tipo de cliente<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;tipo&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;residencial&quot;</span>&gt;</span>Residencial<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;rural&quot;</span>&gt;</span>Rural<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;comercial&quot;</span>&gt;</span>Comercial<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;industrial&quot;</span>&gt;</span>Industrial<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;bandeira&quot;</span>&gt;</span>Bandeira tarifária<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;bandeira&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;verde&quot;</span>&gt;</span>Verde<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;amarela&quot;</span>&gt;</span>Amarela<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;vermelha1&quot;</span>&gt;</span>Vermelha (patamar 1)<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">option</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;vermelha2&quot;</span>&gt;</span>Vermelha (patamar 2)<span class="hljs-tag">&lt;/<span class="hljs-name">option</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;calcular&quot;</span>&gt;</span>Calcular conta<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;resultado&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;module&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;ex02.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+<p><strong>Casos de teste:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Consumo</th>
+<th>Tipo</th>
+<th>Bandeira</th>
+<th>Energia</th>
+<th>Bandeira</th>
+<th>Total</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>Residencial</td>
+<td>Amarela</td>
+<td>R$ 160.00</td>
+<td>R$ 4.00</td>
+<td>R$ 164.00</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Comercial</td>
+<td>Vermelha 2</td>
+<td>R$ 475.00</td>
+<td>R$ 40.00</td>
+<td>R$ 515.00</td>
+</tr>
+<tr>
+<td>150</td>
+<td>Rural</td>
+<td>Verde</td>
+<td>R$ 120.00</td>
+<td>R$ 0.00</td>
+<td>R$ 120.00</td>
+</tr>
+<tr>
+<td>0</td>
+<td>qualquer</td>
+<td>qualquer</td>
+<td>Informe um consumo válido</td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Exemplo de saída (1º caso):</strong></p>
+<pre><code>Energia: R$ 160.00
+Bandeira amarela: R$ 4.00
+Total: R$ 164.00
+Condições de geração menos favoráveis.
+</code></pre>
+<hr>
+<h3 id="exercício-03-simulador-de-parcelamento">Exercício 03: Simulador de parcelamento</h3>
+<p><strong>Contexto:</strong> uma loja de eletrônicos quer mostrar ao cliente, na página do produto, todas as opções de parcelamento.</p>
+<p><strong>Regras de negócio:</strong></p>
+<ul>
+<li>O cliente pode dar uma <strong>entrada</strong> (campo opcional). O valor financiado é <code>preço - entrada</code>.</li>
+<li>A loja oferece de 1 a 12 parcelas, mas <strong>não oferece 7, 8, 9 e 11 parcelas</strong>.</li>
+<li>Até 3 parcelas, <strong>sem juros</strong>.</li>
+<li>A partir de 4 parcelas, juros compostos de <strong>2% ao mês</strong>: <code>total = financiado * 1.02 ** parcelas</code>.</li>
+<li>A parcela mínima é de <strong>R$ 50,00</strong>. Quando a parcela ficar abaixo disso, as opções acabam.</li>
+</ul>
+<p><strong>Tarefas:</strong></p>
+<ol>
+<li>Crie <code>calcularTotal(valor: number, parcelas: number): number</code>, que aplica ou não os juros.</li>
+<li>Crie <code>simularParcelamento(preco: number, entrada?: number): string</code>. A função recebe a <strong>entrada como parâmetro opcional</strong> e devolve as linhas <code>&lt;tr&gt;...&lt;/tr&gt;</code> da tabela. Dentro dela:
+<ul>
+<li>verifique se a entrada foi informada com <code>typeof entrada !== 'undefined'</code>;</li>
+<li>use um laço <strong><code>for</code></strong> de 1 a 12;</li>
+<li>use <strong><code>continue</code></strong> para pular as quantidades de parcelas que a loja não oferece;</li>
+<li>use <strong><code>break</code></strong> para encerrar o laço quando a parcela ficar abaixo de R$ 50,00.</li>
+</ul>
+</li>
+<li>No clique do botão:
+<ul>
+<li>se o campo de entrada estiver <strong>vazio</strong>, chame <code>simularParcelamento(preco)</code> <strong>sem</strong> o segundo argumento;</li>
+<li>se a entrada for maior ou igual ao preço, mostre <code>A entrada cobre o valor total. Não há parcelas.</code>;</li>
+<li>caso contrário, mostre o valor financiado e preencha o <code>&lt;tbody id=&quot;parcelas&quot;&gt;</code> usando <code>innerHTML</code>.</li>
+</ul>
+</li>
+</ol>
+<p><strong><code>ex03/index.html</code></strong></p>
+<pre><code class="language-html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;pt-br&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Ex. 03: Simulador de parcelamento<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;../style.css&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Simulador de parcelamento<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;../index.html&quot;</span>&gt;</span>← Voltar<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> · Seu Nome<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;preco&quot;</span>&gt;</span>Preço do produto (R$)<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;number&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;preco&quot;</span> <span class="hljs-attr">step</span>=<span class="hljs-string">&quot;0.01&quot;</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;entrada&quot;</span>&gt;</span>Entrada (R$, opcional)<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;number&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;entrada&quot;</span> <span class="hljs-attr">step</span>=<span class="hljs-string">&quot;0.01&quot;</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;simular&quot;</span>&gt;</span>Simular<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;resultado&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">table</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">thead</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">tr</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>Parcelas<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>Valor da parcela<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>Total<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">th</span>&gt;</span>Juros<span class="hljs-tag">&lt;/<span class="hljs-name">th</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">tr</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">thead</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tbody</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;parcelas&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">tbody</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">table</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;module&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;ex03.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+<p><strong>Casos de teste:</strong></p>
+<p>Preço <strong>R$ 1200,00</strong>, sem entrada (valor financiado: R$ 1200.00):</p>
+<table>
+<thead>
+<tr>
+<th>Parcelas</th>
+<th>Valor da parcela</th>
+<th>Total</th>
+<th>Juros</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1x</td>
+<td>R$ 1200.00</td>
+<td>R$ 1200.00</td>
+<td>sem juros</td>
+</tr>
+<tr>
+<td>2x</td>
+<td>R$ 600.00</td>
+<td>R$ 1200.00</td>
+<td>sem juros</td>
+</tr>
+<tr>
+<td>3x</td>
+<td>R$ 400.00</td>
+<td>R$ 1200.00</td>
+<td>sem juros</td>
+</tr>
+<tr>
+<td>4x</td>
+<td>R$ 324.73</td>
+<td>R$ 1298.92</td>
+<td>2% a.m.</td>
+</tr>
+<tr>
+<td>5x</td>
+<td>R$ 264.98</td>
+<td>R$ 1324.90</td>
+<td>2% a.m.</td>
+</tr>
+<tr>
+<td>6x</td>
+<td>R$ 225.23</td>
+<td>R$ 1351.39</td>
+<td>2% a.m.</td>
+</tr>
+<tr>
+<td>10x</td>
+<td>R$ 146.28</td>
+<td>R$ 1462.79</td>
+<td>2% a.m.</td>
+</tr>
+<tr>
+<td>12x</td>
+<td>R$ 126.82</td>
+<td>R$ 1521.89</td>
+<td>2% a.m.</td>
+</tr>
+</tbody>
+</table>
+<p>Preço <strong>R$ 300,00</strong> com entrada de <strong>R$ 100,00</strong> (valor financiado: R$ 200.00). O laço para no 5x porque a parcela seria de R$ 44.16:</p>
+<table>
+<thead>
+<tr>
+<th>Parcelas</th>
+<th>Valor da parcela</th>
+<th>Total</th>
+<th>Juros</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1x</td>
+<td>R$ 200.00</td>
+<td>R$ 200.00</td>
+<td>sem juros</td>
+</tr>
+<tr>
+<td>2x</td>
+<td>R$ 100.00</td>
+<td>R$ 200.00</td>
+<td>sem juros</td>
+</tr>
+<tr>
+<td>3x</td>
+<td>R$ 66.67</td>
+<td>R$ 200.00</td>
+<td>sem juros</td>
+</tr>
+<tr>
+<td>4x</td>
+<td>R$ 54.12</td>
+<td>R$ 216.49</td>
+<td>2% a.m.</td>
+</tr>
+</tbody>
+</table>
+<p>Preço <strong>R$ 500,00</strong> com entrada de <strong>R$ 500,00</strong>: <code>A entrada cobre o valor total. Não há parcelas.</code></p>
+<hr>
+<h3 id="exercício-04-meta-de-economia">Exercício 04: Meta de economia</h3>
+<p><strong>Contexto:</strong> um banco digital quer uma calculadora que diga ao cliente <strong>em quanto tempo</strong> ele junta o dinheiro de um objetivo, como uma viagem ou a entrada de um carro.</p>
+<p><strong>Regras de negócio:</strong></p>
+<ul>
+<li>O cliente começa com saldo zero e informa a <strong>meta</strong>, o <strong>depósito mensal</strong> e o <strong>rendimento ao mês</strong> (%). Se o rendimento ficar em branco, use <strong>0,5%</strong>.</li>
+<li>A cada mês, primeiro o saldo rende e depois entra o depósito: <code>saldo = saldo * (1 + taxa / 100) + deposito</code>.</li>
+<li>Em todo <strong>mês 12, 24, 36...</strong> (dezembro), o cliente recebe o 13º salário e deposita <strong>o dobro</strong> (um depósito extra).</li>
+<li>Se a meta não for atingida em <strong>600 meses</strong> (50 anos), o cálculo para e a meta é considerada inalcançável.</li>
+</ul>
+<p><strong>Tarefas:</strong></p>
+<ol>
+<li>Crie o <strong>tipo de função</strong> e duas funções que seguem esse tipo:<pre><code class="language-ts"><span class="hljs-keyword">type</span> <span class="hljs-title class_">Formatador</span> = <span class="hljs-function">(<span class="hljs-params">valor: <span class="hljs-built_in">number</span></span>) =&gt;</span> <span class="hljs-built_in">string</span>;
+</code></pre>
+<ul>
+<li><code>formatarReal: Formatador</code>, que devolve <code>R$ 1234.50</code>;</li>
+<li><code>formatarMeses: (meses: number) =&gt; string</code>, que devolve <code>1 ano e 7 meses</code>, <code>2 anos e 1 mês</code>, <code>8 meses</code> etc. Use o <strong>ternário</strong> para o singular e o plural.</li>
+</ul>
+</li>
+<li>Crie <code>calcularMeses(meta: number, deposito: number, taxa: number = 0.5): number</code>, com <strong>parâmetro padrão</strong> para a taxa. Use um laço <strong><code>while (saldo &lt; meta)</code></strong> e um <strong><code>break</code></strong> quando chegar a 600 meses.</li>
+<li>Para mostrar também o saldo final, o total depositado e o rendimento, você pode fazer a função devolver um objeto, como <code>{ meses: number; saldo: number; depositado: number }</code>.</li>
+<li>Crie <code>exibirValor(rotulo: string, valor: number, formatar: Formatador): string</code>, que recebe a função de formatação como <strong>parâmetro</strong>. Use essa função para montar todas as linhas de valores do resultado.</li>
+<li>No clique do botão:
+<ul>
+<li>se a meta ou o depósito forem menores ou iguais a zero, mostre <code>Informe valores positivos</code> e saia da função;</li>
+<li>se o campo de rendimento estiver vazio, chame <code>calcularMeses</code> <strong>sem</strong> o terceiro argumento;</li>
+<li>use a classe <code>'sucesso'</code> quando a meta for atingida e <code>'erro'</code> quando for inalcançável.</li>
+</ul>
+</li>
+</ol>
+<p><strong><code>ex04/index.html</code></strong></p>
+<pre><code class="language-html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;pt-br&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Ex. 04: Meta de economia<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;../style.css&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Meta de economia<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;../index.html&quot;</span>&gt;</span>← Voltar<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> · Seu Nome<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;meta&quot;</span>&gt;</span>Quanto você quer juntar? (R$)<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;number&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;meta&quot;</span> <span class="hljs-attr">step</span>=<span class="hljs-string">&quot;0.01&quot;</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;deposito&quot;</span>&gt;</span>Quanto vai guardar por mês? (R$)<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;number&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;deposito&quot;</span> <span class="hljs-attr">step</span>=<span class="hljs-string">&quot;0.01&quot;</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;taxa&quot;</span>&gt;</span>Rendimento ao mês (%, opcional, padrão 0,5)<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;number&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;taxa&quot;</span> <span class="hljs-attr">step</span>=<span class="hljs-string">&quot;0.01&quot;</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;calcular&quot;</span>&gt;</span>Calcular<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;resultado&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;module&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;ex04.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+<p><strong>Casos de teste:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Meta</th>
+<th>Depósito</th>
+<th>Rendimento</th>
+<th>Resultado esperado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>10000</td>
+<td>500</td>
+<td>(vazio)</td>
+<td>19 meses (1 ano e 7 meses). Saldo: R$ 10457.62. Depositado: R$ 10000.00. Rendimento: R$ 457.62</td>
+</tr>
+<tr>
+<td>5000</td>
+<td>300</td>
+<td>0</td>
+<td>16 meses (1 ano e 4 meses). Saldo: R$ 5100.00. Depositado: R$ 5100.00. Rendimento: R$ 0.00</td>
+</tr>
+<tr>
+<td>1000000</td>
+<td>10</td>
+<td>0</td>
+<td>Meta inalcançável em 50 anos. Saldo após 600 meses: R$ 6500.00</td>
+</tr>
+<tr>
+<td>0</td>
+<td>100</td>
+<td>1</td>
+<td>Informe valores positivos</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Exemplo de saída (1º caso):</strong></p>
+<pre><code>Você atinge a meta em 19 meses (1 ano e 7 meses).
+Saldo final: R$ 10457.62
+Total depositado: R$ 10000.00
+Rendimento: R$ 457.62
+</code></pre>
+<hr>
+<h3 id="exercício-05-caixa-do-mercado-projeto-integrador">Exercício 05: Caixa do mercado (projeto integrador)</h3>
+<p><strong>Contexto:</strong> um mercado de bairro quer uma página de caixa. O operador digita os preços dos produtos, um por linha, informa o cupom de desconto e diz se o cliente participa do clube de fidelidade. Este exercício usa <strong>todos</strong> os conteúdos da unidade.</p>
+<p><strong>Regras de negócio:</strong></p>
+<ul>
+<li>
+<p>Cada linha da caixa de texto é o preço de um item. O preço pode usar ponto ou vírgula (<code>12.50</code> ou <code>12,50</code>).</p>
+</li>
+<li>
+<p>Linhas <strong>vazias</strong> são ignoradas. Linhas <strong>inválidas</strong> (que não são número, ou têm valor ≤ 0) também são ignoradas, mas devem ser contadas e mostradas no resultado.</p>
+</li>
+<li>
+<p>No máximo <strong>20 itens</strong> por compra. Ao chegar a 20, os itens seguintes são desconsiderados.</p>
+</li>
+<li>
+<p>Cupons (o operador pode digitar em minúsculas):</p>
+<table>
+<thead>
+<tr>
+<th>Cupom</th>
+<th>Desconto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>BEMVINDO</code></td>
+<td>10% do subtotal</td>
+</tr>
+<tr>
+<td><code>PROMO20</code></td>
+<td>20% do subtotal</td>
+</tr>
+<tr>
+<td><code>MENOS15</code></td>
+<td>R$ 15,00, apenas para compras a partir de R$ 100,00</td>
+</tr>
+<tr>
+<td>qualquer outro</td>
+<td>nenhum (mostrar <code>Cupom inválido ou não aplicável</code>)</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>Clientes do <strong>clube de fidelidade</strong> ganham mais <strong>5%</strong> sobre o valor <strong>já com o cupom</strong>.</p>
+</li>
+</ul>
+<p><strong>Tarefas:</strong></p>
+<ol>
+<li>Crie <code>lerPrecos(texto: string): { precos: number[]; ignorados: number }</code>. Use <code>split('\n')</code> e um laço <strong><code>for</code></strong> com:
+<ul>
+<li><strong><code>continue</code></strong> para pular linhas vazias e inválidas;</li>
+<li><strong><code>break</code></strong> quando chegar a 20 itens.</li>
+</ul>
+</li>
+<li>Crie <code>somarItens(...precos: number[]): number</code>, com <strong>parâmetro rest</strong>. Chame essa função com o operador spread: <code>somarItens(...precos)</code>.</li>
+<li>Crie a função <strong>sobrecarregada</strong> <code>calcularDesconto</code>:<pre><code class="language-ts"><span class="hljs-keyword">function</span> <span class="hljs-title function_">calcularDesconto</span>(<span class="hljs-params">total: <span class="hljs-built_in">number</span>, percentual: <span class="hljs-built_in">number</span></span>): <span class="hljs-built_in">number</span>;
+<span class="hljs-keyword">function</span> <span class="hljs-title function_">calcularDesconto</span>(<span class="hljs-params">total: <span class="hljs-built_in">number</span>, cupom: <span class="hljs-built_in">string</span></span>): <span class="hljs-built_in">number</span>;
+</code></pre>
+A implementação usa <code>typeof</code> para descobrir qual forma foi chamada:
+<ul>
+<li>com <strong><code>number</code></strong>, devolve <code>total * percentual / 100</code> (usada para a fidelidade);</li>
+<li>com <strong><code>string</code></strong>, usa um <strong><code>switch</code></strong> com o código do cupom em maiúsculas (<code>toUpperCase()</code>) e devolve o valor do desconto (ou <code>0</code>).</li>
+</ul>
+</li>
+<li>Crie o tipo de função <code>type Formatador = (valor: number) =&gt; string;</code> e use-o para formatar os valores, como no ex. 04.</li>
+<li>No clique do botão:
+<ul>
+<li>se nenhum preço válido for informado, mostre <code>Nenhum item válido</code> e saia da função;</li>
+<li>calcule o subtotal, o desconto do cupom (se o campo não estiver vazio), o desconto de fidelidade (se a caixa estiver marcada) e o total;</li>
+<li>mostre a quantidade de itens e, quando houver, a quantidade de linhas ignoradas.</li>
+</ul>
+</li>
+</ol>
+<p><strong><code>ex05/index.html</code></strong></p>
+<pre><code class="language-html"><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-keyword">html</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">html</span> <span class="hljs-attr">lang</span>=<span class="hljs-string">&quot;pt-br&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">charset</span>=<span class="hljs-string">&quot;UTF-8&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">meta</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;viewport&quot;</span> <span class="hljs-attr">content</span>=<span class="hljs-string">&quot;width=device-width, initial-scale=1.0&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Ex. 05: Caixa do mercado<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;../style.css&quot;</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Caixa do mercado<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;../index.html&quot;</span>&gt;</span>← Voltar<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span> · Seu Nome<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;itens&quot;</span>&gt;</span>Preços dos itens (um por linha)<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">textarea</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;itens&quot;</span> <span class="hljs-attr">rows</span>=<span class="hljs-string">&quot;8&quot;</span> <span class="hljs-attr">cols</span>=<span class="hljs-string">&quot;20&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">textarea</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">label</span> <span class="hljs-attr">for</span>=<span class="hljs-string">&quot;cupom&quot;</span>&gt;</span>Cupom de desconto<span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;text&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;cupom&quot;</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">label</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;checkbox&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;fidelidade&quot;</span>&gt;</span>
+    Cliente do clube de fidelidade (5%)
+  <span class="hljs-tag">&lt;/<span class="hljs-name">label</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;fechar&quot;</span>&gt;</span>Fechar compra<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;resultado&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;module&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;ex05.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span>
+</code></pre>
+<p><strong>Casos de teste:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Itens (um por linha)</th>
+<th>Cupom</th>
+<th>Fidelidade</th>
+<th>Resultado esperado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>12.50</code> <code>8,90</code> <em>(vazia)</em> <code>abc</code> <code>32</code> <code>46.60</code></td>
+<td><code>promo20</code></td>
+<td>sim</td>
+<td>4 itens (1 linha ignorada). Subtotal R$ 100.00. Cupom −R$ 20.00. Fidelidade −R$ 4.00. <strong>Total R$ 76.00</strong></td>
+</tr>
+<tr>
+<td><code>45</code> <code>70</code></td>
+<td><code>MENOS15</code></td>
+<td>não</td>
+<td>2 itens. Subtotal R$ 115.00. Cupom −R$ 15.00. <strong>Total R$ 100.00</strong></td>
+</tr>
+<tr>
+<td><code>10</code> <code>20</code> <code>30.50</code></td>
+<td><code>MENOS15</code></td>
+<td>não</td>
+<td>3 itens. Subtotal R$ 60.50. Cupom inválido ou não aplicável. <strong>Total R$ 60.50</strong></td>
+</tr>
+<tr>
+<td><code>abc</code> <em>(vazia)</em></td>
+<td></td>
+<td></td>
+<td>Nenhum item válido</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Exemplo de saída (1º caso):</strong></p>
+<pre><code>Itens: 4 (1 linha ignorada)
+Subtotal: R$ 100.00
+Cupom PROMO20: - R$ 20.00
+Fidelidade (5%): - R$ 4.00
+Total a pagar: R$ 76.00
+</code></pre>
+<hr>
+<h2 id="parte-7-publicando-no-github">Parte 7: Publicando no GitHub</h2>
+<h3 id="71-criar-a-conta-e-configurar-o-git">7.1 Criar a conta e configurar o Git</h3>
+<ol>
+<li>Se ainda não tiver, crie uma conta em <a href="https://github.com">https://github.com</a>. Prefira um nome de usuário profissional, porque ele vai aparecer nos links do seu portfólio.</li>
+<li>No terminal, informe ao Git o seu nome e e-mail. Faça isso <strong>uma vez por computador</strong> e use o mesmo e-mail da conta do GitHub:<pre><code class="language-bash">git config --global user.name <span class="hljs-string">&quot;Seu Nome Completo&quot;</span>
+git config --global user.email <span class="hljs-string">&quot;seu-email@exemplo.com&quot;</span>
+</code></pre>
+</li>
+</ol>
+<h3 id="72-criar-o-readmemd">7.2 Criar o <code>README.md</code></h3>
+<p>Na raiz do projeto, crie o <code>README.md</code>. Você vai completar o link do site no passo 7.5:</p>
+<pre><code class="language-markdown"><span class="hljs-section"># Atividade: Estruturas em TypeScript</span>
+
+Aluno(a): Seu Nome Completo
+Disciplina: Programação Web
+
+<span class="hljs-section">## Exercícios</span>
+
+<span class="hljs-bullet">1.</span> Situação do aluno no semestre
+<span class="hljs-bullet">2.</span> Conta de luz
+<span class="hljs-bullet">3.</span> Simulador de parcelamento
+<span class="hljs-bullet">4.</span> Meta de economia
+<span class="hljs-bullet">5.</span> Caixa do mercado
+
+<span class="hljs-section">## Site publicado</span>
+
+https://SEU-USUARIO.github.io/pweb-ts-estruturas/
+</code></pre>
+<h3 id="73-criar-o-repositório-no-github">7.3 Criar o repositório no GitHub</h3>
+<ol>
+<li>Entre no GitHub e clique em <strong>+ → New repository</strong> (canto superior direito).</li>
+<li>Preencha:
+<ul>
+<li><strong>Repository name:</strong> <code>pweb-ts-estruturas</code></li>
+<li><strong>Visibility:</strong> <strong>Public</strong> (o professor precisa conseguir acessar)</li>
+<li><strong>Não</strong> marque <em>Add a README file</em>, <em>.gitignore</em> nem <em>license</em>. O repositório precisa começar <strong>vazio</strong>.</li>
+</ul>
+</li>
+<li>Clique em <strong>Create repository</strong>. Deixe essa página aberta, porque ela mostra o endereço do repositório.</li>
+</ol>
+<h3 id="74-enviar-o-projeto">7.4 Enviar o projeto</h3>
+<ol>
+<li>
+<p>Antes de enviar, rode <code>tsc</code> uma última vez e confira que aparecem <strong>0 erros</strong> e que cada pasta tem o seu <code>.js</code>.</p>
+<blockquote>
+<p>⚠️ <strong>Os arquivos <code>.js</code> precisam ir para o GitHub</strong>, porque são eles que as páginas HTML carregam.</p>
+</blockquote>
+</li>
+<li>
+<p>No terminal integrado, na raiz do projeto, rode um comando por vez (troque <code>SEU-USUARIO</code> pelo seu usuário):</p>
+<pre><code class="language-bash">git init
+git add .
+git commit -m <span class="hljs-string">&quot;Atividade: estruturas e funções em TypeScript&quot;</span>
+git branch -M main
+git remote add origin https://github.com/SEU-USUARIO/pweb-ts-estruturas.git
+git push -u origin main
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Comando</th>
+<th>O que faz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>git init</code></td>
+<td>Transforma a pasta num repositório Git (só na primeira vez)</td>
+</tr>
+<tr>
+<td><code>git add .</code></td>
+<td>Separa todos os arquivos para o próximo commit</td>
+</tr>
+<tr>
+<td><code>git commit -m &quot;...&quot;</code></td>
+<td>Grava uma &quot;foto&quot; dos arquivos com uma mensagem</td>
+</tr>
+<tr>
+<td><code>git branch -M main</code></td>
+<td>Dá o nome <code>main</code> ao ramo principal</td>
+</tr>
+<tr>
+<td><code>git remote add origin ...</code></td>
+<td>Liga a pasta ao repositório do GitHub (só na primeira vez)</td>
+</tr>
+<tr>
+<td><code>git push -u origin main</code></td>
+<td>Envia os commits para o GitHub</td>
+</tr>
+</tbody>
+</table>
+</li>
+<li>
+<p>No primeiro <code>push</code>, abre uma janela pedindo login no GitHub. Escolha <strong>Sign in with your browser</strong> e autorize.</p>
+</li>
+<li>
+<p>Atualize a página do repositório no GitHub. Os seus arquivos devem aparecer.</p>
+</li>
+</ol>
+<blockquote>
+<p>💡 <strong>Alternativa pelo VS Code:</strong> no painel <strong>Controle do Código-Fonte</strong> (<code>Ctrl+Shift+G</code>), clique em <strong>Publicar no GitHub</strong> (<em>Publish to GitHub</em>), escolha <strong>repositório público</strong> e confirme. O VS Code faz o <code>init</code>, o <code>commit</code> e o <code>push</code> por você.</p>
+</blockquote>
+<p><strong>Enviando alterações depois:</strong> sempre que mudar algo, rode:</p>
+<pre><code class="language-bash">git add .
+git commit -m <span class="hljs-string">&quot;Descreva o que mudou&quot;</span>
+git push
+</code></pre>
+<blockquote>
+<p>💡 Faça commits ao longo da atividade, por exemplo um a cada exercício concluído (<code>&quot;Exercício 01 concluído&quot;</code>). O histórico de commits também é avaliado.</p>
+</blockquote>
+<h3 id="75-publicar-as-páginas-com-o-github-pages">7.5 Publicar as páginas com o GitHub Pages</h3>
+<p>O GitHub Pages hospeda as páginas HTML de graça, para qualquer pessoa usar pelo navegador.</p>
+<ol>
+<li>No repositório, vá em <strong>Settings → Pages</strong> (menu à esquerda).</li>
+<li>Em <strong>Build and deployment → Source</strong>, escolha <strong>Deploy from a branch</strong>.</li>
+<li>Em <strong>Branch</strong>, escolha <strong><code>main</code></strong> e a pasta <strong><code>/ (root)</code></strong>. Clique em <strong>Save</strong>.</li>
+<li>Aguarde 1 ou 2 minutos e atualize a página. O endereço do site aparece no topo:<pre><code>https://SEU-USUARIO.github.io/pweb-ts-estruturas/
+</code></pre>
+</li>
+<li>Abra o endereço e <strong>teste os 5 exercícios pelo site publicado</strong>.</li>
+<li>Coloque esse endereço no <code>README.md</code> e envie a alteração (<code>add</code>, <code>commit</code>, <code>push</code>).</li>
+</ol>
+<blockquote>
+<p>⚠️ <strong>A página abriu, mas o botão não faz nada?</strong> Aperte <code>F12</code> e veja a aba <strong>Console</strong>. Normalmente o problema é um <code>.js</code> que não foi enviado ao GitHub, ou um nome de arquivo com maiúscula diferente. No GitHub Pages, <code>Ex01.js</code> e <code>ex01.js</code> são arquivos diferentes.</p>
+</blockquote>
+<hr>
+<h2 id="parte-8-entregando-no-canvas">Parte 8: Entregando no Canvas</h2>
+<ol>
+<li>Confira o <strong>checklist</strong>:
+<ul class="contains-task-list">
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> <code>tsc</code> compila o projeto com <strong>0 erros</strong></li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> Os 5 exercícios funcionam com <strong>todos os casos de teste</strong></li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> Não há <code>any</code> nem <code>debugger;</code> no código</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> O repositório é <strong>público</strong> e tem os arquivos <code>.ts</code>, <code>.js</code>, <code>.html</code>, <code>style.css</code> e <code>tsconfig.json</code></li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> O <code>README.md</code> tem o seu nome e o link do site</li>
+<li class="task-list-item enabled"><input class="task-list-item-checkbox"type="checkbox"> O site no GitHub Pages abre e os 5 exercícios funcionam</li>
+</ul>
+</li>
+<li>Na atividade do Canvas, clique em <strong>Enviar tarefa</strong>, escolha <strong>URL do site</strong> e cole o link do seu <strong>repositório</strong>:<pre><code>https://github.com/SEU-USUARIO/pweb-ts-estruturas
+</code></pre>
+</li>
+<li>Envie até <strong>29/10/2026</strong>.</li>
+</ol>
+<hr>
+<h2 id="critérios-de-avaliação">Critérios de avaliação</h2>
+<table>
+<thead>
+<tr>
+<th>Critério</th>
+<th>Peso</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Os 5 exercícios funcionam e conferem com os casos de teste</td>
+<td>30%</td>
+</tr>
+<tr>
+<td>Uso correto das estruturas pedidas em cada exercício (<code>if</code>, <code>switch</code>, <code>for</code>, <code>while</code>, <code>break</code>, <code>continue</code>, parâmetros opcionais, padrão e rest, tipos de função e sobrecarga)</td>
+<td>25%</td>
+</tr>
+<tr>
+<td>O projeto compila com <code>strict</code> e 0 erros, com tipos corretos e sem <code>any</code></td>
+<td>20%</td>
+</tr>
+<tr>
+<td>Publicação: repositório público, README, GitHub Pages funcionando e histórico de commits</td>
+<td>15%</td>
+</tr>
+<tr>
+<td>Organização e legibilidade (nomes claros, funções pequenas, código comentado)</td>
+<td>10%</td>
+</tr>
+</tbody>
+</table>
+
+            <script async src="https://cdn.jsdelivr.net/npm/katex-copytex@latest/dist/katex-copytex.min.js"></script>
+            
+        </body>
+        </html>
