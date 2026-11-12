@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 09 · Vite e Svelte</title>
+    <link rel="stylesheet" href="../recursos/aulas.css">
+</head>
+<body>
+
+    <header class="topo">
+        <div class="topo-conteudo">
+            <a href="../index.html">Programação para Sistemas Web</a>
+            <span class="sep">›</span>
+            <span class="atual">Aula 09 · Vite e Svelte</span>
+        </div>
+    </header>
+
+    <main class="pagina">
+        <section class="hero">
+            <p class="rotulo">Aula 09</p>
+            <h1>Vite e Svelte</h1>
+            <p class="lead">O primeiro projeto criado com uma <strong>ferramenta de build</strong>. O <strong>Vite</strong> serve a aplicação durante o desenvolvimento e empacota tudo para publicação; o <strong>Svelte</strong> organiza a interface em componentes que juntam HTML, CSS e TypeScript em um único arquivo.</p>
+            <ul class="tags"><li>Vite 8</li><li>Svelte 5</li><li>TypeScript</li><li>Componentes</li></ul>
+        </section>
+
+        <section class="secao">
+            <h2>O que está sendo visto</h2>
+            <ul>
+                <li><strong>Criação do projeto:</strong> <code>npm create vite</code> com o template Svelte + TypeScript, e a pasta <code>node_modules</code> criada pelo <code>npm install</code>.</li>
+                <li><strong>Servidor de desenvolvimento:</strong> <code>npm run dev</code> abre a aplicação e atualiza a tela a cada arquivo salvo.</li>
+                <li><strong>Componentes <code>.svelte</code>:</strong> um bloco <code>&lt;script lang="ts"&gt;</code>, o HTML e um bloco <code>&lt;style&gt;</code> no mesmo arquivo.</li>
+                <li><strong>Expressões no HTML:</strong> variáveis entre chaves, como <code>{nome.toUpperCase()}</code>, e atributos dinâmicos, como <code>href={urlVite}</code>.</li>
+                <li><strong>Composição:</strong> o <code>App</code> importa e usa o componente <code>&lt;Aviso /&gt;</code>.</li>
+                <li><strong>CSS com escopo:</strong> o <code>&lt;style&gt;</code> de cada componente vale só para ele; o <code>p</code> do <code>App</code> e o do <code>Aviso</code> têm estilos diferentes.</li>
+            </ul>
+        </section>
+
+        <section class="secao">
+            <h2>Como executar</h2>
+            <p>Este é um projeto Vite: o <code>index.html</code> desta pasta é a página de entrada da aplicação e só funciona pelo servidor do Vite. Dentro da pasta:</p>
+            <pre><code>npm install      # baixa as dependências (só na primeira vez)
+npm run dev      # abre em http://localhost:5173
+npm run build    # gera a versão de produção na pasta dist
+npm run check    # verifica os tipos dos componentes</code></pre>
+            <p class="aviso">Esta página de resumo se chama <code>aula.html</code>, e não <code>index.html</code>, porque o <code>index.html</code> desta pasta pertence ao Vite: trocá-lo quebraria a aplicação.</p>
+        </section>
+
+        <section class="secao">
+            <h2>Estrutura de arquivos</h2>
+            <ul class="arvore">
+                <li class="pasta"><span class="nome">09_Vite_Svelte/</span>
+                    <ul>
+                        <li class="item"><span class="nome">aula.html</span><span class="desc">esta página</span></li>
+                        <li class="item"><span class="nome">index.html</span><span class="desc">página de entrada do Vite: tem a <code>div#app</code> e carrega o <code>src/main.ts</code></span></li>
+                        <li class="item"><span class="nome">package.json</span><span class="desc">dependências e scripts <code>dev</code>, <code>build</code>, <code>preview</code> e <code>check</code></span></li>
+                        <li class="item"><span class="nome">package-lock.json</span><span class="desc">versões exatas instaladas, para todos terem o mesmo ambiente</span></li>
+                        <li class="item"><span class="nome">vite.config.ts</span><span class="desc">configuração do Vite com o plugin do Svelte</span></li>
+                        <li class="item"><span class="nome">svelte.config.js</span><span class="desc">configuração do compilador do Svelte</span></li>
+                        <li class="item"><span class="nome">tsconfig.json, tsconfig.app.json, tsconfig.node.json</span><span class="desc">configuração do TypeScript para o app e para os arquivos de configuração</span></li>
+                        <li class="item"><span class="nome">README.md</span><span class="desc">texto padrão do template</span></li>
+                        <li class="item"><span class="nome">.gitignore</span><span class="desc">tira do Git o <code>node_modules</code>, o <code>dist</code> e logs</span></li>
+                        <li class="pasta"><span class="nome">.vscode/</span>
+                            <ul>
+                                <li class="item"><span class="nome">extensions.json</span><span class="desc">recomenda a extensão do Svelte para o VS Code</span></li>
+                            </ul>
+                        </li>
+                        <li class="pasta"><span class="nome">public/</span><span class="desc">arquivos copiados sem alteração para o build</span>
+                            <ul>
+                                <li class="item"><span class="nome">favicon.svg, icons.svg</span><span class="desc">ícones</span></li>
+                            </ul>
+                        </li>
+                        <li class="pasta"><span class="nome">src/</span><span class="desc">código da aplicação</span>
+                            <ul>
+                                <li class="item"><span class="nome">main.ts</span><span class="desc">ponto de entrada: monta o <code>App</code> na <code>div#app</code> com <code>mount</code></span></li>
+                                <li class="item"><span class="nome">App.svelte</span><span class="desc">componente principal: variáveis, lista de links e uso do <code>Aviso</code></span></li>
+                                <li class="item"><span class="nome">Aviso.svelte</span><span class="desc">componente de aviso com estilo próprio</span></li>
+                            </ul>
+                        </li>
+                        <li class="pasta"><span class="nome">node_modules/</span><span class="desc">dependências instaladas pelo <code>npm install</code> (fora do Git)</span></li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <nav class="paginacao">
+            <a href="../08_Typescript_Estruturas/index.html">← Aula 08 · Estruturas</a>
+            <a class="proxima" href="../10_React/index.html">Aula 10 · React →</a>
+        </nav>
+    </main>
+
+    <footer class="rodape">Programação para Sistemas Web · 2026.2</footer>
+
+</body>
+</html>

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 05 · WebAssembly com Blazor</title>
+    <link rel="stylesheet" href="../recursos/aulas.css">
+</head>
+<body>
+
+    <header class="topo">
+        <div class="topo-conteudo">
+            <a href="../index.html">Programação para Sistemas Web</a>
+            <span class="sep">›</span>
+            <span class="atual">Aula 05 · WebAssembly</span>
+        </div>
+    </header>
+
+    <main class="pagina">
+        <section class="hero">
+            <p class="rotulo">Aula 05</p>
+            <h1>WebAssembly com Blazor</h1>
+            <p class="lead">O <strong>WebAssembly</strong> permite rodar no navegador código compilado de outras linguagens além do JavaScript. Com o <strong>Blazor WebAssembly</strong>, a aplicação web inteira é escrita em C#, organizada em componentes <code>.razor</code> que misturam HTML e código.</p>
+            <ul class="tags"><li>WebAssembly</li><li>Blazor</li><li>C# / .NET 10</li><li>MudBlazor</li></ul>
+        </section>
+
+        <section class="secao">
+            <h2>O que está sendo visto</h2>
+            <ul>
+                <li><strong>SPA em C#:</strong> o navegador baixa o runtime do .NET compilado para WebAssembly e executa a aplicação no próprio cliente, sem servidor de aplicação.</li>
+                <li><strong>Componentes Razor:</strong> arquivos <code>.razor</code> com HTML e um bloco <code>@code</code> em C#; a diretiva <code>@page</code> define a rota de cada página.</li>
+                <li><strong>Layout e navegação:</strong> <code>MainLayout</code> e <code>NavMenu</code> envolvem todas as páginas.</li>
+                <li><strong>Estado e eventos:</strong> a página <code>Counter</code> atualiza a tela a cada clique.</li>
+                <li><strong>Busca de dados:</strong> a página <code>Weather</code> lê um JSON com <code>HttpClient</code>. No projeto <code>a_blazor</code>, o código dela foi separado em <code>Weather.razor.cs</code> (<em>code-behind</em>) e o modelo de dados foi para a pasta <code>Models</code>.</li>
+                <li><strong>Biblioteca de componentes:</strong> o projeto <code>b_mudblazor</code> refaz o template com o <strong>MudBlazor</strong> (Material Design): <code>MudLayout</code>, <code>MudAppBar</code>, <code>MudDrawer</code>, <code>MudTable</code>, <code>MudButton</code> e outros.</li>
+            </ul>
+        </section>
+
+        <section class="secao">
+            <h2>Como executar</h2>
+            <p>Os projetos Blazor precisam ser compilados, então não há uma página HTML para abrir diretamente. Com o <strong>.NET SDK 10</strong> instalado, entre na pasta de um dos projetos e rode:</p>
+            <pre><code>cd a_blazor        # ou: cd b_mudblazor
+dotnet watch</code></pre>
+            <p>O <code>dotnet watch</code> compila, abre o navegador e recompila a cada arquivo salvo. Endereços configurados em <code>Properties/launchSettings.json</code>:</p>
+            <ul>
+                <li><code>a_blazor</code>: <code>http://localhost:5164</code></li>
+                <li><code>b_mudblazor</code>: <code>http://localhost:5103</code></li>
+            </ul>
+            <p class="aviso">O <code>wwwroot/index.html</code> de cada projeto é só a "casca" da aplicação: aberto direto no navegador, ele fica em branco, porque depende dos arquivos gerados na compilação.</p>
+        </section>
+
+        <section class="secao">
+            <h2>Estrutura de arquivos</h2>
+            <p>Os dois projetos seguem a mesma organização do template <code>blazorwasm</code>. A estrutura de <code>a_blazor</code>:</p>
+            <ul class="arvore">
+                <li class="pasta"><span class="nome">05_WebAssembly/</span>
+                    <ul>
+                        <li class="item"><span class="nome">index.html</span><span class="desc">esta página</span></li>
+                        <li class="item"><span class="nome">.gitignore</span><span class="desc">ignora as pastas geradas <code>bin/</code> e <code>obj/</code> no Git</span></li>
+                        <li class="pasta"><span class="nome">a_blazor/</span><span class="desc">template padrão do Blazor WebAssembly (visual com Bootstrap)</span>
+                            <ul>
+                                <li class="item"><span class="nome">a_blazor.csproj</span><span class="desc">arquivo do projeto: versão do .NET e pacotes NuGet</span></li>
+                                <li class="item"><span class="nome">Program.cs</span><span class="desc">ponto de entrada: registra o componente raiz em <code>#app</code> e os serviços, como o <code>HttpClient</code></span></li>
+                                <li class="item"><span class="nome">App.razor</span><span class="desc">roteador: escolhe a página pela URL e aplica o layout padrão</span></li>
+                                <li class="item"><span class="nome">_Imports.razor</span><span class="desc"><code>@using</code> compartilhados por todos os componentes</span></li>
+                                <li class="pasta"><span class="nome">Layout/</span>
+                                    <ul>
+                                        <li class="item"><span class="nome">MainLayout.razor</span><span class="desc">moldura comum a todas as páginas</span></li>
+                                        <li class="item"><span class="nome">NavMenu.razor</span><span class="desc">menu lateral de navegação</span></li>
+                                        <li class="item"><span class="nome">*.razor.css</span><span class="desc">CSS isolado: vale só para o componente de mesmo nome</span></li>
+                                    </ul>
+                                </li>
+                                <li class="pasta"><span class="nome">Pages/</span>
+                                    <ul>
+                                        <li class="item"><span class="nome">Home.razor</span><span class="desc">página inicial (<code>/</code>)</span></li>
+                                        <li class="item"><span class="nome">Counter.razor</span><span class="desc">contador: estado e evento de clique</span></li>
+                                        <li class="item"><span class="nome">Weather.razor</span><span class="desc">tabela com a previsão do tempo (marcação)</span></li>
+                                        <li class="item"><span class="nome">Weather.razor.cs</span><span class="desc">código C# da página Weather, separado da marcação</span></li>
+                                        <li class="item"><span class="nome">NotFound.razor</span><span class="desc">página exibida quando a rota não existe</span></li>
+                                    </ul>
+                                </li>
+                                <li class="pasta"><span class="nome">Models/</span>
+                                    <ul>
+                                        <li class="item"><span class="nome">WeatherForecast.cs</span><span class="desc">classe com os dados de uma previsão (data, temperatura, resumo)</span></li>
+                                    </ul>
+                                </li>
+                                <li class="pasta"><span class="nome">Properties/</span>
+                                    <ul>
+                                        <li class="item"><span class="nome">launchSettings.json</span><span class="desc">portas e perfis de execução local</span></li>
+                                    </ul>
+                                </li>
+                                <li class="pasta"><span class="nome">wwwroot/</span><span class="desc">arquivos estáticos publicados como estão</span>
+                                    <ul>
+                                        <li class="item"><span class="nome">index.html</span><span class="desc">página hospedeira, com a <code>div#app</code> onde o Blazor é montado</span></li>
+                                        <li class="item"><span class="nome">css/app.css</span><span class="desc">estilos globais</span></li>
+                                        <li class="item"><span class="nome">sample-data/weather.json</span><span class="desc">dados lidos pela página Weather</span></li>
+                                        <li class="item"><span class="nome">favicon.png, icon-192.png</span><span class="desc">ícones da aplicação</span></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="pasta"><span class="nome">b_mudblazor/</span><span class="desc">o mesmo template com MudBlazor</span>
+                            <ul>
+                                <li class="item"><span class="nome">b_mudblazor.csproj</span><span class="desc">inclui o pacote <code>MudBlazor</code></span></li>
+                                <li class="item"><span class="nome">Program.cs</span><span class="desc">registra os serviços do MudBlazor com <code>AddMudServices()</code></span></li>
+                                <li class="item"><span class="nome">Layout/MainLayout.razor</span><span class="desc">layout com <code>MudLayout</code>, <code>MudAppBar</code> e <code>MudDrawer</code></span></li>
+                                <li class="item"><span class="nome">Pages/</span><span class="desc">Home, Counter, Weather (com <code>MudTable</code>) e NotFound, com o código em <code>@code</code></span></li>
+                                <li class="item"><span class="nome">wwwroot/</span><span class="desc">página hospedeira, CSS, ícones e <code>weather.json</code></span></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <nav class="paginacao">
+            <a href="../04_Javascript/index.html">← Aula 04 · JavaScript</a>
+            <a class="proxima" href="../06_Admin/index.html">Aula 06 · Dashboard Admin →</a>
+        </nav>
+    </main>
+
+    <footer class="rodape">Programação para Sistemas Web · 2026.2</footer>
+
+</body>
+</html>

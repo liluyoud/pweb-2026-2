@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 03 · Bootstrap 5</title>
+    <link rel="stylesheet" href="../recursos/aulas.css">
+</head>
+<body>
+
+    <header class="topo">
+        <div class="topo-conteudo">
+            <a href="../index.html">Programação para Sistemas Web</a>
+            <span class="sep">›</span>
+            <span class="atual">Aula 03 · Bootstrap 5</span>
+        </div>
+    </header>
+
+    <main class="pagina">
+        <section class="hero">
+            <p class="rotulo">Aula 03</p>
+            <h1>Bootstrap 5</h1>
+            <p class="lead">Um framework CSS entrega classes prontas para layout e componentes. Em vez de escrever o CSS de cada botão ou grade, aplicamos classes como <code>btn btn-primary</code> e <code>col-md-6</code>. São 25 exemplos, do primeiro import ao modo escuro, cada um com uma atividade para praticar.</p>
+            <ul class="tags"><li>Bootstrap 5.3</li><li>Grid</li><li>Componentes</li><li>Responsividade</li></ul>
+        </section>
+
+        <section class="secao">
+            <h2>O que está sendo visto</h2>
+            <ul>
+                <li><strong>Instalação via CDN:</strong> o CSS e o JavaScript do Bootstrap (5.3.8) são carregados direto da internet, sem instalar nada.</li>
+                <li><strong>Layout:</strong> containers e o sistema de grid de 12 colunas, com pontos de quebra para cada tamanho de tela.</li>
+                <li><strong>Conteúdo:</strong> tipografia, cores contextuais, tabelas e imagens responsivas.</li>
+                <li><strong>Componentes:</strong> alertas, botões, badges, barras de progresso, cards, listas, menus, carrossel, modal e outros.</li>
+                <li><strong>Componentes interativos:</strong> dropdown, collapse, modal, tooltip, popover e toast usam o JavaScript do Bootstrap, ativado por atributos <code>data-bs-*</code>.</li>
+                <li><strong>Dark mode:</strong> troca de tema com o atributo <code>data-bs-theme</code>.</li>
+            </ul>
+            <p class="aviso">Cada atividade, na pasta <code>atividades/</code>, traz o <strong>enunciado</strong> no topo da página. Estude o exemplo e depois resolva a atividade correspondente.</p>
+        </section>
+
+        <section class="secao">
+            <h2>Exemplos e atividades</h2>
+            <div class="tabela">
+                <table>
+                    <thead>
+                        <tr><th>#</th><th>Tema</th><th>O que mostra</th><th>Abrir</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="num">01</td><td>Primeiros passos</td><td>Página mínima com o Bootstrap importado por CDN.</td><td class="acoes"><a href="01_init.html">exemplo</a><a href="atividades/Atv_01_init.html">atividade</a></td></tr>
+                        <tr><td class="num">02</td><td>Containers</td><td><code>.container</code> × <code>.container-fluid</code>: largura fixa por ponto de quebra × largura total.</td><td class="acoes"><a href="02_container.html">exemplo</a><a href="atividades/Atv_02_container.html">atividade</a></td></tr>
+                        <tr><td class="num">03</td><td>Grid</td><td>Linhas e colunas com <code>.row</code> e <code>.col-*</code>, e colunas que mudam conforme a tela.</td><td class="acoes"><a href="03_grids.html">exemplo</a><a href="atividades/Atv_03_grids.html">atividade</a></td></tr>
+                        <tr><td class="num">04</td><td>Tipografia</td><td>Títulos, classes <code>display</code>, <code>lead</code>, citações e utilitários de texto.</td><td class="acoes"><a href="04_tipografia.html">exemplo</a><a href="atividades/Atv_04_tipografia.html">atividade</a></td></tr>
+                        <tr><td class="num">05</td><td>Cores</td><td>Cores contextuais de texto e fundo (<code>primary</code>, <code>success</code>, <code>danger</code>...).</td><td class="acoes"><a href="05_cores.html">exemplo</a><a href="atividades/Atv_05_cores.html">atividade</a></td></tr>
+                        <tr><td class="num">06</td><td>Tabelas</td><td>Tabelas listradas, com bordas, hover, compactas e responsivas.</td><td class="acoes"><a href="06_tabelas.html">exemplo</a><a href="atividades/Atv_06_tabelas.html">atividade</a></td></tr>
+                        <tr><td class="num">07</td><td>Imagens</td><td>Imagens responsivas, arredondadas, circulares e em miniatura.</td><td class="acoes"><a href="07_imagens.html">exemplo</a><a href="atividades/Atv_07_imagens.html">atividade</a></td></tr>
+                        <tr><td class="num">08</td><td>Alertas</td><td>Mensagens de feedback coloridas, com link e botão de fechar.</td><td class="acoes"><a href="08_alertas.html">exemplo</a><a href="atividades/Atv_08_alertas.html">atividade</a></td></tr>
+                        <tr><td class="num">09</td><td>Botões</td><td>Estilos, tamanhos, contornos e estados de botões.</td><td class="acoes"><a href="09_buttons.html">exemplo</a><a href="atividades/Atv_09_buttons.html">atividade</a></td></tr>
+                        <tr><td class="num">10</td><td>Grupos de botões</td><td>Botões agrupados em barra horizontal ou vertical.</td><td class="acoes"><a href="10_buttons_groups.html">exemplo</a><a href="atividades/Atv_10_buttons_groups.html">atividade</a></td></tr>
+                        <tr><td class="num">11</td><td>Badges</td><td>Pequenos rótulos e contadores dentro de títulos e botões.</td><td class="acoes"><a href="11_badges.html">exemplo</a><a href="atividades/Atv_11_badges.html">atividade</a></td></tr>
+                        <tr><td class="num">12</td><td>Barras de progresso</td><td>Progresso com cores, rótulos, listras e animação.</td><td class="acoes"><a href="12_progress_bars.html">exemplo</a><a href="atividades/Atv_12_progress_bars.html">atividade</a></td></tr>
+                        <tr><td class="num">13</td><td>Spinners</td><td>Indicadores de carregamento de borda e de crescimento.</td><td class="acoes"><a href="13_spinners.html">exemplo</a><a href="atividades/Atv_13_spinners.html">atividade</a></td></tr>
+                        <tr><td class="num">14</td><td>List groups</td><td>Listas estilizadas, com itens ativos, desabilitados e links.</td><td class="acoes"><a href="14_list_groups.html">exemplo</a><a href="atividades/Atv_14_list_groups.html">atividade</a></td></tr>
+                        <tr><td class="num">15</td><td>Cards</td><td>Caixas de conteúdo com imagem, título, texto e rodapé.</td><td class="acoes"><a href="15_cards.html">exemplo</a><a href="atividades/Atv_15_cards.html">atividade</a></td></tr>
+                        <tr><td class="num">16</td><td>Dropdowns</td><td>Menus suspensos abertos por um botão.</td><td class="acoes"><a href="16_dropdowns.html">exemplo</a><a href="atividades/Atv_16_dropdowns.html">atividade</a></td></tr>
+                        <tr><td class="num">17</td><td>Collapse</td><td>Conteúdo que abre e fecha, base de sanfonas (accordions).</td><td class="acoes"><a href="17_collapse.html">exemplo</a><a href="atividades/Atv_17_collapse.html">atividade</a></td></tr>
+                        <tr><td class="num">18</td><td>Navs</td><td>Menus de navegação em abas (tabs) e pílulas (pills).</td><td class="acoes"><a href="18_navs.html">exemplo</a><a href="atividades/Atv_18_navs.html">atividade</a></td></tr>
+                        <tr><td class="num">19</td><td>Navbars</td><td>Barra de navegação responsiva, que vira menu "hambúrguer" no celular.</td><td class="acoes"><a href="19_navbars.html">exemplo</a><a href="atividades/Atv_19_navbars.html">atividade</a></td></tr>
+                        <tr><td class="num">20</td><td>Carousel</td><td>Apresentação de slides com controles e indicadores.</td><td class="acoes"><a href="20_carousel.html">exemplo</a><a href="atividades/Atv_20_carousel.html">atividade</a></td></tr>
+                        <tr><td class="num">21</td><td>Modal</td><td>Janela de diálogo sobre a página.</td><td class="acoes"><a href="21_modal.html">exemplo</a><a href="atividades/Atv_21_modal.html">atividade</a></td></tr>
+                        <tr><td class="num">22</td><td>Tooltip</td><td>Dica que aparece ao passar o mouse sobre um elemento.</td><td class="acoes"><a href="22_tooltip.html">exemplo</a><a href="atividades/Atv_22_tooltip.html">atividade</a></td></tr>
+                        <tr><td class="num">23</td><td>Popover</td><td>Caixa de informação maior, aberta ao clicar.</td><td class="acoes"><a href="23_popover.html">exemplo</a><a href="atividades/Atv_23_popover.html">atividade</a></td></tr>
+                        <tr><td class="num">24</td><td>Toast</td><td>Notificações rápidas no canto da tela.</td><td class="acoes"><a href="24_toast.html">exemplo</a><a href="atividades/Atv_24_toast.html">atividade</a></td></tr>
+                        <tr><td class="num">25</td><td>Dark mode</td><td>Tema claro e escuro com <code>data-bs-theme</code>.</td><td class="acoes"><a href="25_darkmode.html">exemplo</a><a href="atividades/Atv_25_darkmode.html">atividade</a></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="secao">
+            <h2>Estrutura de arquivos</h2>
+            <ul class="arvore">
+                <li class="pasta"><span class="nome">03_Bootstrap/</span>
+                    <ul>
+                        <li class="item"><span class="nome">index.html</span><span class="desc">esta página</span></li>
+                        <li class="item"><span class="nome">01_init.html … 25_darkmode.html</span><span class="desc">exemplos da aula, um por tema, numerados na ordem de estudo</span></li>
+                        <li class="pasta"><span class="nome">atividades/</span>
+                            <ul>
+                                <li class="item"><span class="nome">Atv_01_init.html … Atv_25_darkmode.html</span><span class="desc">uma atividade para cada exemplo, com o enunciado no topo da página</span></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <nav class="paginacao">
+            <a href="../02_CSS/index.html">← Aula 02 · CSS</a>
+            <a class="proxima" href="../04_Javascript/index.html">Aula 04 · JavaScript →</a>
+        </nav>
+    </main>
+
+    <footer class="rodape">Programação para Sistemas Web · 2026.2</footer>
+
+</body>
+</html>

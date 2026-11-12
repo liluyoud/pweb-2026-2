@@ -1,0 +1,443 @@
+/* ============================================================
+   Estilo compartilhado das páginas de índice das aulas
+   Programação para Sistemas Web
+   ============================================================ */
+
+:root {
+  --fundo: #f6f7fb;
+  --superficie: #ffffff;
+  --superficie-2: #eef1f7;
+  --texto: #1d2433;
+  --texto-suave: #556075;
+  --borda: #dde2ec;
+  --destaque: #3557d6;
+  --destaque-suave: #e5ebff;
+  --aviso: #8a5a00;
+  --aviso-fundo: #fff4d6;
+  --codigo-fundo: #111827;
+  --codigo-texto: #e5e7eb;
+  --sombra: 0 1px 2px rgba(20, 30, 60, 0.06), 0 4px 16px rgba(20, 30, 60, 0.06);
+  --raio: 10px;
+  --fonte: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+  --fonte-mono: ui-monospace, "Cascadia Code", Consolas, "Courier New", monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fundo: #0f131b;
+    --superficie: #171c27;
+    --superficie-2: #1f2633;
+    --texto: #e6e9f0;
+    --texto-suave: #9aa4b6;
+    --borda: #2b3343;
+    --destaque: #8ea6ff;
+    --destaque-suave: #222c4a;
+    --aviso: #ffd27a;
+    --aviso-fundo: #2e2612;
+    --codigo-fundo: #0a0d13;
+    --sombra: none;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--fonte);
+  line-height: 1.6;
+  color: var(--texto);
+  background: var(--fundo);
+}
+
+a {
+  color: var(--destaque);
+}
+
+code {
+  font-family: var(--fonte-mono);
+  font-size: 0.9em;
+  background: var(--superficie-2);
+  border-radius: 4px;
+  padding: 1px 5px;
+}
+
+/* ---------- Topo e trilha (breadcrumb) ---------- */
+.topo {
+  background: var(--superficie);
+  border-bottom: 1px solid var(--borda);
+}
+
+.topo-conteudo {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 14px 16px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 10px;
+  font-size: 0.95rem;
+}
+
+.topo-conteudo a {
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.topo-conteudo a:hover {
+  text-decoration: underline;
+}
+
+.topo-conteudo .sep {
+  color: var(--texto-suave);
+}
+
+.topo-conteudo .atual {
+  color: var(--texto-suave);
+}
+
+/* ---------- Página ---------- */
+.pagina {
+  max-width: 1040px;
+  margin: 0 auto;
+  padding: 32px 16px 48px;
+}
+
+.hero {
+  margin-bottom: 32px;
+}
+
+.rotulo {
+  margin: 0 0 4px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--destaque);
+}
+
+.hero h1 {
+  margin: 0 0 12px;
+  font-size: clamp(1.8rem, 4vw, 2.5rem);
+  line-height: 1.2;
+}
+
+.lead {
+  margin: 0 0 16px;
+  max-width: 760px;
+  font-size: 1.1rem;
+  color: var(--texto-suave);
+}
+
+.tags {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tags li {
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--destaque);
+  background: var(--destaque-suave);
+}
+
+/* ---------- Seções ---------- */
+.secao {
+  margin-top: 28px;
+  padding: 24px;
+  background: var(--superficie);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  box-shadow: var(--sombra);
+}
+
+.secao h2 {
+  margin: 0 0 12px;
+  font-size: 1.35rem;
+}
+
+.secao h3 {
+  margin: 24px 0 8px;
+  font-size: 1.1rem;
+}
+
+.secao > p:first-of-type {
+  margin-top: 0;
+}
+
+.secao ul:not(.tags):not(.arvore):not(.links),
+.secao ol {
+  padding-left: 22px;
+}
+
+.secao li {
+  margin-bottom: 4px;
+}
+
+/* ---------- Lista de páginas para abrir ---------- */
+.links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 12px;
+}
+
+.links li {
+  margin: 0;
+  padding: 14px 16px;
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+  background: var(--superficie-2);
+}
+
+.links a {
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.links a:hover {
+  text-decoration: underline;
+}
+
+.links p {
+  margin: 4px 0 0;
+  font-size: 0.92rem;
+  color: var(--texto-suave);
+}
+
+.links .arquivo {
+  display: block;
+  font-family: var(--fonte-mono);
+  font-size: 0.8rem;
+  color: var(--texto-suave);
+}
+
+/* ---------- Tabelas ---------- */
+.tabela {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+th,
+td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--borda);
+  text-align: left;
+  vertical-align: top;
+}
+
+th {
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+  background: var(--superficie-2);
+}
+
+td.num {
+  font-family: var(--fonte-mono);
+  color: var(--texto-suave);
+  white-space: nowrap;
+}
+
+td.acoes {
+  white-space: nowrap;
+}
+
+td.acoes a + a {
+  margin-left: 10px;
+}
+
+/* ---------- Árvore de arquivos ---------- */
+.arvore,
+.arvore ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.arvore {
+  font-size: 0.95rem;
+}
+
+.arvore ul {
+  margin-left: 10px;
+  padding-left: 16px;
+  border-left: 1px dashed var(--borda);
+}
+
+.arvore li {
+  margin: 0;
+  padding: 3px 0;
+}
+
+.arvore .nome {
+  font-family: var(--fonte-mono);
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.arvore .pasta > .nome::before {
+  content: "📁 ";
+}
+
+.arvore .item > .nome::before {
+  content: "📄 ";
+}
+
+.arvore .desc {
+  color: var(--texto-suave);
+}
+
+.arvore .desc::before {
+  content: " — ";
+}
+
+/* ---------- Blocos de comando ---------- */
+pre {
+  margin: 12px 0;
+  padding: 14px 16px;
+  overflow-x: auto;
+  border-radius: 8px;
+  color: var(--codigo-texto);
+  background: var(--codigo-fundo);
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+pre code {
+  padding: 0;
+  background: none;
+  color: inherit;
+}
+
+.aviso {
+  margin: 16px 0 0;
+  padding: 12px 16px;
+  border-left: 4px solid var(--aviso);
+  border-radius: 6px;
+  color: var(--texto);
+  background: var(--aviso-fundo);
+}
+
+/* ---------- Navegação entre aulas ---------- */
+.paginacao {
+  margin-top: 32px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.paginacao a {
+  padding: 10px 16px;
+  border: 1px solid var(--borda);
+  border-radius: 8px;
+  background: var(--superficie);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.paginacao a:hover {
+  border-color: var(--destaque);
+}
+
+.paginacao .proxima {
+  margin-left: auto;
+}
+
+/* ---------- Página inicial: cards das aulas ---------- */
+.grade-aulas {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+}
+
+.card-aula {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  height: 100%;
+  padding: 20px;
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  background: var(--superficie);
+  box-shadow: var(--sombra);
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 0.15s, transform 0.15s;
+}
+
+.card-aula:hover {
+  border-color: var(--destaque);
+  transform: translateY(-2px);
+}
+
+.card-aula .numero {
+  font-family: var(--fonte-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--destaque);
+}
+
+.card-aula h2 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.card-aula p {
+  margin: 0;
+  flex: 1;
+  color: var(--texto-suave);
+  font-size: 0.95rem;
+}
+
+.card-aula .abrir {
+  font-weight: 700;
+  color: var(--destaque);
+}
+
+/* ---------- Rodapé ---------- */
+.rodape {
+  padding: 24px 16px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+  border-top: 1px solid var(--borda);
+}
+
+@media (max-width: 600px) {
+  .secao {
+    padding: 18px 16px;
+  }
+
+  .arvore .nome {
+    white-space: normal;
+  }
+
+  .arvore .desc {
+    display: block;
+    margin-left: 22px;
+    font-size: 0.9rem;
+  }
+
+  .arvore .desc::before {
+    content: "";
+  }
+}

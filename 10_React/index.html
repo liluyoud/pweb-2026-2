@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 10 · React</title>
+    <link rel="stylesheet" href="../recursos/aulas.css">
+</head>
+<body>
+
+    <header class="topo">
+        <div class="topo-conteudo">
+            <a href="../index.html">Programação para Sistemas Web</a>
+            <span class="sep">›</span>
+            <span class="atual">Aula 10 · React</span>
+        </div>
+    </header>
+
+    <main class="pagina">
+        <section class="hero">
+            <p class="rotulo">Aula 10</p>
+            <h1>React</h1>
+            <p class="lead">Uma pequena loja com três páginas, montada com <strong>React 19</strong>, <strong>Vite</strong> e <strong>React Router</strong>. O mesmo app aparece em três versões, em JavaScript, em TypeScript e com Bun, para comparar as ferramentas. Um tutorial interativo guia a construção da versão TypeScript passo a passo.</p>
+            <ul class="tags"><li>React 19</li><li>TypeScript</li><li>React Router</li><li>Vite</li><li>Bun</li></ul>
+        </section>
+
+        <section class="secao">
+            <h2>O que está sendo visto</h2>
+            <ul>
+                <li><strong>Componentes e JSX:</strong> funções que retornam a interface, <code>className</code>, expressões entre chaves e componentes puros.</li>
+                <li><strong>Props e children:</strong> passar dados e conteúdo para os componentes, com tipos, props opcionais e valores padrão.</li>
+                <li><strong>Organização de pastas:</strong> componentes de UI genéricos (<code>components/ui</code>), componentes da aplicação (<code>components</code>), páginas (<code>pages</code>), dados (<code>data</code>) e tipos (<code>types</code>).</li>
+                <li><strong>Listas:</strong> transformar um array em componentes com <code>map</code> e identificar cada item com <code>key</code>.</li>
+                <li><strong>Rotas:</strong> <code>BrowserRouter</code>, <code>Routes</code>, <code>Route</code>, <code>Link</code>, <code>NavLink</code> e a rota <code>*</code> para a página não encontrada.</li>
+                <li><strong>TypeScript no React:</strong> tipos para as props, <code>ReactNode</code>, <code>import type</code> e verificação de tipos no build com <code>tsc</code>.</li>
+                <li><strong>Ferramentas:</strong> npm × Bun como gerenciador de pacotes, com o mesmo Vite como servidor e bundler.</li>
+            </ul>
+        </section>
+
+        <section class="secao">
+            <h2>Tutorial interativo</h2>
+            <ul class="links">
+                <li>
+                    <a href="tutorial/index.html">Protocolo React: construindo o ts-app</a>
+                    <span class="arquivo">tutorial/index.html</span>
+                    <p>10 aulas com fundamento teórico, código para copiar e uma pergunta sorteada que libera a próxima etapa. Ao final, o aluno recebe um certificado.</p>
+                </li>
+            </ul>
+        </section>
+
+        <section class="secao">
+            <h2>As três versões do app</h2>
+            <p>As três versões têm as mesmas telas: Início, Produtos, Sobre e uma página para endereços inexistentes. O que muda é a linguagem e a ferramenta:</p>
+            <div class="tabela">
+                <table>
+                    <thead>
+                        <tr><th>Pasta</th><th>Linguagem</th><th>Pacotes</th><th>Verifica tipos?</th><th>Diferenças</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><code>my-app</code></td><td>JavaScript (<code>.jsx</code>)</td><td>npm</td><td>Não</td><td>Template <code>react</code>; props sem tipos.</td></tr>
+                        <tr><td><code>ts-app</code></td><td>TypeScript (<code>.tsx</code>)</td><td>npm</td><td>Sim, no <code>npm run build</code></td><td>Template <code>react-ts</code>; pasta <code>types</code> e props tipadas.</td></tr>
+                        <tr><td><code>bun-app</code></td><td>TypeScript (<code>.tsx</code>)</td><td>Bun</td><td>Sim, no <code>bun run build</code></td><td>Mesmo código do <code>ts-app</code>; <code>bun.lock</code> no lugar do <code>package-lock.json</code>.</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <h3>Como executar</h3>
+            <pre><code>cd ts-app            # ou my-app
+npm install
+npm run dev          # abre em http://localhost:5173
+
+cd bun-app
+bun install
+bun run dev</code></pre>
+            <p class="aviso">O <code>index.html</code> dentro de cada app é a página de entrada do Vite: aberto direto no navegador, ele fica em branco. Use o <code>npm run dev</code> (ou <code>bun run dev</code>) para ver a aplicação.</p>
+        </section>
+
+        <section class="secao">
+            <h2>Estrutura de arquivos</h2>
+            <p>A árvore abaixo detalha o <code>ts-app</code>. O <code>bun-app</code> é igual, e o <code>my-app</code> tem a mesma organização com arquivos <code>.jsx</code>/<code>.js</code> e sem a pasta <code>types</code>.</p>
+            <ul class="arvore">
+                <li class="pasta"><span class="nome">10_React/</span>
+                    <ul>
+                        <li class="item"><span class="nome">index.html</span><span class="desc">esta página</span></li>
+                        <li class="pasta"><span class="nome">tutorial/</span><span class="desc">tutorial interativo, em HTML, CSS e JavaScript puros</span>
+                            <ul>
+                                <li class="item"><span class="nome">index.html</span><span class="desc">telas de entrada, aulas e certificado</span></li>
+                                <li class="item"><span class="nome">aulas.js</span><span class="desc">conteúdo: teoria, código e perguntas de cada aula</span></li>
+                                <li class="item"><span class="nome">tutorial.js</span><span class="desc">motor: navegação, sorteio das perguntas, cópia de código e progresso salvo</span></li>
+                                <li class="item"><span class="nome">tema.css</span><span class="desc">visual de terminal, no mesmo padrão das aulas de POO</span></li>
+                            </ul>
+                        </li>
+                        <li class="pasta"><span class="nome">my-app/</span><span class="desc">versão em JavaScript</span></li>
+                        <li class="pasta"><span class="nome">bun-app/</span><span class="desc">versão TypeScript gerenciada pelo Bun</span></li>
+                        <li class="pasta"><span class="nome">ts-app/</span><span class="desc">versão em TypeScript</span>
+                            <ul>
+                                <li class="item"><span class="nome">index.html</span><span class="desc">página de entrada do Vite, com a <code>div#root</code></span></li>
+                                <li class="item"><span class="nome">package.json</span><span class="desc">dependências (React, React Router) e scripts <code>dev</code>, <code>build</code>, <code>preview</code> e <code>lint</code></span></li>
+                                <li class="item"><span class="nome">vite.config.ts</span><span class="desc">configuração do Vite com o plugin do React</span></li>
+                                <li class="item"><span class="nome">tsconfig.json, tsconfig.app.json, tsconfig.node.json</span><span class="desc">configuração do TypeScript (modo estrito)</span></li>
+                                <li class="item"><span class="nome">.oxlintrc.json</span><span class="desc">regras do linter <code>oxlint</code></span></li>
+                                <li class="pasta"><span class="nome">public/</span><span class="desc">ícones copiados sem alteração para o build</span></li>
+                                <li class="pasta"><span class="nome">src/</span>
+                                    <ul>
+                                        <li class="item"><span class="nome">main.tsx</span><span class="desc">ponto de entrada: monta o <code>App</code> dentro do <code>BrowserRouter</code></span></li>
+                                        <li class="item"><span class="nome">App.tsx</span><span class="desc">layout (cabeçalho, conteúdo e rodapé) e definição das rotas</span></li>
+                                        <li class="item"><span class="nome">index.css</span><span class="desc">todo o CSS próprio da aplicação, dividido em seções</span></li>
+                                        <li class="pasta"><span class="nome">components/</span><span class="desc">componentes da aplicação</span>
+                                            <ul>
+                                                <li class="item"><span class="nome">Cabecalho.tsx</span><span class="desc">logo e menu</span></li>
+                                                <li class="item"><span class="nome">Menu.tsx</span><span class="desc">links com <code>NavLink</code>, que destaca a página atual</span></li>
+                                                <li class="item"><span class="nome">ProdutoCard.tsx</span><span class="desc">exibe um produto com preço em reais, usando o <code>Card</code></span></li>
+                                                <li class="item"><span class="nome">Rodape.tsx</span><span class="desc">rodapé com o ano atual</span></li>
+                                                <li class="pasta"><span class="nome">ui/</span><span class="desc">componentes genéricos e reutilizáveis</span>
+                                                    <ul>
+                                                        <li class="item"><span class="nome">Alerta.tsx</span><span class="desc">mensagem nos tipos <code>info</code>, <code>sucesso</code> ou <code>erro</code></span></li>
+                                                        <li class="item"><span class="nome">Card.tsx</span><span class="desc">caixa com título opcional</span></li>
+                                                    </ul>
+                                                </li>
+                                            </ul>
+                                        </li>
+                                        <li class="pasta"><span class="nome">pages/</span><span class="desc">uma página por rota</span>
+                                            <ul>
+                                                <li class="item"><span class="nome">Home.tsx</span><span class="desc"><code>/</code>: boas-vindas e explicação das pastas</span></li>
+                                                <li class="item"><span class="nome">Produtos.tsx</span><span class="desc"><code>/produtos</code>: lista de produtos com <code>map</code></span></li>
+                                                <li class="item"><span class="nome">Sobre.tsx</span><span class="desc"><code>/sobre</code>: sobre o projeto e sua estrutura</span></li>
+                                                <li class="item"><span class="nome">NaoEncontrada.tsx</span><span class="desc">qualquer outro endereço (página 404)</span></li>
+                                            </ul>
+                                        </li>
+                                        <li class="pasta"><span class="nome">data/</span>
+                                            <ul>
+                                                <li class="item"><span class="nome">produtos.ts</span><span class="desc">lista fixa de produtos, no lugar de uma API</span></li>
+                                            </ul>
+                                        </li>
+                                        <li class="pasta"><span class="nome">types/</span>
+                                            <ul>
+                                                <li class="item"><span class="nome">Produto.ts</span><span class="desc">o tipo <code>Produto</code>, usado nos dados e nos componentes</span></li>
+                                            </ul>
+                                        </li>
+                                        <li class="pasta"><span class="nome">assets/</span><span class="desc">imagens do template (não usadas)</span></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <nav class="paginacao">
+            <a href="../09_Vite_Svelte/aula.html">← Aula 09 · Vite e Svelte</a>
+        </nav>
+    </main>
+
+    <footer class="rodape">Programação para Sistemas Web · 2026.2</footer>
+
+</body>
+</html>

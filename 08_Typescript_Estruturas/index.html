@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 08 · TypeScript: estruturas e funções</title>
+    <link rel="stylesheet" href="../recursos/aulas.css">
+</head>
+<body>
+
+    <header class="topo">
+        <div class="topo-conteudo">
+            <a href="../index.html">Programação para Sistemas Web</a>
+            <span class="sep">›</span>
+            <span class="atual">Aula 08 · Estruturas e funções</span>
+        </div>
+    </header>
+
+    <main class="pagina">
+        <section class="hero">
+            <p class="rotulo">Aula 08</p>
+            <h1>TypeScript: estruturas e funções</h1>
+            <p class="lead">Com os tipos dominados, vemos como o programa toma decisões, repete tarefas e se organiza em funções. Cada arquivo traz vários exemplos curtos, cada um dentro de um bloco <code>{ }</code> para que as variáveis possam ser redeclaradas.</p>
+            <ul class="tags"><li>TypeScript</li><li>Decisão</li><li>Repetição</li><li>Funções</li></ul>
+        </section>
+
+        <section class="secao">
+            <h2>O que está sendo visto</h2>
+            <ul>
+                <li><strong>Decisão:</strong> <code>if</code>/<code>else</code>, operadores lógicos, ternário e <code>switch</code> com cases agrupados.</li>
+                <li><strong>Repetição:</strong> <code>for</code> e <code>while</code>, e o controle do laço com <code>break</code> e <code>continue</code>.</li>
+                <li><strong>Funções tipadas:</strong> tipos dos parâmetros e do retorno, e o tipo de uma função como valor.</li>
+                <li><strong>Parâmetros:</strong> opcionais (<code>?</code>), com valor padrão e rest (<code>...</code>).</li>
+                <li><strong>Sobrecarga:</strong> várias assinaturas para a mesma função.</li>
+                <li><strong>Do TypeScript para a página:</strong> na atividade, o código compilado é usado em uma página HTML e o projeto é publicado no GitHub.</li>
+            </ul>
+        </section>
+
+        <section class="secao">
+            <h2>Páginas da aula</h2>
+            <ul class="links">
+                <li>
+                    <a href="z_atividade.html">Atividade: estruturas e funções</a>
+                    <span class="arquivo">z_atividade.html</span>
+                    <p>5 exercícios do mundo real, da situação do aluno ao caixa do mercado, com preparação do ambiente, depuração e entrega pelo GitHub.</p>
+                </li>
+            </ul>
+        </section>
+
+        <section class="secao">
+            <h2>Como executar os exemplos</h2>
+            <pre><code>tsc a_if_else.ts     # gera a_if_else.js
+node a_if_else.js    # mostra os resultados no terminal</code></pre>
+        </section>
+
+        <section class="secao">
+            <h2>Estrutura de arquivos</h2>
+            <p>Os arquivos usam letras como prefixo para ficarem na ordem da aula.</p>
+            <ul class="arvore">
+                <li class="pasta"><span class="nome">08_Typescript_Estruturas/</span>
+                    <ul>
+                        <li class="item"><span class="nome">index.html</span><span class="desc">esta página</span></li>
+                        <li class="item"><span class="nome">a_if_else.ts</span><span class="desc">decisão com <code>if</code>, <code>else if</code>, <code>else</code> e ternário</span></li>
+                        <li class="item"><span class="nome">b_switch.ts</span><span class="desc">decisão com <code>switch...case</code></span></li>
+                        <li class="item"><span class="nome">c_for.ts</span><span class="desc">repetição com <code>for</code></span></li>
+                        <li class="item"><span class="nome">d_while.ts</span><span class="desc">repetição com <code>while</code></span></li>
+                        <li class="item"><span class="nome">e_break.ts</span><span class="desc">interromper um laço com <code>break</code></span></li>
+                        <li class="item"><span class="nome">f_continue.ts</span><span class="desc">pular uma volta do laço com <code>continue</code></span></li>
+                        <li class="item"><span class="nome">g_function.ts</span><span class="desc">declaração de funções com parâmetros e retorno tipados</span></li>
+                        <li class="item"><span class="nome">h_function_type.ts</span><span class="desc">tipos de função: guardar e passar funções como valores</span></li>
+                        <li class="item"><span class="nome">i_optional_parameter.ts</span><span class="desc">parâmetros opcionais</span></li>
+                        <li class="item"><span class="nome">j_default_parameter.ts</span><span class="desc">parâmetros com valor padrão</span></li>
+                        <li class="item"><span class="nome">k_rest_parameter.ts</span><span class="desc">parâmetros rest, para quantidade variável de argumentos</span></li>
+                        <li class="item"><span class="nome">l_funcion_overload.ts</span><span class="desc">sobrecarga de funções</span></li>
+                        <li class="item"><span class="nome">z_atividade.md</span><span class="desc">enunciado da atividade (fonte)</span></li>
+                        <li class="item"><span class="nome">z_atividade.html</span><span class="desc">enunciado da atividade para o navegador</span></li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <nav class="paginacao">
+            <a href="../07_Typescript/index.html">← Aula 07 · TypeScript</a>
+            <a class="proxima" href="../09_Vite_Svelte/aula.html">Aula 09 · Vite e Svelte →</a>
+        </nav>
+    </main>
+
+    <footer class="rodape">Programação para Sistemas Web · 2026.2</footer>
+
+</body>
+</html>

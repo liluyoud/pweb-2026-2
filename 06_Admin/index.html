@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 06 · Projeto Dashboard Admin</title>
+    <link rel="stylesheet" href="../recursos/aulas.css">
+</head>
+<body>
+
+    <header class="topo">
+        <div class="topo-conteudo">
+            <a href="../index.html">Programação para Sistemas Web</a>
+            <span class="sep">›</span>
+            <span class="atual">Aula 06 · Dashboard Admin</span>
+        </div>
+    </header>
+
+    <main class="pagina">
+        <section class="hero">
+            <p class="rotulo">Aula 06 · Projeto prático</p>
+            <h1>Dashboard Admin com Blazor e MudBlazor</h1>
+            <p class="lead">O projeto de maior peso da disciplina: a página <strong>Dashboard</strong> de um painel administrativo, com menu lateral, barra superior, indicadores, gráficos, listas e tabela. Todo o visual vem dos componentes e do tema do MudBlazor, <strong>sem nenhuma linha de CSS próprio</strong>.</p>
+            <ul class="tags"><li>Blazor WebAssembly</li><li>MudBlazor</li><li>Componentização</li><li>Gráficos</li></ul>
+        </section>
+
+        <section class="secao">
+            <h2>O que está sendo visto</h2>
+            <ul>
+                <li><strong>Componentização:</strong> a página é montada com componentes pequenos e reutilizáveis, que recebem dados por <code>[Parameter]</code>.</li>
+                <li><strong>Componente base:</strong> o <code>DashboardCard</code> padroniza a moldura de todos os blocos (título, menu e conteúdo).</li>
+                <li><strong>Tema:</strong> paleta clara e escura definida em um <code>MudTheme</code>, com alternância de modo escuro na barra superior.</li>
+                <li><strong>Layout:</strong> menu lateral (<code>MudDrawer</code>) e barra superior com breadcrumb, busca, notificações e menu do usuário.</li>
+                <li><strong>Gráficos:</strong> linha (receita × meta), rosca (distribuição de clientes) e mini gráficos de tendência nos KPIs, com <code>MudChart</code>.</li>
+                <li><strong>Dados fictícios:</strong> todos os números vêm de <code>records</code> em C# na pasta <code>Data</code>, separados da interface.</li>
+                <li><strong>Estilo sem CSS:</strong> espaçamento, cores e alinhamento só com propriedades dos componentes e classes utilitárias do MudBlazor.</li>
+            </ul>
+        </section>
+
+        <section class="secao">
+            <h2>Material da atividade</h2>
+            <ul class="links">
+                <li>
+                    <a href=".docs/canvas.html">Enunciado do projeto</a>
+                    <span class="arquivo">.docs/canvas.html</span>
+                    <p>Objetivos, requisitos, entrega e critérios de avaliação, como publicado no Canvas.</p>
+                </li>
+                <li>
+                    <a href=".docs/tutorial.pdf">Tutorial passo a passo (PDF)</a>
+                    <span class="arquivo">.docs/tutorial.pdf</span>
+                    <p>Do <code>dotnet new</code> à página completa, em 20 etapas, com checklist de testes e desafios extras.</p>
+                </li>
+                <li>
+                    <a href=".docs/tutorial.md">Tutorial (Markdown)</a>
+                    <span class="arquivo">.docs/tutorial.md</span>
+                    <p>O mesmo tutorial em texto, mais fácil de copiar trechos de código.</p>
+                </li>
+            </ul>
+        </section>
+
+        <section class="secao">
+            <h2>Como executar</h2>
+            <p>Com o <strong>.NET SDK 10</strong> instalado, dentro desta pasta:</p>
+            <pre><code>dotnet watch</code></pre>
+            <p>A aplicação abre em <code>http://localhost:5280</code> e é recompilada a cada arquivo salvo.</p>
+        </section>
+
+        <section class="secao">
+            <h2>Estrutura de arquivos</h2>
+            <ul class="arvore">
+                <li class="pasta"><span class="nome">06_Admin/</span>
+                    <ul>
+                        <li class="item"><span class="nome">index.html</span><span class="desc">esta página</span></li>
+                        <li class="item"><span class="nome">06_Admin.csproj</span><span class="desc">projeto .NET 10 com o pacote MudBlazor</span></li>
+                        <li class="item"><span class="nome">Program.cs</span><span class="desc">ponto de entrada: monta o <code>App</code> e registra os serviços do MudBlazor</span></li>
+                        <li class="item"><span class="nome">App.razor</span><span class="desc">roteador da aplicação</span></li>
+                        <li class="item"><span class="nome">_Imports.razor</span><span class="desc"><code>@using</code> comuns a todos os componentes</span></li>
+                        <li class="pasta"><span class="nome">.docs/</span><span class="desc">material da atividade</span>
+                            <ul>
+                                <li class="item"><span class="nome">canvas.md, canvas.html</span><span class="desc">enunciado do projeto (fonte e versão para o Canvas)</span></li>
+                                <li class="item"><span class="nome">tutorial.md, tutorial.pdf</span><span class="desc">tutorial passo a passo</span></li>
+                            </ul>
+                        </li>
+                        <li class="pasta"><span class="nome">Layout/</span>
+                            <ul>
+                                <li class="item"><span class="nome">MainLayout.razor</span><span class="desc">tema claro/escuro, barra superior (breadcrumb, busca, notificações, usuário) e menu lateral</span></li>
+                                <li class="item"><span class="nome">NavMenu.razor</span><span class="desc">itens do menu com <code>MudNavMenu</code> e <code>MudNavLink</code></span></li>
+                            </ul>
+                        </li>
+                        <li class="pasta"><span class="nome">Pages/</span>
+                            <ul>
+                                <li class="item"><span class="nome">Dashboard.razor</span><span class="desc">página principal (<code>/</code>): organiza todos os blocos em um <code>MudGrid</code></span></li>
+                                <li class="item"><span class="nome">NotFound.razor</span><span class="desc">página para rotas inexistentes</span></li>
+                            </ul>
+                        </li>
+                        <li class="pasta"><span class="nome">Components/</span><span class="desc">os blocos do dashboard</span>
+                            <ul>
+                                <li class="item"><span class="nome">CabecalhoPagina.razor</span><span class="desc">título e subtítulo da página</span></li>
+                                <li class="item"><span class="nome">SeletorPeriodo.razor</span><span class="desc">menu para escolher o período dos dados</span></li>
+                                <li class="item"><span class="nome">DashboardCard.razor</span><span class="desc">moldura reutilizável usada pelos demais blocos</span></li>
+                                <li class="item"><span class="nome">KpiCard.razor</span><span class="desc">indicador com ícone, valor, variação e mini gráfico de tendência</span></li>
+                                <li class="item"><span class="nome">GraficoReceita.razor</span><span class="desc">gráfico de linha: receita × meta</span></li>
+                                <li class="item"><span class="nome">GraficoDistribuicaoClientes.razor</span><span class="desc">gráfico de rosca: clientes por segmento</span></li>
+                                <li class="item"><span class="nome">PerformanceProjetos.razor</span><span class="desc">projetos com barras de progresso</span></li>
+                                <li class="item"><span class="nome">AtividadesRecentes.razor</span><span class="desc">feed de atividades recentes</span></li>
+                                <li class="item"><span class="nome">ProjetosRecentes.razor</span><span class="desc">tabela de projetos com <code>MudTable</code></span></li>
+                                <li class="item"><span class="nome">Ui.cs</span><span class="desc">funções auxiliares de interface, como fundo suave por cor e iniciais de um nome</span></li>
+                            </ul>
+                        </li>
+                        <li class="pasta"><span class="nome">Data/</span>
+                            <ul>
+                                <li class="item"><span class="nome">DashboardData.cs</span><span class="desc"><code>records</code> e dados fictícios de KPIs, clientes, projetos e atividades</span></li>
+                            </ul>
+                        </li>
+                        <li class="pasta"><span class="nome">Properties/</span>
+                            <ul>
+                                <li class="item"><span class="nome">launchSettings.json</span><span class="desc">portas e perfis de execução local</span></li>
+                            </ul>
+                        </li>
+                        <li class="pasta"><span class="nome">wwwroot/</span>
+                            <ul>
+                                <li class="item"><span class="nome">index.html</span><span class="desc">página hospedeira da aplicação Blazor</span></li>
+                                <li class="item"><span class="nome">css/app.css</span><span class="desc">estilos globais do template</span></li>
+                                <li class="item"><span class="nome">img/alex-morgan.jpg</span><span class="desc">foto do usuário fictício na barra superior</span></li>
+                                <li class="item"><span class="nome">favicon.png, icon-192.png</span><span class="desc">ícones da aplicação</span></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <nav class="paginacao">
+            <a href="../05_WebAssembly/index.html">← Aula 05 · WebAssembly</a>
+            <a class="proxima" href="../07_Typescript/index.html">Aula 07 · TypeScript →</a>
+        </nav>
+    </main>
+
+    <footer class="rodape">Programação para Sistemas Web · 2026.2</footer>
+
+</body>
+</html>

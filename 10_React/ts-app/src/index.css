@@ -1,0 +1,168 @@
+/* ========== Variáveis ========== */
+:root {
+  --cor-primaria: #2563eb;
+  --cor-texto: #1f2937;
+  --cor-fundo: #f3f4f6;
+  --cor-borda: #e5e7eb;
+  --cor-branco: #ffffff;
+}
+
+/* ========== Base ========== */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, Arial, sans-serif;
+  color: var(--cor-texto);
+  background: var(--cor-fundo);
+  line-height: 1.5;
+}
+
+h1 {
+  margin-top: 0;
+}
+
+/* ========== Layout ========== */
+/* Coluna que ocupa a tela toda: o rodapé fica sempre embaixo */
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.conteudo {
+  flex: 1;
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+/* ========== Cabeçalho ========== */
+.cabecalho {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 24px;
+  background: var(--cor-primaria);
+}
+
+.logo {
+  color: var(--cor-branco);
+  font-size: 1.4rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+/* ========== Menu ========== */
+.menu {
+  display: flex;
+  gap: 8px;
+}
+
+.menu a {
+  padding: 6px 12px;
+  border-radius: 6px;
+  color: var(--cor-branco);
+  text-decoration: none;
+}
+
+.menu a:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Classe adicionada automaticamente pelo NavLink na página atual */
+.menu a.active {
+  background: var(--cor-branco);
+  color: var(--cor-primaria);
+}
+
+/* ========== Rodapé ========== */
+.rodape {
+  padding: 16px;
+  text-align: center;
+  color: var(--cor-branco);
+  background: var(--cor-texto);
+}
+
+.rodape p {
+  margin: 0;
+}
+
+/* ========== UI: Alerta ========== */
+.alerta {
+  margin: 16px 0;
+  padding: 12px 16px;
+  border-left: 5px solid;
+  border-radius: 6px;
+}
+
+.alerta-info {
+  background: #dbeafe;
+  border-color: #2563eb;
+  color: #1e3a8a;
+}
+
+.alerta-sucesso {
+  background: #dcfce7;
+  border-color: #16a34a;
+  color: #14532d;
+}
+
+.alerta-erro {
+  background: #fee2e2;
+  border-color: #dc2626;
+  color: #7f1d1d;
+}
+
+/* ========== UI: Card ========== */
+.card {
+  padding: 16px;
+  border: 1px solid var(--cor-borda);
+  border-radius: 8px;
+  background: var(--cor-branco);
+}
+
+.card-titulo {
+  margin: 0 0 8px;
+  color: var(--cor-primaria);
+}
+
+/* ========== Utilitários ========== */
+/* Grade responsiva: quantas colunas couberem, com no mínimo 200px cada */
+.grade {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  margin: 16px 0;
+}
+
+.botao {
+  display: inline-block;
+  padding: 10px 18px;
+  border-radius: 6px;
+  color: var(--cor-branco);
+  background: var(--cor-primaria);
+  text-decoration: none;
+}
+
+.botao:hover {
+  opacity: 0.9;
+}
+
+.preco {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.codigo {
+  padding: 16px;
+  overflow-x: auto;
+  border-radius: 8px;
+  color: #e5e7eb;
+  background: #1f2937;
+}

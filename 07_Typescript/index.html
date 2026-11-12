@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 07 · TypeScript: tipos</title>
+    <link rel="stylesheet" href="../recursos/aulas.css">
+</head>
+<body>
+
+    <header class="topo">
+        <div class="topo-conteudo">
+            <a href="../index.html">Programação para Sistemas Web</a>
+            <span class="sep">›</span>
+            <span class="atual">Aula 07 · TypeScript</span>
+        </div>
+    </header>
+
+    <main class="pagina">
+        <section class="hero">
+            <p class="rotulo">Aula 07</p>
+            <h1>TypeScript: tipos</h1>
+            <p class="lead">O TypeScript é o JavaScript com <strong>tipos</strong>. Declaramos o que cada variável pode guardar e o compilador <code>tsc</code> encontra os erros antes de o código rodar. No final, o <code>tsc</code> gera JavaScript comum, que o Node.js ou o navegador executam.</p>
+            <ul class="tags"><li>TypeScript</li><li>tsc</li><li>Node.js</li><li>Tipos</li></ul>
+        </section>
+
+        <section class="secao">
+            <h2>O que está sendo visto</h2>
+            <ul>
+                <li><strong>Compilação:</strong> o <code>tsc</code> transforma <code>.ts</code> em <code>.js</code>; o resultado roda no terminal com o Node.js (<code>07a</code>) ou em uma página HTML (<code>07b</code>).</li>
+                <li><strong>Anotações e inferência:</strong> declarar o tipo explicitamente (<code>let nome: string</code>) ou deixar o TypeScript deduzir pelo valor.</li>
+                <li><strong>Tipos primitivos:</strong> <code>number</code>, <code>string</code> e <code>boolean</code>.</li>
+                <li><strong>Estruturas:</strong> tipos de objeto, arrays e tuplas.</li>
+                <li><strong>Tipos especiais:</strong> <code>any</code> × <code>unknown</code>, <code>void</code> e <code>never</code>.</li>
+                <li><strong>Combinações:</strong> <code>enum</code>, union types, tipos literais e type aliases.</li>
+                <li><strong>Módulos:</strong> o <code>export {};</code> no início de cada arquivo isola as variáveis, evitando conflito de nomes entre os exemplos.</li>
+            </ul>
+        </section>
+
+        <section class="secao">
+            <h2>Páginas da aula</h2>
+            <ul class="links">
+                <li>
+                    <a href="07b/index.html">Hello, World no navegador</a>
+                    <span class="arquivo">07b/index.html</span>
+                    <p>Página que carrega o <code>app.js</code> compilado e cria um título com o DOM.</p>
+                </li>
+                <li>
+                    <a href="07c/12_type_inference.html">Type inference</a>
+                    <span class="arquivo">07c/12_type_inference.html</span>
+                    <p>Página do exemplo de inferência. Compile antes com <code>tsc 12_type_inference.ts</code>, pois ela carrega o <code>.js</code> gerado.</p>
+                </li>
+                <li>
+                    <a href="07c/atividade.html">Atividade: tipos em TypeScript</a>
+                    <span class="arquivo">07c/atividade.html</span>
+                    <p>10 exercícios do dia a dia, da padaria ao estacionamento, cobrindo todos os tipos da aula.</p>
+                </li>
+            </ul>
+        </section>
+
+        <section class="secao">
+            <h2>Como executar</h2>
+            <p>Com o Node.js instalado, instale o TypeScript uma vez e compile cada arquivo:</p>
+            <pre><code>npm install -g typescript
+
+cd 07a
+tsc alo.ts          # gera alo.js
+node alo.js         # executa no terminal</code></pre>
+            <p>Para a página do <code>07b</code>, compile o <code>app.ts</code> e abra o <code>index.html</code> no navegador. Na atividade, use <code>tsc --strict</code> para ligar a verificação mais rigorosa.</p>
+        </section>
+
+        <section class="secao">
+            <h2>Estrutura de arquivos</h2>
+            <ul class="arvore">
+                <li class="pasta"><span class="nome">07_Typescript/</span>
+                    <ul>
+                        <li class="item"><span class="nome">index.html</span><span class="desc">esta página</span></li>
+                        <li class="pasta"><span class="nome">07a/</span><span class="desc">primeiro programa, executado com o Node.js</span>
+                            <ul>
+                                <li class="item"><span class="nome">alo.ts</span><span class="desc">código-fonte em TypeScript</span></li>
+                                <li class="item"><span class="nome">alo.js</span><span class="desc">JavaScript gerado pelo <code>tsc</code></span></li>
+                            </ul>
+                        </li>
+                        <li class="pasta"><span class="nome">07b/</span><span class="desc">TypeScript no navegador</span>
+                            <ul>
+                                <li class="item"><span class="nome">app.ts</span><span class="desc">cria um <code>&lt;h1&gt;</code> e o adiciona à página</span></li>
+                                <li class="item"><span class="nome">app.js</span><span class="desc">versão compilada, carregada pelo HTML</span></li>
+                                <li class="item"><span class="nome">index.html</span><span class="desc">página que executa o <code>app.js</code></span></li>
+                            </ul>
+                        </li>
+                        <li class="pasta"><span class="nome">07c/</span><span class="desc">os tipos do TypeScript, um arquivo por assunto</span>
+                            <ul>
+                                <li class="item"><span class="nome">10_annotations.ts</span><span class="desc">anotações de tipo</span></li>
+                                <li class="item"><span class="nome">12_type_inference.ts</span><span class="desc">inferência de tipos (com página HTML própria)</span></li>
+                                <li class="item"><span class="nome">13_numbers.ts, 14_strings.ts, 15_boolean.ts</span><span class="desc">tipos primitivos</span></li>
+                                <li class="item"><span class="nome">16_object_type.ts</span><span class="desc"><code>object</code>, <code>Object</code> e tipos de objeto</span></li>
+                                <li class="item"><span class="nome">17_array.ts, 18_tupple.ts</span><span class="desc">arrays e tuplas</span></li>
+                                <li class="item"><span class="nome">19_unknown.ts, 20_any.ts</span><span class="desc"><code>unknown</code> × <code>any</code></span></li>
+                                <li class="item"><span class="nome">21_enum.ts</span><span class="desc">enums numéricos e de texto</span></li>
+                                <li class="item"><span class="nome">22_void.ts, 25_never.ts</span><span class="desc">funções sem retorno e que nunca retornam</span></li>
+                                <li class="item"><span class="nome">23_union.ts, 24_literals.ts</span><span class="desc">union types e tipos literais</span></li>
+                                <li class="item"><span class="nome">26_aliases.ts</span><span class="desc">type aliases (<code>type</code>)</span></li>
+                                <li class="item"><span class="nome">12_type_inference.html</span><span class="desc">página que executa o exemplo de inferência</span></li>
+                                <li class="item"><span class="nome">atividade.md, atividade.html</span><span class="desc">enunciado da atividade (fonte e versão para o navegador)</span></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <nav class="paginacao">
+            <a href="../06_Admin/index.html">← Aula 06 · Dashboard Admin</a>
+            <a class="proxima" href="../08_Typescript_Estruturas/index.html">Aula 08 · Estruturas →</a>
+        </nav>
+    </main>
+
+    <footer class="rodape">Programação para Sistemas Web · 2026.2</footer>
+
+</body>
+</html>

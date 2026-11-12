@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protocolo React: ts-app</title>
+    <meta name="description" content="Tutorial passo a passo: criando uma aplicação React com TypeScript, Vite e React Router.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,300;0,400;0,700;1,400&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="tema.css">
+</head>
+<body>
+
+    <header>
+        <div class="system-title">
+            <span class="status-dot"></span>
+            <span>PROTOCOLO_REACT // TS-APP</span>
+        </div>
+        <div class="system-status">
+            <div class="status-badge" id="hud-user">
+                OPERADOR: <span style="color: #ffffff;">DESCONHECIDO</span>
+            </div>
+            <div class="status-badge" id="hud-progress">
+                COMPILAÇÃO: <span style="color: var(--neon-cyan);">0%</span>
+            </div>
+            <button class="audio-toggle active" id="btn-audio" onclick="toggleSound()">SOM: LIGADO</button>
+        </div>
+    </header>
+
+    <main>
+        <!-- TELA 1: BOOT (IDENTIFICAÇÃO) -->
+        <div id="screen-boot" class="screen active">
+            <div class="boot-box">
+                <div class="boot-header">INICIALIZANDO TERMINAL...</div>
+                <div class="boot-text">
+                    <p style="color: var(--neon-green); margin-bottom: 10px;">[PROGRAMAÇÃO PARA SISTEMAS WEB // MÓDULO REACT]</p>
+                    <p>Agente, sua missão é construir do zero o <strong>ts-app</strong>: uma aplicação web com <strong>React</strong>, <strong>TypeScript</strong>, <strong>Vite</strong> e <strong>React Router</strong>.</p>
+                    <p style="margin-top: 10px;">São 10 aulas. Cada uma traz a teoria, o código-fonte para copiar e uma chave de acesso: responda a pergunta para liberar a próxima aula.</p>
+                    <p style="margin-top: 10px; color: var(--text-secondary); font-size: 0.85rem;">As respostas não diferenciam maiúsculas, acentos nem espaços. Seu progresso fica salvo neste navegador.</p>
+                </div>
+                <div class="boot-input-group">
+                    <label for="student-name">> DIGITE SEU IDENTIFICADOR (NOME DO ALUNO):</label>
+                    <input type="text" id="student-name" class="boot-input" placeholder="ex: Ada" autocomplete="off" oninput="validateBootInput()" onkeydown="if(event.key === 'Enter' && !document.getElementById('btn-start').disabled) startMission()">
+                    <div class="boot-saved" id="boot-saved"></div>
+                </div>
+                <button id="btn-start" class="btn" onclick="startMission()" disabled>INICIAR MISSÃO</button>
+            </div>
+        </div>
+
+        <!-- TELA 2: AULAS -->
+        <div id="screen-game" class="screen">
+            <!-- Barra lateral das aulas -->
+            <div class="game-sidebar">
+                <div class="sidebar-title">> MODULOS_DA_MISSAO</div>
+                <ul class="node-list" id="node-list-container">
+                    <!-- Gerado dinamicamente -->
+                </ul>
+            </div>
+
+            <!-- Conteúdo principal da aula -->
+            <div class="game-main">
+                <div class="slide-content-container" id="slide-container">
+                    <!-- Gerado dinamicamente -->
+                </div>
+
+                <!-- Rodapé de controle -->
+                <div class="game-footer">
+                    <div class="progress-container">
+                        <span>BUILD:</span>
+                        <div class="progress-bar-bg">
+                            <div class="progress-bar-fill" id="game-progress-bar"></div>
+                        </div>
+                        <span id="game-progress-percent">0%</span>
+                    </div>
+                    <div class="nav-controls">
+                        <button class="btn btn-muted" id="btn-slide-prev" onclick="changeSlide(-1)" disabled>ANTERIOR</button>
+                        <button class="btn" id="btn-slide-next" disabled>PRÓXIMA</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TELA 3: MISSÃO CONCLUÍDA -->
+        <div id="screen-granted" class="screen">
+            <div class="granted-box">
+                <div class="ascii-art">
+ ██████╗ ███████╗ █████╗  ██████╗████████╗
+ ██╔══██╗██╔════╝██╔══██╗██╔════╝╚══██╔══╝
+ ██████╔╝█████╗  ███████║██║        ██║
+ ██╔══██╗██╔══╝  ██╔══██║██║        ██║
+ ██║  ██║███████╗██║  ██║╚██████╗   ██║
+ ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝ ╚═════╝   ╚═╝
+ BUILD SUCCESSFUL // TS-APP DEPLOYED
+                </div>
+                <h1 class="granted-title">MISSÃO CONCLUÍDA</h1>
+                <p class="granted-desc">Parabéns, Agente! Você construiu o <strong>ts-app</strong> completo: componentes, props tipadas, listas, rotas e build de produção.</p>
+
+                <!-- CERTIFICADO -->
+                <div class="certificate" id="master-certificate">
+                    <h2 class="cert-name" id="cert-student-name">ADA</h2>
+                    <p class="cert-text">concluiu a construção de uma aplicação web com React, TypeScript, Vite e React Router na disciplina de Programação para Sistemas Web.</p>
+                    <div class="cert-stats">
+                        <div>CÓDIGO: <span style="color: #ffffff;">PWEB-REACT-2026</span></div>
+                        <div>AULAS: <span id="cert-score" style="color: #ffffff;">10/10</span></div>
+                        <div>STATUS: <span style="color: var(--neon-green); font-weight: bold;">REACT_DEV</span></div>
+                    </div>
+                </div>
+
+                <div class="granted-actions">
+                    <button class="btn" onclick="window.print()">IMPRIMIR CERTIFICADO</button>
+                    <button class="btn btn-cyan" onclick="backToLessons()">REVISAR AULAS</button>
+                    <button class="btn btn-muted" onclick="rebootSystem()">REINICIAR SISTEMA</button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="aulas.js"></script>
+    <script src="tutorial.js"></script>
+</body>
+</html>

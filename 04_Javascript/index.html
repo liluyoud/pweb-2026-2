@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 04 · JavaScript: DOM e eventos</title>
+    <link rel="stylesheet" href="../recursos/aulas.css">
+</head>
+<body>
+
+    <header class="topo">
+        <div class="topo-conteudo">
+            <a href="../index.html">Programação para Sistemas Web</a>
+            <span class="sep">›</span>
+            <span class="atual">Aula 04 · JavaScript</span>
+        </div>
+    </header>
+
+    <main class="pagina">
+        <section class="hero">
+            <p class="rotulo">Aula 04</p>
+            <h1>JavaScript: DOM e eventos</h1>
+            <p class="lead">Com JavaScript a página deixa de ser estática. O navegador transforma o HTML em uma árvore de objetos, o <strong>DOM</strong>, que o JavaScript pode ler e modificar, e avisa o código sempre que algo acontece, por meio de <strong>eventos</strong>.</p>
+            <ul class="tags"><li>JavaScript</li><li>DOM</li><li>Eventos</li><li>Formulários</li></ul>
+        </section>
+
+        <section class="secao">
+            <h2>O que está sendo visto</h2>
+            <ul>
+                <li><strong>O que é o DOM:</strong> a árvore de objetos que o navegador monta a partir do HTML.</li>
+                <li><strong>Seleção:</strong> <code>getElementById</code>, <code>getElementsByClassName</code>, <code>getElementsByTagName</code>, <code>querySelector</code> e <code>querySelectorAll</code>.</li>
+                <li><strong>Alteração:</strong> <code>textContent</code> × <code>innerHTML</code>, atributos com <code>setAttribute</code> e estilos com <code>element.style</code>.</li>
+                <li><strong>Estrutura:</strong> criar, adicionar, remover e substituir elementos (<code>createElement</code>, <code>appendChild</code>, <code>removeChild</code>, <code>replaceChild</code>).</li>
+                <li><strong>Eventos:</strong> handlers por propriedade e com <code>addEventListener</code>; eventos de mouse, teclado e carregamento (<code>DOMContentLoaded</code> × <code>load</code>).</li>
+                <li><strong>Formulários:</strong> validação com atributos HTML, pseudo-seletores CSS e <code>checkValidity()</code>.</li>
+            </ul>
+            <p class="aviso">O material de apoio completo, com explicações e exemplos comentados de cada tema, está no <a href="README.md">README.md</a>. As regras da atividade avaliativa estão em <a href="atividades/atividade.md">atividades/atividade.md</a>. Os arquivos <code>.md</code> são exibidos como texto simples no navegador; no GitHub ou no VS Code eles aparecem formatados.</p>
+        </section>
+
+        <section class="secao">
+            <h2>Exemplos e atividades</h2>
+            <div class="tabela">
+                <table>
+                    <thead>
+                        <tr><th>#</th><th>Tema</th><th>O que mostra</th><th>Abrir</th></tr>
+                    </thead>
+                    <tbody>
+                        <tr><td class="num">01</td><td>Manipulação do DOM</td><td><code>getElementById</code> para alterar texto, cor e imagem.</td><td class="acoes"><a href="01_dom.html">exemplo</a><a href="atividades/atv_01_dom.html">atividade</a></td></tr>
+                        <tr><td class="num">02</td><td>Seleção de elementos</td><td>Os cinco métodos de seleção e a diferença entre <code>innerHTML</code> e <code>textContent</code>.</td><td class="acoes"><a href="02_selecting.html">exemplo</a><a href="atividades/atv_02_selecting.html">atividade</a></td></tr>
+                        <tr><td class="num">03</td><td>Atributos e estilos</td><td>Acesso direto à propriedade, <code>setAttribute</code>/<code>getAttribute</code> e <code>element.style</code>.</td><td class="acoes"><a href="03_attributes.html">exemplo</a><a href="atividades/atv_03_attributes.html">atividade</a></td></tr>
+                        <tr><td class="num">04</td><td>Estrutura da página</td><td>Criar, adicionar, remover e substituir elementos, e navegar entre pais e filhos.</td><td class="acoes"><a href="04_structure.html">exemplo</a><a href="atividades/atv_04_structure.html">atividade</a></td></tr>
+                        <tr><td class="num">05</td><td>Event handlers</td><td>Eventos atribuídos pelo JavaScript, a palavra-chave <code>this</code> e HTML, CSS e JS em arquivos separados.</td><td class="acoes"><a href="05_events.html">exemplo</a><a href="atividades/atv_05_events.html">atividade</a></td></tr>
+                        <tr><td class="num">06</td><td>Validação de formulário</td><td>Atributos <code>required</code>, <code>pattern</code> e afins, pseudo-seletores <code>:valid</code>/<code>:invalid</code> e validação por script.</td><td class="acoes"><a href="06_form.html">exemplo</a><a href="atividades/atv_06_form.html">atividade</a></td></tr>
+                        <tr><td class="num">07</td><td>Eventos de mouse</td><td><code>mouseover</code> × <code>mouseenter</code>, coordenadas, menu de contexto, roda e arrastar e soltar.</td><td class="acoes"><a href="07_mouse.html">exemplo</a><a href="atividades/atv_07_mouse.html">atividade</a></td></tr>
+                        <tr><td class="num">08</td><td>Eventos de teclado</td><td><code>event.key</code> × <code>event.code</code>, teclas modificadoras e log de eventos.</td><td class="acoes"><a href="08_keyboards.html">exemplo</a><a href="atividades/atv_08_keyboards.html">atividade</a></td></tr>
+                        <tr><td class="num">09</td><td>Eventos de carregamento</td><td><code>DOMContentLoaded</code> × <code>window.load</code> e o evento <code>load</code> de imagens.</td><td class="acoes"><a href="09_load.html">exemplo</a><a href="atividades/atv_09_load.html">atividade</a></td></tr>
+                        <tr><td class="num">10</td><td>Gerenciamento de eventos</td><td><code>addEventListener</code> e <code>removeEventListener</code>.</td><td class="acoes"><a href="10_manage.html">exemplo</a><a href="atividades/atv_10_manage.html">atividade</a></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <section class="secao">
+            <h2>Estrutura de arquivos</h2>
+            <ul class="arvore">
+                <li class="pasta"><span class="nome">04_Javascript/</span>
+                    <ul>
+                        <li class="item"><span class="nome">index.html</span><span class="desc">esta página</span></li>
+                        <li class="item"><span class="nome">README.md</span><span class="desc">material de apoio: explica cada exemplo, com sumário e referência rápida</span></li>
+                        <li class="item"><span class="nome">01_dom.html … 10_manage.html</span><span class="desc">exemplos da aula, com HTML, CSS e JavaScript no mesmo arquivo</span></li>
+                        <li class="item"><span class="nome">05_events.css</span><span class="desc">estilos do exemplo 05, separados do HTML</span></li>
+                        <li class="item"><span class="nome">05_events.js</span><span class="desc">script do exemplo 05, separado do HTML</span></li>
+                        <li class="pasta"><span class="nome">atividades/</span>
+                            <ul>
+                                <li class="item"><span class="nome">atividade.md</span><span class="desc">regras, prazo e critérios da atividade avaliativa</span></li>
+                                <li class="item"><span class="nome">atv_01_dom.html … atv_10_manage.html</span><span class="desc">páginas prontas com enunciado no topo e comentários <code>// TODO</code> onde o aluno escreve o código</span></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <nav class="paginacao">
+            <a href="../03_Bootstrap/index.html">← Aula 03 · Bootstrap</a>
+            <a class="proxima" href="../05_WebAssembly/index.html">Aula 05 · WebAssembly →</a>
+        </nav>
+    </main>
+
+    <footer class="rodape">Programação para Sistemas Web · 2026.2</footer>
+
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aula 02 · CSS</title>
+    <link rel="stylesheet" href="../recursos/aulas.css">
+</head>
+<body>
+
+    <header class="topo">
+        <div class="topo-conteudo">
+            <a href="../index.html">Programação para Sistemas Web</a>
+            <span class="sep">›</span>
+            <span class="atual">Aula 02 · CSS</span>
+        </div>
+    </header>
+
+    <main class="pagina">
+        <section class="hero">
+            <p class="rotulo">Aula 02</p>
+            <h1>CSS</h1>
+            <p class="lead">O HTML diz <em>o que</em> é o conteúdo; o CSS diz <em>como</em> ele aparece. Nesta aula separamos a aparência em arquivos <code>.css</code>, vemos os principais seletores e montamos um portfólio completo com layout moderno.</p>
+            <ul class="tags"><li>CSS3</li><li>Seletores</li><li>Flexbox</li><li>Grid</li></ul>
+        </section>
+
+        <section class="secao">
+            <h2>O que está sendo visto</h2>
+            <ul>
+                <li><strong>Separação de responsabilidades:</strong> a mesma página HTML ganha visuais completamente diferentes apenas trocando a folha de estilo (<code>demo.html</code>).</li>
+                <li><strong>CSS externo:</strong> ligação com <code>&lt;link rel="stylesheet"&gt;</code> e uso de bibliotecas por CDN, como o Font Awesome para ícones.</li>
+                <li><strong>Seletores:</strong> de tag (<code>p</code>), de atributo (<code>p[newcolor]</code>) e pseudo-classes de link (<code>a:link</code>, <code>a:hover</code>).</li>
+                <li><strong>Layout moderno:</strong> variáveis CSS (<code>:root</code> e <code>var()</code>), Flexbox, Grid, transições, animações com <code>@keyframes</code> e responsividade com <code>@media</code> no portfólio.</li>
+            </ul>
+        </section>
+
+        <section class="secao">
+            <h2>Páginas da aula</h2>
+            <ul class="links">
+                <li>
+                    <a href="demo.html">Mesma página, estilos diferentes</a>
+                    <span class="arquivo">demo.html</span>
+                    <p>Um menu troca entre quatro folhas de estilo (ou nenhuma) com um pequeno script, mostrando que o HTML não muda.</p>
+                </li>
+                <li>
+                    <a href="page.html">Estilizando a página do exercício 02</a>
+                    <span class="arquivo">page.html</span>
+                    <p>A página de produtos da aula 01 recebendo um CSS externo, seletores de atributo e estilos de link.</p>
+                </li>
+                <li>
+                    <a href="portfolio.html">Portfólio</a>
+                    <span class="arquivo">portfolio.html</span>
+                    <p>Página completa com seções de apresentação, sobre, habilidades, projetos e contato, usando Flexbox, Grid e animações.</p>
+                </li>
+            </ul>
+        </section>
+
+        <section class="secao">
+            <h2>Estrutura de arquivos</h2>
+            <ul class="arvore">
+                <li class="pasta"><span class="nome">02_CSS/</span>
+                    <ul>
+                        <li class="item"><span class="nome">index.html</span><span class="desc">esta página</span></li>
+                        <li class="item"><span class="nome">demo.html</span><span class="desc">página de demonstração com seletor de folhas de estilo</span></li>
+                        <li class="item"><span class="nome">demo-1.css … demo-4.css</span><span class="desc">quatro visuais diferentes para o mesmo <code>demo.html</code></span></li>
+                        <li class="item"><span class="nome">page.html</span><span class="desc">página de produtos (vinda da aula 01) com CSS externo</span></li>
+                        <li class="item"><span class="nome">page.css</span><span class="desc">estilos de parágrafos, atributo personalizado e links</span></li>
+                        <li class="item"><span class="nome">portfolio.html</span><span class="desc">estrutura do portfólio, dividida em seções semânticas</span></li>
+                        <li class="item"><span class="nome">portfolio.css</span><span class="desc">variáveis, Flexbox, Grid, transições e responsividade do portfólio</span></li>
+                        <li class="item"><span class="nome">fundo.jpg</span><span class="desc">imagem de fundo para praticar a propriedade <code>background-image</code> (não é referenciada pelos arquivos atuais)</span></li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <nav class="paginacao">
+            <a href="../01_HTML5/index.html">← Aula 01 · HTML5</a>
+            <a class="proxima" href="../03_Bootstrap/index.html">Aula 03 · Bootstrap →</a>
+        </nav>
+    </main>
+
+    <footer class="rodape">Programação para Sistemas Web · 2026.2</footer>
+
+</body>
+</html>
